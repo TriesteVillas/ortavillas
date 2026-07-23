@@ -552,7 +552,8 @@ def page(locale):
 <link rel="icon" type="image/png" sizes="192x192" href="/assets/favicons/icon-192.png">
 <link rel="icon" type="image/png" sizes="512x512" href="/assets/favicons/icon-512.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicons/apple-touch-icon.png">
-<meta name="theme-color" content="#0f424b">
+<!-- This value must exactly match the favicon background, not merely resemble it. -->
+<meta name="theme-color" content="#0a1b1e">
 
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="OrtaVillas">
