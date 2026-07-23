@@ -1,14 +1,11 @@
-/* FriuliVillas — stessa veste grafica del gruppo (triestevillas.com / triesteimmobiliare.com).
-   Poppins, pillola di vetro fissa in alto, hero video a tutto schermo, footer a tre colonne.
-   Ogni brand del gruppo tiene lo stesso scheletro e cambia solo l'accento cromatico:
-   TSV blu-petrolio + sabbia, TSI azzurro, FriuliVillas verde bosco + sabbia/ottone. */
+/* OrtaVillas — veste grafica del gruppo, con palette verde-lago e sabbia/ottone. */
 
 :root {
-  --ink:          #0b1512;
-  --ink-2:        #14231d;
-  --brand:        #2a5f43;
-  --brand-dark:   #16352a;
-  --brand-light:  #6d9a80;
+  --ink:          #0a1b1e;
+  --ink-2:        #10282c;
+  --brand:        #1c6470;
+  --brand-dark:   #0f424b;
+  --brand-light:  #6aa3ac;
   --sand:         #cfb795;
   --sand-hi:      #e8d5af;
   --brass:        #be9a63;
@@ -18,10 +15,15 @@
 
 *, *::before, *::after { box-sizing: border-box; }
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
 
 body {
   margin: 0;
+  min-width: 320px;
+  overflow-x: hidden;
   background: var(--ink);
   color: var(--paper);
   font-family: Poppins, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
@@ -30,13 +32,62 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-img, video { display: block; max-width: 100%; }
+img, video {
+  display: block;
+  max-width: 100%;
+}
+
 a { color: inherit; }
-:focus-visible { outline: 2px solid var(--sand); outline-offset: 3px; border-radius: 4px; }
+
+:focus-visible {
+  outline: 3px solid var(--sand-hi);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.what :focus-visible,
+.cta-band :focus-visible {
+  outline-color: var(--brand-dark);
+}
 
 .sr-only {
-  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
-  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.wrap {
+  width: min(100% - 32px, 1152px);
+  margin-inline: auto;
+}
+
+.section-wrap {
+  padding-block: clamp(72px, 9vw, 128px);
+}
+
+.eyebrow {
+  margin: 0 0 18px;
+  color: var(--brand-dark);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.eyebrow::before {
+  display: inline-block;
+  width: 24px;
+  height: 1px;
+  margin-right: 10px;
+  background: var(--brass);
+  content: "";
+  vertical-align: middle;
 }
 
 /* ============================================================ header a pillola */
@@ -44,136 +95,195 @@ a { color: inherit; }
 .site-header {
   position: fixed;
   inset-inline: 0;
-  top: 16px;
+  top: 12px;
   z-index: 50;
-  padding: 0 16px;
+  padding-inline: 8px;
 }
 
 .pill {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
+  gap: 8px;
+  width: 100%;
+  max-width: 980px;
   height: 56px;
-  max-width: 896px;
   margin: 0 auto;
-  padding: 0 16px 0 24px;
+  padding: 0 8px 0 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 9999px;
-  background: rgba(8, 22, 17, 0.62);
-  border: 1px solid rgba(255, 255, 255, 0.09);
-  box-shadow: 0 18px 50px -22px rgba(0, 0, 0, 0.6);
+  background: rgba(10, 27, 30, 0.7);
+  box-shadow: 0 18px 50px -22px rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(18px) saturate(1.3);
   -webkit-backdrop-filter: blur(18px) saturate(1.3);
 }
 
-.pill__brand { display: flex; align-items: center; flex: none; }
-.pill__brand img { height: 24px; width: auto; transition: transform 300ms var(--ease-lux); }
+.pill__brand {
+  display: flex;
+  align-items: center;
+  flex: none;
+}
+
+.pill__brand img {
+  width: auto;
+  height: 21px;
+  transition: transform 300ms var(--ease-lux);
+}
+
 .pill__brand:hover img { transform: scale(1.04); }
 
-/* Una voce sola, e punta a una sezione che esiste davvero (#gruppo). Le altre voci
-   di TSV torneranno quando torneranno le pagine. */
 .pill__nav {
   display: none;
   align-items: center;
-  gap: 22px;
-  font-size: 14px;
+  gap: 20px;
+  font-size: 13px;
   font-weight: 500;
   line-height: 20px;
 }
+
 .pill__nav a {
-  color: rgba(255, 255, 255, 0.75);
+  color: rgba(255, 255, 255, 0.76);
   text-decoration: none;
   white-space: nowrap;
   transition: color 250ms var(--ease-lux);
 }
+
 .pill__nav a:hover { color: #fff; }
 
-/* sottolineatura che cresce da sinistra, come su triestevillas.com */
 .nav-underline { position: relative; }
+
 .nav-underline::after {
-  content: "";
   position: absolute;
-  left: 0; right: 0; bottom: -4px;
+  right: 0;
+  bottom: -4px;
+  left: 0;
   height: 1.5px;
   border-radius: 9999px;
   background: currentColor;
+  content: "";
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 350ms var(--ease-lux);
 }
+
 .nav-underline:hover::after { transform: scaleX(1); }
 
-.soon {
-  display: inline-flex;
+.pill__end {
+  display: flex;
   align-items: center;
-  gap: 6px;
-  padding: 3px 10px 3px 8px;
-  border-radius: 9999px;
-  border: 1px solid rgba(207, 183, 149, 0.28);
-  background: rgba(207, 183, 149, 0.08);
-  color: var(--sand);
+  gap: 2px;
+  flex: none;
+}
+
+.locale {
+  display: flex;
+  align-items: center;
+  gap: 0;
   font-size: 11px;
   font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  white-space: nowrap;
-}
-.soon::before {
-  content: "";
-  width: 5px; height: 5px;
-  border-radius: 9999px;
-  background: var(--sand);
 }
 
-.pill__end { display: flex; align-items: center; gap: 4px; flex: none; }
-
-.locale { display: flex; align-items: center; gap: 2px; font-size: 13px; font-weight: 500; }
-.locale a, .locale span {
-  padding: 6px 8px;
+.locale a,
+.locale span {
+  padding: 6px 5px;
   border-radius: 9999px;
-  color: rgba(255, 255, 255, 0.45);
+  color: rgba(255, 255, 255, 0.48);
   text-decoration: none;
   transition: color 250ms var(--ease-lux), background-color 250ms var(--ease-lux);
 }
-.locale a:hover { color: #fff; background: rgba(255, 255, 255, 0.08); }
-.locale [aria-current="true"] { color: #fff; }
+
+.locale a:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.locale [aria-current="page"] { color: #fff; }
 
 .burger {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 40px; height: 40px;
+  width: 36px;
+  height: 36px;
+  padding: 0;
   border: 0;
   border-radius: 9999px;
   background: transparent;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.82);
   cursor: pointer;
-  transition: background-color 250ms var(--ease-lux);
+  transition: color 250ms var(--ease-lux), background-color 250ms var(--ease-lux);
 }
-.burger:hover { background: rgba(255, 255, 255, 0.08); color: #fff; }
 
-/* pannello mobile */
+.burger:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+}
+
 .sheet {
   display: none;
-  max-width: 896px;
+  width: 100%;
+  max-width: 980px;
   margin: 10px auto 0;
   padding: 18px 24px 22px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 24px;
-  background: rgba(8, 22, 17, 0.9);
-  border: 1px solid rgba(255, 255, 255, 0.09);
+  background: rgba(10, 27, 30, 0.94);
+  box-shadow: 0 18px 50px -22px rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(18px) saturate(1.3);
   -webkit-backdrop-filter: blur(18px) saturate(1.3);
 }
+
 .sheet[data-open] { display: block; }
-.sheet ul { list-style: none; margin: 0 0 16px; padding: 0; display: grid; gap: 12px; }
-.sheet li { font-size: 15px; font-weight: 500; }
-.sheet li a { color: rgba(255, 255, 255, 0.85); text-decoration: none; }
+
+.sheet ul {
+  display: grid;
+  gap: 12px;
+  margin: 0 0 16px;
+  padding: 0;
+  list-style: none;
+}
+
+.sheet li {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.sheet li a {
+  color: rgba(255, 255, 255, 0.88);
+  text-decoration: none;
+}
+
 .sheet li a:hover { color: #fff; }
-.sheet__contacts { display: grid; gap: 8px; font-size: 14px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,.09); }
-.sheet__contacts a { color: var(--sand-hi); text-decoration: none; }
+
+.sheet__contacts {
+  display: grid;
+  gap: 8px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 14px;
+}
+
+.sheet__contacts a {
+  color: var(--sand-hi);
+  overflow-wrap: anywhere;
+  text-decoration: none;
+}
 
 @media (min-width: 900px) {
+  .site-header {
+    top: 16px;
+    padding-inline: 16px;
+  }
+
+  .pill {
+    gap: 16px;
+    padding: 0 16px 0 24px;
+  }
+
+  .pill__brand img { height: 24px; }
   .pill__nav { display: flex; }
+  .locale { gap: 2px; font-size: 13px; }
+  .locale a, .locale span { padding: 6px 8px; }
   .burger { display: none; }
   .sheet { display: none !important; }
 }
@@ -182,10 +292,10 @@ a { color: inherit; }
 
 .hero {
   position: relative;
-  min-height: 100svh;
   display: grid;
+  min-height: 100svh;
   place-items: center;
-  padding: 108px 24px 76px;
+  padding: 104px 20px 76px;
   overflow: hidden;
   text-align: center;
 }
@@ -193,271 +303,533 @@ a { color: inherit; }
 .hero__video {
   position: absolute;
   inset: 0;
+  z-index: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  z-index: 0;
 }
 
-/* Il video è una ripresa aerea molto luminosa (prato, piscina): senza velo il
-   testo bianco sopra non regge. Doppio strato: verticale per il testo, radiale
-   per staccare il centro. */
 .hero__scrim {
   position: absolute;
   inset: 0;
   z-index: 1;
   background:
-    radial-gradient(82% 62% at 50% 46%, rgba(6, 16, 12, 0.72) 0%, rgba(6, 16, 12, 0) 100%),
-    linear-gradient(180deg, rgba(6, 16, 12, 0.74) 0%, rgba(6, 16, 12, 0.4) 32%, rgba(6, 16, 12, 0.6) 72%, var(--ink) 100%);
+    radial-gradient(80% 62% at 50% 45%, rgba(5, 18, 21, 0.73) 0%, rgba(5, 18, 21, 0) 100%),
+    linear-gradient(180deg, rgba(5, 18, 21, 0.76) 0%, rgba(5, 18, 21, 0.42) 34%, rgba(5, 18, 21, 0.64) 76%, var(--ink) 100%);
 }
 
-.hero__inner { position: relative; z-index: 2; max-width: 62rem; }
-
-.hero__badge { margin: 0 0 26px; display: flex; justify-content: center; }
+.hero__inner {
+  position: relative;
+  z-index: 2;
+  width: min(100%, 62rem);
+}
 
 .hero__mark {
-  width: min(360px, 72vw);
+  width: min(277px, 64vw);
   height: auto;
   margin: 0 auto;
-  filter: drop-shadow(0 10px 34px rgba(0, 0, 0, 0.45));
+  filter: drop-shadow(0 10px 34px rgba(0, 0, 0, 0.48));
 }
 
-/* Il titolo segue la scala di triestevillas.com (Poppins 700, tracking -0.03em) ma con
-   un tetto piu' basso: il titolo tedesco ("Ausgewählte Villen und Immobilien in
-   Friaul-Julisch Venetien") a 104px andava su 4 righe e spingeva i bottoni sotto la
-   piega gia' a 1440x900. */
 .hero h1 {
-  margin: 20px 0 0;
-  font-size: clamp(2.1rem, 0.5rem + 5.2vw, 5.25rem);
+  max-width: 56rem;
+  margin: 24px auto 0;
+  color: #fff;
+  font-size: clamp(2.15rem, 0.85rem + 4.5vw, 4.9rem);
   font-weight: 700;
   line-height: 1.08;
-  letter-spacing: -0.03em;
-  color: #fff;
+  letter-spacing: -0.035em;
   text-wrap: balance;
 }
 
 .hero__lede {
+  max-width: 48rem;
   margin: 22px auto 0;
-  max-width: 44rem;
-  font-size: 18px;
-  line-height: 28px;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.84);
+  font-size: clamp(1rem, 0.94rem + 0.25vw, 1.125rem);
+  line-height: 1.7;
   text-wrap: pretty;
 }
 
 .hero__cta {
-  margin-top: 34px;
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
   justify-content: center;
+  gap: 12px;
+  margin-top: 32px;
 }
 
 .btn {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  height: 48px;
-  padding: 0 26px;
+  justify-content: center;
+  min-height: 48px;
+  padding: 12px 26px;
   border-radius: 9999px;
   font-size: 14px;
   font-weight: 600;
   line-height: 20px;
+  text-align: center;
   text-decoration: none;
-  transition: transform 250ms var(--ease-lux), background-color 250ms var(--ease-lux),
-              border-color 250ms var(--ease-lux), color 250ms var(--ease-lux);
+  transition:
+    color 250ms var(--ease-lux),
+    background-color 250ms var(--ease-lux),
+    border-color 250ms var(--ease-lux),
+    transform 250ms var(--ease-lux);
 }
+
 .btn:hover { transform: translateY(-1px); }
-.btn--solid { background: var(--paper); color: var(--ink); }
+
+.btn--solid {
+  background: var(--paper);
+  color: var(--ink);
+}
+
 .btn--solid:hover { background: #fff; }
+
 .btn--ghost {
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.22);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.09);
   color: #fff;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
 }
-.btn--ghost:hover { background: rgba(255, 255, 255, 0.16); border-color: rgba(255, 255, 255, 0.4); }
+
+.btn--ghost:hover {
+  border-color: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.17);
+}
+
+.hero__email {
+  display: inline-block;
+  margin-top: 18px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 13px;
+  text-underline-offset: 4px;
+  transition: color 250ms var(--ease-lux);
+}
+
+.hero__email:hover { color: #fff; }
 
 .hero__cue {
   position: absolute;
+  bottom: 26px;
   left: 50%;
-  bottom: 28px;
   z-index: 2;
+  display: grid;
+  padding: 6px;
+  color: rgba(255, 255, 255, 0.56);
+  text-decoration: none;
   transform: translateX(-50%);
-  color: rgba(255, 255, 255, 0.4);
 }
+
 @media (prefers-reduced-motion: no-preference) {
   .hero__cue { animation: bob 2.6s var(--ease-lux) infinite; }
 }
+
 @keyframes bob {
   0%, 100% { transform: translate(-50%, 0); }
-  50%      { transform: translate(-50%, 6px); }
+  50% { transform: translate(-50%, 6px); }
 }
 
-/* ============================================================ sezione Gruppo
+@media (max-width: 520px) {
+  .hero__cta .btn {
+    width: 100%;
+    max-width: 22rem;
+  }
+}
 
-   Blocco chiaro fra hero e footer: dà al sito il ritmo scuro→chiaro→scuro di
-   triestevillas.com, e sul chiaro il testo lungo si legge davvero. */
+/* ============================================================ cosa facciamo */
 
-.group {
-  background: var(--paper);
+.what {
   color: var(--ink);
-  padding: clamp(64px, 8vw, 116px) 24px;
-  scroll-margin-top: 88px;   /* l'header è fixed: senza questo l'ancora finisce sotto */
+  background: var(--paper);
+  scroll-margin-top: 88px;
 }
 
-.group__wrap { max-width: 60rem; margin: 0 auto; }
-
-.group__eyebrow {
-  margin: 0 0 22px;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--brass);
-}
-
-.group__lede {
+.what h2 {
+  max-width: 48rem;
   margin: 0;
-  font-size: clamp(1.2rem, 0.95rem + 1.05vw, 1.75rem);
-  font-weight: 500;
-  line-height: 1.42;
-  letter-spacing: -0.015em;
-  text-wrap: pretty;
+  font-size: clamp(2rem, 1.45rem + 2.2vw, 3.75rem);
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
 }
 
-/* I quattro brand: nome a sinistra, cosa fanno a destra. Su mobile si impilano. */
-.brands { margin: clamp(38px, 5vw, 58px) 0; }
-
-.brand {
+.services {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 2px;
-  padding: 18px 0;
-  border-top: 1px solid rgba(11, 21, 18, 0.12);
-}
-.brand:last-child { border-bottom: 1px solid rgba(11, 21, 18, 0.12); }
-
-.brand__name { margin: 0; font-weight: 600; font-size: 16px; }
-.brand__link { color: inherit; text-decoration: none; }
-.brand__link:hover { color: var(--brand); }
-.brand__what { margin: 0; font-size: 16px; line-height: 1.55; color: rgba(11, 21, 18, 0.66); }
-
-@media (min-width: 720px) {
-  .brand { grid-template-columns: 15rem 1fr; gap: 24px; align-items: baseline; }
+  gap: 0;
+  margin-top: clamp(42px, 6vw, 72px);
+  border-top: 1px solid rgba(10, 27, 30, 0.16);
 }
 
-.group__close p {
-  margin: 0 0 14px;
-  font-size: 17px;
-  line-height: 1.62;
-  color: rgba(11, 21, 18, 0.78);
+.service {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  padding: 28px 0;
+  border-bottom: 1px solid rgba(10, 27, 30, 0.16);
+}
+
+.service__number {
+  color: var(--brand);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+}
+
+.service h3 {
+  margin: 12px 0 0;
+  color: var(--brand-dark);
+  font-size: clamp(1.35rem, 1.15rem + 0.55vw, 1.75rem);
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.service > p {
+  margin: 16px 0 0;
+  color: rgba(10, 27, 30, 0.72);
+  font-size: 15px;
+  line-height: 1.72;
   text-wrap: pretty;
 }
-.group__close strong { font-weight: 600; color: var(--ink); }
 
-/* la sequenza dell'ownership: è il cuore del messaggio, non una lista qualsiasi */
-.seq { color: var(--brand); font-weight: 500; }
-
-.group__kicker {
-  margin: clamp(32px, 4vw, 48px) 0 0;
-  font-size: clamp(1.5rem, 1.1rem + 1.6vw, 2.4rem);
-  font-weight: 700;
-  line-height: 1.16;
-  letter-spacing: -0.025em;
+.service__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 10px 18px;
+  margin-top: auto;
+  padding-top: 26px;
 }
 
-.group__sub {
-  margin: 10px 0 0;
-  font-size: 15px;
+.text-link {
+  color: var(--brand-dark);
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.text-link span {
+  display: inline-block;
+  transition: transform 250ms var(--ease-lux);
+}
+
+.text-link:hover span { transform: translate(2px, -2px); }
+
+.service__email {
+  color: rgba(10, 27, 30, 0.62);
+  font-size: 13px;
+  text-underline-offset: 4px;
+}
+
+.service__email:hover { color: var(--brand-dark); }
+
+@media (min-width: 860px) {
+  .services {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    border-bottom: 1px solid rgba(10, 27, 30, 0.16);
+  }
+
+  .service {
+    padding: 32px clamp(24px, 3vw, 40px);
+    border-right: 1px solid rgba(10, 27, 30, 0.16);
+    border-bottom: 0;
+  }
+
+  .service:first-child { padding-left: 0; }
+  .service:last-child {
+    padding-right: 0;
+    border-right: 0;
+  }
+}
+
+/* ============================================================ il lago */
+
+.lake {
+  position: relative;
+  color: var(--paper);
+  background:
+    radial-gradient(circle at 85% 12%, rgba(106, 163, 172, 0.16), transparent 34rem),
+    var(--ink);
+  scroll-margin-top: 88px;
+}
+
+.lake .eyebrow { color: var(--sand-hi); }
+
+.lake__intro {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+}
+
+.lake h2 {
+  max-width: 46rem;
+  margin: 0;
+  color: #fff;
+  font-size: clamp(1.75rem, 1.25rem + 1.9vw, 3.2rem);
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+}
+
+.lake__body {
+  max-width: 42rem;
+  color: rgba(244, 241, 234, 0.74);
+  font-size: 16px;
+  line-height: 1.76;
+}
+
+.lake__body p { margin: 0; }
+
+.lake__body .lake__close {
+  margin-top: 24px;
+  color: var(--sand-hi);
   font-weight: 500;
-  color: var(--brass);
+}
+
+@media (min-width: 820px) {
+  .lake__intro {
+    grid-template-columns: minmax(0, 1.12fr) minmax(18rem, 0.88fr);
+    gap: clamp(48px, 7vw, 96px);
+    align-items: end;
+  }
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  margin-top: clamp(48px, 7vw, 88px);
+}
+
+.gallery figure {
+  min-width: 0;
+  margin: 0;
+  overflow: hidden;
+  background: var(--ink-2);
+}
+
+.gallery img {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  transition: transform 800ms var(--ease-lux);
+}
+
+.gallery figure:hover img { transform: scale(1.025); }
+
+@media (min-width: 640px) {
+  .gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+}
+
+/* ============================================================ fascia CTA */
+
+.cta-band {
+  color: var(--ink);
+  background:
+    linear-gradient(115deg, rgba(207, 183, 149, 0.3), transparent 44%),
+    var(--paper);
+}
+
+.cta-band__inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 28px;
+  padding-block: clamp(52px, 7vw, 82px);
+}
+
+.cta-band h2 {
+  margin: 0;
+  color: var(--brand-dark);
+  font-size: clamp(2rem, 1.55rem + 1.8vw, 3.25rem);
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+}
+
+.cta-band p {
+  max-width: 42rem;
+  margin: 14px 0 0;
+  color: rgba(10, 27, 30, 0.72);
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.cta-band__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+
+.btn--brand {
+  background: var(--brand-dark);
+  color: #fff;
+}
+
+.btn--brand:hover { background: var(--brand); }
+
+.btn--outline {
+  border: 1px solid rgba(15, 66, 75, 0.3);
+  color: var(--brand-dark);
+}
+
+.btn--outline:hover {
+  border-color: var(--brand-dark);
+  background: rgba(28, 100, 112, 0.06);
+}
+
+.cta-band__email {
+  color: var(--brand-dark);
+  font-size: 13px;
+  overflow-wrap: anywhere;
+  text-underline-offset: 4px;
+}
+
+@media (min-width: 860px) {
+  .cta-band__inner {
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 48px;
+  }
+
+  .cta-band__actions {
+    max-width: 25rem;
+    justify-content: flex-end;
+  }
 }
 
 /* ============================================================ footer */
 
-.footer { background: var(--brand-dark); color: #fff; }
-
-.footer__band { border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
-.footer__band .wrap { padding: 40px 16px; }
-.footer__band h2 { margin: 0; font-size: 18px; font-weight: 600; line-height: 1.4; }
-.footer__band p { margin: 4px 0 0; font-size: 14px; color: rgba(255, 255, 255, 0.6); }
-.footer__band .btn { margin-top: 20px; }
-
-.wrap { max-width: 1152px; margin: 0 auto; }
+.footer {
+  color: #fff;
+  background: var(--brand-dark);
+}
 
 .footer__grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 40px;
-  padding: 48px 16px;
+  gap: 42px;
+  padding-block: 52px;
   font-size: 14px;
 }
-@media (min-width: 640px) { .footer__grid { grid-template-columns: repeat(2, 1fr); } }
-@media (min-width: 1024px) { .footer__grid { grid-template-columns: repeat(3, 1fr); } }
 
-.footer__mark { height: 28px; width: auto; }
+.footer__mark {
+  width: auto;
+  height: 28px;
+}
 
-.footer__legal { margin-top: 16px; color: rgba(255, 255, 255, 0.6); line-height: 1.7; }
-.footer__legal p { margin: 0; }
-.footer__legal .strong { color: rgba(255, 255, 255, 0.8); font-weight: 500; }
-.footer__legal a { color: inherit; text-decoration: none; transition: color 250ms var(--ease-lux); }
-.footer__legal a:hover { color: rgba(255, 255, 255, 0.9); }
+.footer__tagline {
+  margin: 18px 0 0;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.footer__method {
+  max-width: 24rem;
+  margin: 14px 0 0;
+  color: var(--sand-hi);
+  line-height: 1.6;
+}
+
+.footer__method a {
+  text-decoration-color: rgba(232, 213, 175, 0.35);
+  text-underline-offset: 4px;
+  transition: color 250ms var(--ease-lux);
+}
+
+.footer__method a:hover { color: #fff; }
 
 .footer h2.col-title {
-  margin: 0 0 12px;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.5);
   display: flex;
   align-items: center;
   gap: 10px;
+  margin: 0 0 14px;
+  color: rgba(255, 255, 255, 0.56);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
-.footer ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
-.footer__sitemap a {
-  color: rgba(255, 255, 255, 0.7);
+.footer ul {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.footer__sitemap a,
+.footer__contacts a {
+  color: rgba(255, 255, 255, 0.76);
   text-decoration: none;
   transition: color 250ms var(--ease-lux);
 }
-.footer__sitemap a:hover { color: #fff; }
 
-.footer__contacts { display: grid; gap: 8px; color: rgba(255, 255, 255, 0.7); }
-.footer__contacts a { text-decoration: none; transition: color 250ms var(--ease-lux); }
-.footer__contacts a:hover { color: #fff; }
-
-.footer__bar { border-top: 1px solid rgba(255, 255, 255, 0.1); }
-.footer__bar .wrap {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  padding: 20px 16px;
-  font-size: 12px;
-  color: rgba(255, 255, 255, 0.4);
+.footer__sitemap a:hover,
+.footer__contacts a:hover {
+  color: #fff;
 }
-.footer__bar a { color: rgba(255, 255, 255, 0.4); text-decoration: none; transition: color 250ms var(--ease-lux); }
-.footer__bar a:hover { color: rgba(255, 255, 255, 0.75); }
 
-/* ============================================================ schermi piccoli */
+.footer__contacts {
+  display: grid;
+  gap: 8px;
+  color: rgba(255, 255, 255, 0.7);
+}
 
-@media (max-width: 640px) {
-  .hero { padding: 96px 20px 64px; }
-  .hero__mark { width: min(280px, 74vw); }
-  .hero__lede { font-size: 16px; line-height: 26px; }
-  .hero__cta { margin-top: 28px; }
-  .hero__cta .btn { width: 100%; justify-content: center; }
+.footer__contacts a,
+.footer__contacts span {
+  overflow-wrap: anywhere;
+}
+
+#contatti { scroll-margin-top: 88px; }
+
+.footer__bar {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer__bar .wrap {
+  padding-block: 20px;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 12px;
+}
+
+@media (min-width: 640px) {
+  .footer__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (min-width: 960px) {
+  .footer__grid {
+    grid-template-columns: 1.35fr 0.8fr 1fr;
+    gap: clamp(48px, 7vw, 92px);
+    padding-block: 64px;
+  }
 }
 
 /* ============================================================ movimento ridotto */
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  /* niente video in autoplay: resta il poster, che è il primo fotogramma */
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
   .hero__video { display: none; }
-  .hero { background: url("/assets/images/hero-poster.jpg") center / cover no-repeat; }
+
+  .hero {
+    background: url("/assets/images/hero-poster.jpg") center / cover no-repeat;
+  }
 }
