@@ -630,6 +630,38 @@ a { color: inherit; }
   }
 }
 
+.lake__reading { margin-top: clamp(40px, 6vw, 72px); }
+
+.reading-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px 32px;
+  margin: 18px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.reading-list a {
+  color: rgba(244, 241, 234, 0.82);
+  font-size: 15px;
+  line-height: 1.6;
+  text-decoration: none;
+  transition: color 200ms ease;
+}
+
+.reading-list a:hover { color: var(--sand-hi); }
+
+.reading-list span {
+  display: inline-block;
+  transition: transform 300ms var(--ease-lux);
+}
+
+.reading-list a:hover span { transform: translate(2px, -2px); }
+
+@media (min-width: 640px) {
+  .reading-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
 /* ============================================================ fascia CTA */
 
 .cta-band {

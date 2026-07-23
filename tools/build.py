@@ -98,10 +98,29 @@ STRINGS = {
             "Poche compravendite l'anno, quasi tutte fra chi il lago lo conosce già."
         ),
         "galleryAlts": [
-            "Veduta aerea di un giardino digradante sulla riva del lago d'Orta",
-            "Sedie a sdraio sulla riva al tramonto, con il sole basso sull'acqua",
-            "Terrazza con vetrate scorrevoli affacciata sul lago",
-            "Interno luminoso con vetrata continua sul lago",
+            "L'isola di San Giulio vista dall'alto, con l'acqua verde del lago d'Orta",
+            "L'isola di San Giulio con le montagne alle spalle, nella luce del pomeriggio",
+            "Pontile in legno sul lago d'Orta al tramonto",
+            "Prati del Mottarone al tramonto, con il lago sullo sfondo",
+        ],
+        "readingTitle": "Per approfondire",
+        "readingPosts": [
+            {
+                "title": "Lago d'Orta: la gemma silenziosa d'Italia",
+                "url": "https://www.villa-volpe.com/it/blog/posts/lake-orta-italys-quiet-gem.html",
+            },
+            {
+                "title": "Lago Maggiore o Lago d'Orta? Il confronto",
+                "url": "https://www.villa-volpe.com/it/blog/posts/lake-maggiore-vs-lake-orta.html",
+            },
+            {
+                "title": "Nuotare nel Lago d'Orta",
+                "url": "https://www.villa-volpe.com/it/blog/posts/swimming-in-lake-orta.html",
+            },
+            {
+                "title": "Le spiagge più belle del Lago d'Orta",
+                "url": "https://www.villa-volpe.com/it/blog/posts/beaches-lake-orta.html",
+            },
         ],
         "bandTitle": "Parliamone",
         "bandText": (
@@ -221,10 +240,29 @@ STRINGS = {
             "the lake."
         ),
         "galleryAlts": [
-            "Aerial view of a garden sloping down to the shore of Lake Orta",
-            "Deck chairs by the shore at sunset, with the sun low over the water",
-            "Terrace with sliding glass doors overlooking the lake",
-            "Light-filled interior with an uninterrupted view of the lake",
+            "San Giulio Island seen from above, with the green water of Lake Orta",
+            "San Giulio Island with the mountains behind, in afternoon light",
+            "Wooden jetty on Lake Orta at sunset",
+            "Meadows on Mottarone at sunset, with the lake in the distance",
+        ],
+        "readingTitle": "Further reading",
+        "readingPosts": [
+            {
+                "title": "Lake Orta: Italy's quiet gem",
+                "url": "https://www.villa-volpe.com/blog/posts/lake-orta-italys-quiet-gem.html",
+            },
+            {
+                "title": "Lake Maggiore vs Lake Orta: why the smaller lake wins",
+                "url": "https://www.villa-volpe.com/blog/posts/lake-maggiore-vs-lake-orta.html",
+            },
+            {
+                "title": "Is it possible to swim in Lake Orta?",
+                "url": "https://www.villa-volpe.com/blog/posts/swimming-in-lake-orta.html",
+            },
+            {
+                "title": "The best beaches on Lake Orta",
+                "url": "https://www.villa-volpe.com/blog/posts/beaches-lake-orta.html",
+            },
         ],
         "bandTitle": "Let's talk",
         "bandText": (
@@ -348,10 +386,29 @@ STRINGS = {
             "Nur wenige Verkäufe im Jahr, fast immer zwischen Menschen, die den See bereits kennen."
         ),
         "galleryAlts": [
-            "Luftaufnahme eines Gartens, der zum Ufer des Ortasees abfällt",
-            "Liegestühle am Ufer bei Sonnenuntergang, die Sonne tief über dem Wasser",
-            "Terrasse mit Glasschiebetüren und Blick auf den See",
-            "Heller Innenraum mit durchgehender Fensterfront zum See",
+            "Die Insel San Giulio von oben, mit dem grünen Wasser des Ortasees",
+            "Die Insel San Giulio vor den Bergen im Nachmittagslicht",
+            "Holzsteg am Ortasee bei Sonnenuntergang",
+            "Wiesen am Mottarone bei Sonnenuntergang, der See im Hintergrund",
+        ],
+        "readingTitle": "Zum Weiterlesen",
+        "readingPosts": [
+            {
+                "title": "Der Ortasee: Italiens stilles Juwel",
+                "url": "https://www.villa-volpe.com/de/blog/posts/lake-orta-italys-quiet-gem.html",
+            },
+            {
+                "title": "Lago Maggiore oder Ortasee: Warum der kleinere See gewinnt",
+                "url": "https://www.villa-volpe.com/de/blog/posts/lake-maggiore-vs-lake-orta.html",
+            },
+            {
+                "title": "Kann man im Ortasee schwimmen?",
+                "url": "https://www.villa-volpe.com/de/blog/posts/swimming-in-lake-orta.html",
+            },
+            {
+                "title": "Baden am Ortasee: die schönsten Strände",
+                "url": "https://www.villa-volpe.com/de/blog/posts/beaches-lake-orta.html",
+            },
         ],
         "bandTitle": "Sprechen wir darüber",
         "bandText": (
@@ -509,6 +566,15 @@ def service_cards(s):
     return "\n".join(cards)
 
 
+def reading_items(s):
+    items = [
+        f'          <li><a href="{post["url"]}" target="_blank" rel="noopener">'
+        f'{post["title"]} <span aria-hidden="true">↗</span></a></li>'
+        for post in s["readingPosts"]
+    ]
+    return "\n".join(items)
+
+
 def page(locale):
     s = STRINGS[locale]
     canonical = f"{SITE}{PATHS[locale]}"
@@ -662,10 +728,17 @@ def page(locale):
       </div>
 
       <div class="gallery">
-        <figure><img src="/assets/images/lago-giardino-aereo.jpg" alt="{alts[0]}" loading="lazy" width="1400" height="787"></figure>
-        <figure><img src="/assets/images/lago-tramonto.jpg" alt="{alts[1]}" loading="lazy" width="1400" height="933"></figure>
-        <figure><img src="/assets/images/terrazza-lago.jpg" alt="{alts[2]}" loading="lazy" width="1400" height="933"></figure>
-        <figure><img src="/assets/images/interni-vista-lago.jpg" alt="{alts[3]}" loading="lazy" width="1400" height="933"></figure>
+        <figure><img src="/assets/images/lago-orta-isola-san-giulio-dallalto.jpg" alt="{alts[0]}" loading="lazy" width="1400" height="787"></figure>
+        <figure><img src="/assets/images/isola-san-giulio-lago-orta.jpg" alt="{alts[1]}" loading="lazy" width="1400" height="933"></figure>
+        <figure><img src="/assets/images/pontile-tramonto-lago-orta.jpg" alt="{alts[2]}" loading="lazy" width="1400" height="933"></figure>
+        <figure><img src="/assets/images/panorama-mottarone-lago-orta.jpg" alt="{alts[3]}" loading="lazy" width="1400" height="933"></figure>
+      </div>
+
+      <div class="lake__reading">
+        <p class="eyebrow">{s['readingTitle']}</p>
+        <ul class="reading-list">
+{reading_items(s)}
+        </ul>
       </div>
     </div>
   </section>
