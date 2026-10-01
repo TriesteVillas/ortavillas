@@ -481,8 +481,8 @@ STRINGS = {
     "sl": {
         "title": "OrtaVillas — Hiše in vile ob jezeru Orta",
         "description": (
-            "Prodaja, nakup ali oddajanje hiše ob jezeru Orta. En sogovornik od prve ocene "
-            "vrednosti do podpisa pri notarju, v italijanščini, angleščini ali nemščini. "
+            "Prodaja, nakup ali oddajanje hiše ob jezeru Orta. En sam sogovornik od prve ocene "
+            "vrednosti do podpisa pri notarju – v italijanščini, angleščini ali nemščini. "
             "+39 347 8628738."
         ),
         "phoneDisplay": "+39 347 8628738",
@@ -494,8 +494,9 @@ STRINGS = {
         "scrollLabel": "Pomaknite se navzdol",
         "h1": "Hiše in vile ob jezeru Orta",
         "heroLede": (
-            "OrtaVillas izhaja iz vsakdanje izkušnje nekoga, ki ima ob jezeru nepremičnino in "
-            "zanjo zares skrbi: letni časi, obrtniki, notar, gostje, ki prihajajo od drugod. Če "
+            "OrtaVillas izhaja iz izkušnje tistih, ki imajo ob jezeru nepremičnino in zanjo "
+            "zares skrbijo vsak dan, z vsem, kar sodi zraven: letni časi, obrtniki, notar, "
+            "gostje, ki prihajajo od drugod. Če "
             "želite hišo ob jezeru Orta prodati, kupiti ali oddajati, se vse začne s pogovorom "
             "– v italijanščini, angleščini ali nemščini."
         ),
@@ -508,10 +509,10 @@ STRINGS = {
                 "key": "vendere",
                 "title": "Prodaja",
                 "text": (
-                    "Ocena vrednosti, fotografije, oglas, pogajanja, podpis pri notarju: ena "
+                    "Ocena vrednosti, fotografiranje, oglas, pogajanja, podpis pri notarju: ena "
                     "kontaktna oseba za vse. Kupci hiš ob jezeru Orta skoraj vedno prihajajo "
-                    "iz drugih pokrajin – najprej jih je treba razumeti, šele nato prepričati, in "
-                    "to določa, kako se lotimo prodaje."
+                    "iz drugih pokrajin – najprej jih je treba razumeti in šele nato prepričati. "
+                    "Od tega je odvisno, kako zastavimo prodajo."
                 ),
                 "cta": "Zaprosite za oceno vrednosti",
             },
@@ -519,9 +520,9 @@ STRINGS = {
                 "key": "comprare",
                 "title": "Nakup",
                 "text": (
-                    "Kdor išče tukaj, išče nekaj točno določenega: razgled, tišino, cesto, ki je "
-                    "prevozna tudi pozimi. To preverimo vnaprej, da so ogledi namenjeni izbiri, "
-                    "ne izločanju."
+                    "Kdor išče tukaj, išče točno določene stvari: razgled, tišino, cesto, ki je "
+                    "prevozna tudi pozimi. Preverimo jih vnaprej, da so ogledi namenjeni izbiri "
+                    "in ne izločanju."
                 ),
                 "cta": "Povejte nam, kaj iščete",
             },
@@ -530,8 +531,8 @@ STRINGS = {
                 "title": "Oddajanje",
                 "text": (
                     "Hiša ob jezeru lahko prinaša dohodek v mesecih, ko je ne uporabljate. "
-                    "Kratkoročni ali sezonski najem, z upravljanjem na kraju samem, ki je "
-                    "potrebno, da najem res deluje in vam ne postane druga služba."
+                    "Kratkoročno ali sezonsko oddajanje, z operativnim upravljanjem, ki poskrbi, "
+                    "da vse res deluje in da vam to ne postane druga služba."
                 ),
                 "cta": "Pogovorimo se o oddajanju",
             },
@@ -539,7 +540,7 @@ STRINGS = {
         "lakeEyebrow": "Jezero",
         "lakeLede": (
             "Najmanjše med velikimi jezeri severne Italije in edino, katerega voda odteka proti "
-            "severu. Štirideset minut od letališča Malpensa, nekaj več kot uro od Milana."
+            "severu. Štirideset minut od letališča Malpensa, dobro uro od Milana."
         ),
         "lakeText": (
             "Orta San Giulio, Pella, San Maurizio d'Opaglio, Gozzano, Omegna: od brega do brega "
@@ -548,10 +549,10 @@ STRINGS = {
             "da razbrati."
         ),
         "lakeClose": (
-            "Le nekaj prodaj na leto, skoraj vse med ljudmi, ki jezero že poznajo."
+            "Le nekaj kupoprodaj na leto, skoraj vse med ljudmi, ki jezero že poznajo."
         ),
         "galleryAlts": [
-            "Otok San Giulio od zgoraj, z zeleno vodo jezera Orta",
+            "Pogled od zgoraj na otok San Giulio in zeleno vodo jezera Orta",
             "Otok San Giulio z gorami v ozadju, v popoldanski svetlobi",
             "Lesen pomol na jezeru Orta ob sončnem zahodu",
             "Travniki gore Mottarone ob sončnem zahodu, v ozadju jezero",
@@ -580,12 +581,12 @@ STRINGS = {
         ],
         "bandTitle": "Pogovorimo se",
         "bandText": (
-            "Ocena vrednosti vas ne zavezuje k ničemur. Ura pogovora po telefonu vam pove več "
-            "kot trimesečno samostojno brskanje po oglasih. Pogovarjamo se v italijanščini, "
+            "Ocena vrednosti vas ne zavezuje k ničemur. Ura telefonskega pogovora vam pove več "
+            "kot tri mesece samostojnega brskanja po oglasih. Pogovarjamo se v italijanščini, "
             "angleščini ali nemščini."
         ),
         "tagline": "Hiše in vile ob jezeru Orta.",
-        "method": "Metoda, orodja in vodenje skupine TriesteVillas. ↗",
+        "method": "Metoda, orodja in vodstvo skupine TriesteVillas. ↗",
         "sitemapTitle": "Zemljevid strani",
         "home": "Domov",
         "contactTitle": "Kontakt",
