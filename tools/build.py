@@ -1,8 +1,15 @@
 #!/usr/bin/env python3
-"""Genera index.html, en/index.html, de/index.html e sitemap.xml.
+"""Genera index.html, en/index.html, de/index.html, sl/index.html e sitemap.xml.
 
-Le tre lingue descrivono la stessa pagina. Testi e dati dei contatti vivono nel
-dizionario STRINGS, cosi' il template e l'attribuzione dei lead restano coerenti.
+Le quattro lingue del gruppo (it, en, de, sl) descrivono la stessa pagina. Testi e
+dati dei contatti vivono nel dizionario STRINGS, cosi' il template e
+l'attribuzione dei lead restano coerenti. Prima di scrivere, check_locales()
+ferma la generazione se una lingua manca di una chiave o ne ha una in piu'.
+
+Sloveno (dal 2026-10-01): nessuna promessa di assistenza in sloveno (decisione
+D1 del gruppo, 2026-09-11) -- i testi sl dicono che il pogovor avviene in
+italiano, inglese o tedesco. Il lago e' "jezero Orta" (forma di sl.wikipedia;
+"Ortsko jezero" non e' attestato).
 
 Il sito resta statico: l'HTML generato viene committato e GitHub Pages lo serve
 cosi' com'e'. Nessun build viene eseguito in fase di deploy.
@@ -22,9 +29,17 @@ PHONE_TEL = "+393478628738"
 WA = "https://wa.me/393478628738"
 YEAR = 2026
 
-LOCALES = ["it", "en", "de"]
-PATHS = {"it": "/", "en": "/en/", "de": "/de/"}
-OG_LOCALE = {"it": "it_IT", "en": "en_GB", "de": "de_DE"}
+LOCALES = ["it", "en", "de", "sl"]
+PATHS = {"it": "/", "en": "/en/", "de": "/de/", "sl": "/sl/"}
+OG_LOCALE = {"it": "it_IT", "en": "en_GB", "de": "de_DE", "sl": "sl_SI"}
+# Il link "Metodo... del gruppo TriesteVillas" porta alla stessa lingua: la radice
+# di triestevillas.com e' italiana e non reindirizza secondo il browser.
+GROUP_SITE = {
+    "it": "https://triestevillas.com",
+    "en": "https://triestevillas.com/en",
+    "de": "https://triestevillas.com/de",
+    "sl": "https://triestevillas.com/sl",
+}
 
 STRINGS = {
     "it": {
@@ -458,7 +473,214 @@ STRINGS = {
             },
         },
     },
+    # Sloveno. Vikanje in minuscolo (vi, vas), come su triestevillas.com.
+    # D1: nessuna promessa di assistenza in sloveno -- heroLede, bandText e
+    # description dicono che si parla in italiano, inglese o tedesco.
+    # I messaggi WhatsApp precompilati evitano il participio (rad/rada) per non
+    # presumere il genere di chi scrive.
+    "sl": {
+        "title": "OrtaVillas — Hiše in vile ob jezeru Orta",
+        "description": (
+            "Prodaja, nakup ali oddajanje hiše ob jezeru Orta. En sogovornik od prve ocene "
+            "vrednosti do podpisa pri notarju, v italijanščini, angleščini ali nemščini. "
+            "+39 347 8628738."
+        ),
+        "phoneDisplay": "+39 347 8628738",
+        "menuLabel": "Meni",
+        "languageLabel": "Jezik",
+        "navWhat": "Kaj delamo",
+        "navLake": "Jezero",
+        "navContacts": "Kontakt",
+        "scrollLabel": "Pomaknite se navzdol",
+        "h1": "Hiše in vile ob jezeru Orta",
+        "heroLede": (
+            "OrtaVillas izhaja iz vsakdanje izkušnje nekoga, ki ima ob jezeru nepremičnino in "
+            "zanjo zares skrbi: letni časi, obrtniki, notar, gostje, ki prihajajo od drugod. Če "
+            "želite hišo ob jezeru Orta prodati, kupiti ali oddajati, se vse začne s pogovorom "
+            "– v italijanščini, angleščini ali nemščini."
+        ),
+        "ctaWhatsapp": "Pišite nam na WhatsApp",
+        "ctaEmail": "E-pošta",
+        "whatEyebrow": "Kaj delamo",
+        "whatTitle": "Tri možnosti za hišo ob jezeru",
+        "services": [
+            {
+                "key": "vendere",
+                "title": "Prodaja",
+                "text": (
+                    "Ocena vrednosti, fotografije, oglas, pogajanja, podpis pri notarju: ena "
+                    "kontaktna oseba za vse. Kupci hiš ob jezeru Orta skoraj vedno prihajajo "
+                    "iz drugih pokrajin – najprej jih je treba razumeti, šele nato prepričati, in "
+                    "to določa, kako se lotimo prodaje."
+                ),
+                "cta": "Zaprosite za oceno vrednosti",
+            },
+            {
+                "key": "comprare",
+                "title": "Nakup",
+                "text": (
+                    "Kdor išče tukaj, išče nekaj točno določenega: razgled, tišino, cesto, ki je "
+                    "prevozna tudi pozimi. To preverimo vnaprej, da so ogledi namenjeni izbiri, "
+                    "ne izločanju."
+                ),
+                "cta": "Povejte nam, kaj iščete",
+            },
+            {
+                "key": "reddito",
+                "title": "Oddajanje",
+                "text": (
+                    "Hiša ob jezeru lahko prinaša dohodek v mesecih, ko je ne uporabljate. "
+                    "Kratkoročni ali sezonski najem, z upravljanjem na kraju samem, ki je "
+                    "potrebno, da najem res deluje in vam ne postane druga služba."
+                ),
+                "cta": "Pogovorimo se o oddajanju",
+            },
+        ],
+        "lakeEyebrow": "Jezero",
+        "lakeLede": (
+            "Najmanjše med velikimi jezeri severne Italije in edino, katerega voda odteka proti "
+            "severu. Štirideset minut od letališča Malpensa, nekaj več kot uro od Milana."
+        ),
+        "lakeText": (
+            "Orta San Giulio, Pella, San Maurizio d'Opaglio, Gozzano, Omegna: od brega do brega "
+            "se spreminjajo lega, dostop do vode, cesta in cena. To je razlika med hišo, ki se "
+            "proda v treh mesecih, in tisto, ki dve leti čaka na kupca – in iz oglasa se je ne "
+            "da razbrati."
+        ),
+        "lakeClose": (
+            "Le nekaj prodaj na leto, skoraj vse med ljudmi, ki jezero že poznajo."
+        ),
+        "galleryAlts": [
+            "Otok San Giulio od zgoraj, z zeleno vodo jezera Orta",
+            "Otok San Giulio z gorami v ozadju, v popoldanski svetlobi",
+            "Lesen pomol na jezeru Orta ob sončnem zahodu",
+            "Travniki gore Mottarone ob sončnem zahodu, v ozadju jezero",
+        ],
+        # villa-volpe.com non ha una versione slovena (verificato 2026-10-01:
+        # /sl/ risponde 404; il sito pubblica it, en, de, fr). I titoli sono
+        # tradotti, i link portano all'inglese, e il titolo della sezione lo dice.
+        "readingTitle": "Za nadaljnje branje (v angleščini)",
+        "readingPosts": [
+            {
+                "title": "Jezero Orta: tihi biser Italije",
+                "url": "https://www.villa-volpe.com/blog/posts/lake-orta-italys-quiet-gem.html",
+            },
+            {
+                "title": "Jezero Maggiore ali jezero Orta? Primerjava",
+                "url": "https://www.villa-volpe.com/blog/posts/lake-maggiore-vs-lake-orta.html",
+            },
+            {
+                "title": "Plavanje v jezeru Orta",
+                "url": "https://www.villa-volpe.com/blog/posts/swimming-in-lake-orta.html",
+            },
+            {
+                "title": "Najlepše plaže ob jezeru Orta",
+                "url": "https://www.villa-volpe.com/blog/posts/beaches-lake-orta.html",
+            },
+        ],
+        "bandTitle": "Pogovorimo se",
+        "bandText": (
+            "Ocena vrednosti vas ne zavezuje k ničemur. Ura pogovora po telefonu vam pove več "
+            "kot trimesečno samostojno brskanje po oglasih. Pogovarjamo se v italijanščini, "
+            "angleščini ali nemščini."
+        ),
+        "tagline": "Hiše in vile ob jezeru Orta.",
+        "method": "Metoda, orodja in vodenje skupine TriesteVillas. ↗",
+        "sitemapTitle": "Zemljevid strani",
+        "home": "Domov",
+        "contactTitle": "Kontakt",
+        "location": "Jezero Orta, pokrajina Novara",
+        "rights": "Vse pravice pridržane.",
+        "leads": {
+            "hero": {
+                "wa": (
+                    "Pozdravljeni, pišem vam prek strani ortavillas.com in se želim pogovoriti o "
+                    "hiši ob jezeru Orta."
+                ),
+                "subject": "[ORTAVILLAS] Povpraševanje",
+            },
+            "vendere": {
+                "wa": (
+                    "Pozdravljeni, pišem vam prek strani ortavillas.com in prosim za oceno "
+                    "vrednosti nepremičnine ob jezeru Orta."
+                ),
+                "subject": "[ORTAVILLAS] Ocena vrednosti",
+            },
+            "comprare": {
+                "wa": (
+                    "Pozdravljeni, pišem vam prek strani ortavillas.com in iščem hišo ob jezeru "
+                    "Orta."
+                ),
+                "subject": "[ORTAVILLAS] Iskanje nepremičnine",
+            },
+            "reddito": {
+                "wa": (
+                    "Pozdravljeni, pišem vam prek strani ortavillas.com in želim oddajati hišo ob "
+                    "jezeru Orta."
+                ),
+                "subject": "[ORTAVILLAS] Oddajanje",
+            },
+            "finale": {
+                "wa": (
+                    "Pozdravljeni, pišem vam prek strani ortavillas.com in se želim pogovoriti z "
+                    "vami."
+                ),
+                "subject": "[ORTAVILLAS] Povpraševanje",
+            },
+        },
+    },
 }
+
+
+def _shape(value):
+    """La forma di un valore di STRINGS: chiavi annidate e lunghezze delle liste."""
+    if isinstance(value, dict):
+        return {key: _shape(item) for key, item in value.items()}
+    if isinstance(value, list):
+        return [_shape(item) for item in value]
+    return type(value).__name__
+
+
+def _leaves(value):
+    if isinstance(value, dict):
+        return sum(_leaves(item) for item in value.values())
+    if isinstance(value, list):
+        return sum(_leaves(item) for item in value)
+    return 1
+
+
+def check_locales():
+    """Cancello: ogni lingua ha percorso, og:locale e la stessa forma di STRINGS["it"].
+
+    Una chiave mancante farebbe saltare page() con un KeyError a meta' scrittura;
+    una in piu' sarebbe un testo che nessuno vede. Si ferma prima di toccare i file.
+    """
+    errors = []
+    reference = _shape(STRINGS["it"])
+    for locale in LOCALES:
+        for name, table in (
+            ("PATHS", PATHS),
+            ("OG_LOCALE", OG_LOCALE),
+            ("GROUP_SITE", GROUP_SITE),
+            ("STRINGS", STRINGS),
+        ):
+            if locale not in table:
+                errors.append(f"{locale}: manca in {name}")
+        if locale in STRINGS and _shape(STRINGS[locale]) != reference:
+            errors.append(f"{locale}: la struttura di STRINGS non coincide con quella di 'it'")
+        if locale in STRINGS:
+            empty = [
+                key for key, item in STRINGS[locale].items() if isinstance(item, str) and not item
+            ]
+            if empty:
+                errors.append(f"{locale}: stringhe vuote {empty}")
+    extra = sorted(set(STRINGS) - set(LOCALES))
+    if extra:
+        errors.append(f"STRINGS ha lingue fuori da LOCALES: {extra}")
+    if errors:
+        raise SystemExit("check_locales:\n  " + "\n  ".join(errors))
+    counts = ", ".join(f"{locale}={_leaves(STRINGS[locale])}" for locale in LOCALES)
+    print(f"stringhe per lingua: {counts}")
 
 
 def locale_switcher(current):
@@ -513,7 +735,10 @@ def json_ld(locale, s):
                     "@type": "Place",
                     "name": "Lago d'Orta / provincia di Novara",
                 },
-                "knowsLanguage": ["it", "en", "de"],
+                # Le lingue in cui il SITO pubblica, non quelle dello sportello:
+                # visite, accompagnamento e rogito restano in italiano, inglese e
+                # tedesco (D1, 2026-09-11). Stessa scelta di triestevillas.com.
+                "knowsLanguage": LOCALES,
             },
             {
                 "@type": "WebSite",
@@ -763,7 +988,7 @@ def page(locale):
     <div>
       <img class="footer__mark" src="/assets/logos/ortavillas-wordmark-avorio.svg" alt="OrtaVillas" width="277" height="54">
       <p class="footer__tagline">{s['tagline']}</p>
-      <p class="footer__method"><a href="https://triestevillas.com" target="_blank" rel="noopener">{s['method']}</a></p>
+      <p class="footer__method"><a href="{GROUP_SITE[locale]}" target="_blank" rel="noopener">{s['method']}</a></p>
     </div>
 
     <nav aria-label="{s['sitemapTitle']}">
@@ -821,6 +1046,7 @@ def sitemap():
 
 
 def main():
+    check_locales()
     for locale in LOCALES:
         relative = "index.html" if locale == "it" else f"{locale}/index.html"
         output = os.path.join(ROOT, relative)

@@ -10,8 +10,8 @@ Ogni brand tiene la stessa struttura e cambia solo l'accento cromatico: TSV blu-
 sabbia, TSI azzurro, FriuliVillas verde bosco, **OrtaVillas verde-lago (teal) + sabbia/ottone**.
 
 ```
-tools/build.py             genera le tre pagine + sitemap.xml   <- si tocca QUESTO
-index.html  en/  de/       output generato (committato)
+tools/build.py             genera le quattro pagine + sitemap.xml   <- si tocca QUESTO
+index.html  en/  de/  sl/  output generato (committato)
 assets/css/style.css       tutto lo stile
 assets/js/nav.js           apre/chiude il pannello mobile
 assets/logos/              wordmark SVG (gradiente + avorio) + PNG di fallback
@@ -23,12 +23,18 @@ CNAME .nojekyll robots.txt sitemap.xml
 
 ## Modificare i testi
 
-Le tre lingue sono la stessa pagina. Non si modificano gli `.html`: si tocca il dizionario
-`STRINGS` in **`tools/build.py`** e si rigenera.
+Le quattro lingue del gruppo — italiano, inglese, tedesco e sloveno (`/sl/`, dal 01/10/2026)
+— sono la stessa pagina. Non si modificano gli `.html`: si tocca il dizionario `STRINGS` in
+**`tools/build.py`** e si rigenera.
 
 ```bash
-python3 tools/build.py    # riscrive index.html, en/index.html, de/index.html, sitemap.xml
+python3 tools/build.py    # riscrive index.html, en/, de/, sl/index.html, sitemap.xml
 ```
+
+Prima di scrivere, `check_locales()` confronta ogni lingua con l'italiano — stesse chiavi,
+stesse lunghezze delle liste, nessuna stringa vuota, percorso e `og:locale` presenti — e se
+qualcosa non torna esce con errore **senza toccare i file**. Una chiave aggiunta all'italiano
+va aggiunta in tutte e quattro le lingue, o la generazione si ferma.
 
 L'HTML generato è committato, quindi **il deploy resta senza build**: GitHub Pages serve i
 file così come sono.
@@ -36,6 +42,16 @@ file così come sono.
 > ⚠️ I testi tedeschi sono scritti, non tradotti a macchina — sul WordPress di
 > triesteaffitti.com TranslatePress aveva prodotto perfino un brand sbagliato
 > ("TriesteRentals"). Prima di campagne in DE, farli rileggere a un madrelingua.
+>
+> ⚠️ **Sloveno.** Il lago è **«jezero Orta»** (la forma di sl.wikipedia; «Ortsko jezero» non è
+> attestato), in minuscolo dentro la frase. Regola di gruppo **D1**: nessuna promessa di
+> assistenza in sloveno — la pagina dice che il pogovor avviene in italiano, inglese o tedesco
+> (hero, fascia finale, meta description). È l'unica cosa da cambiare se un giorno qualcuno
+> risponderà in sloveno. I quattro articoli di villa-volpe.com non hanno una versione slovena:
+> i link portano all'inglese e il titolo della sezione lo dichiara. Prima di campagne in SL,
+> farla rileggere a un madrelingua. Il font non richiede interventi: il foglio Google Fonts
+> `css2` di Poppins dichiara già il sottoinsieme **latin-ext** (č š ž) con `unicode-range`,
+> e il browser lo scarica solo sulle pagine che lo usano.
 
 ## A cosa serve questo sito
 
@@ -135,7 +151,8 @@ layout.
 
 ## Indicizzazione
 
-Oltre a canonical, `hreflang` (it/en/de + `x-default` sull'italiano), Open Graph e
+Oltre a canonical, `hreflang` (it/en/de/sl + `x-default` sull'italiano), Open Graph
+(`og:locale` it_IT, en_GB, de_DE, sl_SI) e
 `sitemap.xml`, ogni pagina porta un blocco **JSON-LD** con `RealEstateAgent` + `WebSite` +
 `WebPage`.
 
