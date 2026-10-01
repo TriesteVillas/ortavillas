@@ -185,6 +185,11 @@ a { color: inherit; }
 
 .locale a,
 .locale span {
+  /* 24px di larghezza minima: il bersaglio minimo WCAG 2.5.8, che "IT" e "SL"
+     non raggiungevano su telefono (19 e 21 px). */
+  display: inline-flex;
+  justify-content: center;
+  min-width: 24px;
   padding: 6px 5px;
   border-radius: 9999px;
   color: rgba(255, 255, 255, 0.48);

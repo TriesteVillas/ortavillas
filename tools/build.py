@@ -4,10 +4,11 @@
 Le quattro lingue del gruppo (it, en, de, sl) descrivono la stessa pagina. Testi e
 dati dei contatti vivono nel dizionario STRINGS, cosi' il template e
 l'attribuzione dei lead restano coerenti. Prima di scrivere, check_locales()
-ferma la generazione se una lingua manca di una chiave o ne ha una in piu'.
+ferma la generazione se una lingua e' incompleta o incoerente con l'italiano
+(chiavi, stringhe vuote, servizi, prefisso [ORTAVILLAS], percorsi, og:locale).
 
 Sloveno (dal 2026-10-01): nessuna promessa di assistenza in sloveno (decisione
-D1 del gruppo, 2026-09-11) -- i testi sl dicono che il pogovor avviene in
+D1 del gruppo, 2026-09-11) -- i testi sl dicono che il colloquio avviene in
 italiano, inglese o tedesco. Il lago e' "jezero Orta" (forma di sl.wikipedia;
 "Ortsko jezero" non e' attestato).
 
@@ -19,6 +20,7 @@ cosi' com'e'. Nessun build viene eseguito in fase di deploy.
 
 import json
 import os
+import re
 from urllib.parse import quote
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -650,34 +652,125 @@ def _leaves(value):
     return 1
 
 
-def check_locales():
-    """Cancello: ogni lingua ha percorso, og:locale e la stessa forma di STRINGS["it"].
+def _blank_paths(value, path=""):
+    """I percorsi (es. 'leads.vendere.subject') delle stringhe vuote o di soli spazi."""
+    if isinstance(value, dict):
+        return [
+            hit
+            for key, item in value.items()
+            for hit in _blank_paths(item, f"{path}.{key}" if path else key)
+        ]
+    if isinstance(value, list):
+        return [
+            hit
+            for index, item in enumerate(value)
+            for hit in _blank_paths(item, f"{path}[{index}]")
+        ]
+    if isinstance(value, str) and not value.strip():
+        return [path]
+    return []
 
-    Una chiave mancante farebbe saltare page() con un KeyError a meta' scrittura;
-    una in piu' sarebbe un testo che nessuno vede. Si ferma prima di toccare i file.
+
+def output_file(locale):
+    """Il file da scrivere si ricava da PATHS: '/' -> index.html, '/sl/' -> sl/index.html."""
+    return PATHS[locale].strip("/") + "/index.html" if PATHS[locale] != "/" else "index.html"
+
+
+def check_locales():
+    """Cancello: ogni lingua e' completa e coerente con STRINGS["it"] prima di scrivere.
+
+    Controlla, per ogni lingua: presenza in PATHS, OG_LOCALE, GROUP_SITE e STRINGS;
+    stessa forma di 'it' (nomi delle chiavi a ogni livello, lunghezze delle liste);
+    nessuna stringa vuota o di soli spazi a nessuna profondita'; i servizi nello
+    stesso ordine e con gli stessi identificativi di 'it', ognuno col suo lead;
+    ogni oggetto mail col prefisso [ORTAVILLAS] (l'attribuzione dei lead);
+    percorso, og:locale e link al gruppo nella forma giusta e senza doppioni.
+    Si ferma prima di toccare i file: main() comunque scrive solo a generazione finita.
     """
     errors = []
+    duplicates = sorted({locale for locale in LOCALES if LOCALES.count(locale) > 1})
+    if duplicates:
+        errors.append(f"LOCALES ha lingue ripetute: {duplicates}")
+    if not LOCALES or LOCALES[0] != "it":
+        errors.append("LOCALES deve cominciare da 'it' (la radice del sito e x-default)")
     reference = _shape(STRINGS["it"])
+    reference_keys = [service["key"] for service in STRINGS["it"]["services"]]
     for locale in LOCALES:
-        for name, table in (
-            ("PATHS", PATHS),
-            ("OG_LOCALE", OG_LOCALE),
-            ("GROUP_SITE", GROUP_SITE),
-            ("STRINGS", STRINGS),
+        missing = [
+            name
+            for name, table in (
+                ("PATHS", PATHS),
+                ("OG_LOCALE", OG_LOCALE),
+                ("GROUP_SITE", GROUP_SITE),
+                ("STRINGS", STRINGS),
+            )
+            if locale not in table
+        ]
+        errors.extend(f"{locale}: manca in {name}" for name in missing)
+        if missing:
+            continue
+
+        expected_path = "/" if locale == "it" else f"/{locale}/"
+        if PATHS[locale] != expected_path:
+            errors.append(f"{locale}: PATHS vale {PATHS[locale]!r}, atteso {expected_path!r}")
+        og = OG_LOCALE[locale]
+        if not (
+            isinstance(og, str)
+            and re.fullmatch(r"[a-z]{2}_[A-Z]{2}", og)
+            and og.startswith(f"{locale}_")
         ):
-            if locale not in table:
-                errors.append(f"{locale}: manca in {name}")
-        if locale in STRINGS and _shape(STRINGS[locale]) != reference:
+            errors.append(f"{locale}: OG_LOCALE vale {og!r}, atteso '{locale}_XX'")
+        group = GROUP_SITE[locale]
+        if not (
+            isinstance(group, str)
+            and re.fullmatch(r"https://triestevillas\.com(/[a-z]{2})?", group)
+        ):
+            errors.append(
+                f"{locale}: GROUP_SITE vale {group!r}, non e' un indirizzo di triestevillas.com"
+            )
+
+        strings = STRINGS[locale]
+        if _shape(strings) != reference:
             errors.append(f"{locale}: la struttura di STRINGS non coincide con quella di 'it'")
-        if locale in STRINGS:
-            empty = [
-                key for key, item in STRINGS[locale].items() if isinstance(item, str) and not item
-            ]
-            if empty:
-                errors.append(f"{locale}: stringhe vuote {empty}")
-    extra = sorted(set(STRINGS) - set(LOCALES))
-    if extra:
-        errors.append(f"STRINGS ha lingue fuori da LOCALES: {extra}")
+            continue
+        blanks = _blank_paths(strings)
+        if blanks:
+            errors.append(f"{locale}: stringhe vuote {blanks}")
+        keys = [service["key"] for service in strings["services"]]
+        if keys != reference_keys:
+            errors.append(
+                f"{locale}: servizi {keys}, attesi {reference_keys} (identificativi, non testo)"
+            )
+        unknown = [key for key in keys if key not in strings["leads"]]
+        if unknown:
+            errors.append(f"{locale}: servizi senza lead {unknown}")
+        unmarked = [
+            name
+            for name, lead in strings["leads"].items()
+            if not lead["subject"].startswith("[ORTAVILLAS] ")
+        ]
+        if unmarked:
+            errors.append(f"{locale}: oggetti mail senza prefisso [ORTAVILLAS] {unmarked}")
+        bad_urls = [
+            post["url"] for post in strings["readingPosts"] if not post["url"].startswith("https://")
+        ]
+        if bad_urls:
+            errors.append(f"{locale}: letture con indirizzo non https {bad_urls}")
+
+    for name, table in (("PATHS", PATHS), ("OG_LOCALE", OG_LOCALE), ("GROUP_SITE", GROUP_SITE)):
+        values = [table[locale] for locale in LOCALES if locale in table]
+        repeated = sorted({value for value in values if values.count(value) > 1})
+        if repeated:
+            errors.append(f"{name} ha valori ripetuti: {repeated}")
+    for name, table in (
+        ("PATHS", PATHS),
+        ("OG_LOCALE", OG_LOCALE),
+        ("GROUP_SITE", GROUP_SITE),
+        ("STRINGS", STRINGS),
+    ):
+        extra = sorted(set(table) - set(LOCALES))
+        if extra:
+            errors.append(f"{name} ha lingue fuori da LOCALES: {extra}")
     if errors:
         raise SystemExit("check_locales:\n  " + "\n  ".join(errors))
     counts = ", ".join(f"{locale}={_leaves(STRINGS[locale])}" for locale in LOCALES)
@@ -1048,19 +1141,16 @@ def sitemap():
 
 def main():
     check_locales()
-    for locale in LOCALES:
-        relative = "index.html" if locale == "it" else f"{locale}/index.html"
+    # Tutto in memoria prima, su disco dopo: se una pagina fallisce a meta'
+    # generazione non resta un sito con meta' file nuovi e meta' vecchi.
+    outputs = [(output_file(locale), page(locale)) for locale in LOCALES]
+    outputs.append(("sitemap.xml", sitemap()))
+    for relative, content in outputs:
         output = os.path.join(ROOT, relative)
         os.makedirs(os.path.dirname(output), exist_ok=True)
-        html = page(locale)
-        with open(output, "w", encoding="utf-8") as page_file:
-            page_file.write(html)
-        print(f"{relative:<20} {len(html):>6} byte")
-
-    sitemap_xml = sitemap()
-    with open(os.path.join(ROOT, "sitemap.xml"), "w", encoding="utf-8") as sitemap_file:
-        sitemap_file.write(sitemap_xml)
-    print(f"{'sitemap.xml':<20} {len(sitemap_xml):>6} byte")
+        with open(output, "w", encoding="utf-8") as output_handle:
+            output_handle.write(content)
+        print(f"{relative:<20} {len(content):>6} byte")
 
 
 if __name__ == "__main__":

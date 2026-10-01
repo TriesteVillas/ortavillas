@@ -31,10 +31,20 @@ Le quattro lingue del gruppo — italiano, inglese, tedesco e sloveno (`/sl/`, d
 python3 tools/build.py    # riscrive index.html, en/, de/, sl/index.html, sitemap.xml
 ```
 
-Prima di scrivere, `check_locales()` confronta ogni lingua con l'italiano — stesse chiavi,
-stesse lunghezze delle liste, nessuna stringa vuota, percorso e `og:locale` presenti — e se
-qualcosa non torna esce con errore **senza toccare i file**. Una chiave aggiunta all'italiano
-va aggiunta in tutte e quattro le lingue, o la generazione si ferma.
+Prima di scrivere, `check_locales()` confronta ogni lingua con l'italiano e se qualcosa non
+torna esce con errore **senza toccare i file**:
+
+- stesse chiavi a ogni livello e stesse lunghezze delle liste;
+- nessuna stringa vuota o di soli spazi, a qualunque profondità (oggetti mail, alt, link…);
+- i servizi con gli stessi identificativi (`vendere`, `comprare`, `reddito`) e nello stesso
+  ordine, ognuno col suo lead;
+- ogni oggetto mail col prefisso `[ORTAVILLAS] ` (è l'attribuzione dei lead);
+- `PATHS` (`/` per l'italiano, `/<lingua>/` per le altre), `og:locale` nella forma
+  `<lingua>_XX` e `GROUP_SITE` su triestevillas.com, senza lingue né valori ripetuti.
+
+Una chiave aggiunta all'italiano va aggiunta in tutte e quattro le lingue, o la generazione si
+ferma. Anche passato il cancello, le pagine si generano tutte in memoria e si scrivono solo
+alla fine: un errore a metà non lascia file nuovi accanto a file vecchi.
 
 L'HTML generato è committato, quindi **il deploy resta senza build**: GitHub Pages serve i
 file così come sono.
@@ -45,7 +55,7 @@ file così come sono.
 >
 > ⚠️ **Sloveno.** Il lago è **«jezero Orta»** (la forma di sl.wikipedia; «Ortsko jezero» non è
 > attestato), in minuscolo dentro la frase. Regola di gruppo **D1**: nessuna promessa di
-> assistenza in sloveno — la pagina dice che il pogovor avviene in italiano, inglese o tedesco
+> assistenza in sloveno — la pagina dice che il colloquio avviene in italiano, inglese o tedesco
 > (hero, fascia finale, meta description). È l'unica cosa da cambiare se un giorno qualcuno
 > risponderà in sloveno. I quattro articoli di villa-volpe.com non hanno una versione slovena:
 > i link portano all'inglese e il titolo della sezione lo dichiara. Prima di campagne in SL,
@@ -75,6 +85,11 @@ sezione da cui è partito:
 | WhatsApp | testo precompilato diverso per sezione (`…vorrei una valutazione…`, `…sto cercando casa…`, `…mettere a reddito…`) |
 | Email | oggetto marcato `[ORTAVILLAS] Valutazione` / `Ricerca casa` / `Messa a reddito` / `Richiesta dal sito` |
 | Telefono | numero dedicato **347 8628738**, diverso da quello del gruppo (331 8940822) |
+
+Sono i testi italiani: ogni lingua ha i suoi, nella sua lingua, sempre con lo stesso prefisso
+`[ORTAVILLAS]` — in sloveno per esempio `[ORTAVILLAS] Ocena vrednosti`, `Iskanje
+nepremičnine`, `Oddajanje`, `Povpraševanje` (il cancello di build lo verifica). Gli oggetti
+sloveni sono i primi non-ASCII del sito: nel `mailto` sono codificati in UTF-8.
 
 Le mail arrivano su `richieste@triestevillas.com`, la casella che il CRM già legge e
 classifica: i lead del lago d'Orta entrano nel funnel esistente e il prefisso
@@ -140,10 +155,12 @@ non viene mostrato e resta il poster.
 
 ## Le foto
 
-Le quattro immagini della galleria vengono da una proprietà sul lago gestita direttamente.
-**Non sono attribuite e non vanno attribuite**: sono vetrina del territorio, non schede di
-immobili in vendita. Gli `alt` descrivono la scena e non dichiarano che siano in vendita —
-se un giorno lo diventeranno, si cambieranno gli `alt` insieme al resto.
+Le quattro immagini della galleria sono **scatti Unsplash del lago d'Orta** (licenza Unsplash,
+dal 23/07/2026, commit `d6d7fb8`): San Giulio dall'alto e da riva, pontile al tramonto, prati
+del Mottarone. Fino a quel giorno erano foto di una proprietà sul lago gestita direttamente.
+Sono vetrina del territorio, non schede di immobili in vendita. Gli `alt` descrivono la scena e
+non dichiarano che siano in vendita — se un giorno lo diventeranno, si cambieranno gli `alt`
+insieme al resto.
 
 Originali a piena risoluzione ridotti a 1400 px di larghezza, qualità 78, progressive
 (~920 KB in tutto), con `loading="lazy"` e `width`/`height` espliciti per non far ballare il
