@@ -1,0 +1,77 @@
+/* Sezione Guide (indice + modello di guida), superficie carta. */
+
+.guida-riga { margin: 22px 0 0; color: var(--ink-soft); font-size: 13px; letter-spacing: 0.02em; }
+
+.guida-corpo { min-width: 0; }
+.guida-corpo .sezione-carta h2 { max-width: 30ch; }
+.guida-corpo .prosa h3 { font-size: 17px; }
+
+/* In breve */
+.guida-in-breve ul { margin: 0; padding: 18px 20px 18px 38px; background: #fbfaf6; border: 1px solid var(--rule); border-radius: var(--r-in); max-width: 68ch; font-size: 16.5px; line-height: 1.55; display: grid; gap: 10px; box-shadow: var(--sh-paper); }
+.guida-in-breve li::marker { color: var(--lago-deep); }
+
+/* rimandi alle fonti */
+sup.rimando { font-family: var(--font-mono); font-size: 0.68em; line-height: 0; margin-left: 1px; }
+sup.rimando a { color: var(--lago-deep); text-decoration: none; padding: 0 1px; }
+sup.rimando a:hover, sup.rimando a:focus-visible { text-decoration: underline; }
+sup.rimando + sup.rimando::before { content: ","; color: var(--ink-soft); }
+
+/* tabelle dentro la prosa: possono superare la misura del testo */
+.prosa .guida-tabella { margin: 6px 0 22px; max-width: none; }
+.guida-tabella .tabella { font-size: 14px; }
+.guida-tabella .tabella tbody th { font-weight: 600; text-align: left; }
+.guida-tabella figcaption { margin-top: 10px; font-size: 13px; }
+
+/* Che cosa non sappiamo */
+.guida-non-sappiamo .prosa { border-left: 3px solid var(--rule); padding-left: 16px; }
+.guida-non-sappiamo .prosa > p:first-child { color: var(--ink-soft); font-style: italic; }
+
+/* Fonti */
+.guida-fonti { margin: 0; padding-left: 1.6em; max-width: 80ch; display: grid; gap: 10px; font-size: 14.5px; line-height: 1.5; }
+.guida-fonti li { scroll-margin-top: calc(var(--testata) + 16px); padding-left: 4px; }
+.guida-fonti li::marker { font-family: var(--font-mono); color: var(--lago-deep); font-size: 13px; }
+.guida-fonti li:target { background: #1d6b6614; outline: 2px solid #1d6b6633; outline-offset: 4px; }
+.guida-fonti a { color: var(--ink-text); text-underline-offset: 3px; overflow-wrap: anywhere; }
+.guida-fonti a:hover { color: var(--lago-deep); }
+.guida-fonte-meta { color: var(--ink-soft); font-size: 13px; }
+
+/* schede delle guide */
+.guida-schede { list-style: none; margin: 0; padding: 0; }
+.guida-schede > li { display: flex; }
+.guida-schede .scheda { flex: 1; }
+.guida-num { color: var(--lago-deep); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; }
+.superficie-carta a.scheda:hover { border-color: var(--lago-deep); }
+.superficie-carta .scheda h3 { color: var(--ink-text); }
+
+/* indice delle guide */
+.guida-indice-corpo { display: grid; gap: 40px; padding-block: clamp(36px, 6vh, 88px) clamp(48px, 8vh, 112px); }
+.guida-principio { border-left: 3px solid var(--lago-deep); background: var(--paper-2); padding: 18px 20px; max-width: 72ch; font-size: 16px; line-height: 1.6; }
+.guida-principio h2 { margin: 0 0 10px; color: var(--lago-deep); }
+.guida-principio p { margin: 0 0 0.8em; }
+.guida-principio p:last-child { margin-bottom: 0; }
+
+/* le altre guide */
+.guida-altre { border-top: 1px solid var(--rule); padding-block: clamp(40px, 6vh, 72px); }
+.guida-altre h2 { margin: 0 0 24px; }
+
+/* CTA */
+.guida-cta { padding-block: 0 clamp(64px, 10vh, 120px); }
+.guida-cta-box { background: var(--lago-deep); color: var(--paper); border-radius: var(--r-in); padding: clamp(28px, 5vw, 56px); }
+.guida-cta-box .occhiello { color: #cfe3df; }
+.guida-cta-box .occhiello::before { background: var(--gold); }
+.guida-cta-box h2 { max-width: 22ch; }
+.guida-cta-box .t-lead { color: #dfe9e6; margin: 18px 0 26px; }
+.superficie-carta .guida-cta-box .bottone-primario { background: var(--gold); color: var(--ink-0); }
+.superficie-carta .guida-cta-box .bottone-primario:hover { background: var(--paper); }
+.superficie-carta .guida-cta-box .link-freccia { color: #f4e3bd; }
+.superficie-carta .guida-cta-box .link-freccia:hover { color: var(--paper); }
+
+@media (max-width: 640px) {
+  .guida-in-breve ul { padding: 14px 14px 14px 30px; font-size: 16px; }
+  .guida-tabella .tabella { font-size: 13px; }
+  .guida-tabella .tabella th, .guida-tabella .tabella td { padding: 9px 10px; }
+}
+
+@media print {
+  .indice, .guida-altre, .guida-cta { display: none; }
+}

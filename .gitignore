@@ -1,2 +1,9 @@
 .DS_Store
 *.log
+node_modules/
+.next/
+.next-*/
+.vercel
+.env*
+next-env.d.ts
+tsconfig.tsbuildinfo

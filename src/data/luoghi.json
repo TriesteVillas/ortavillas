@@ -1,0 +1,3035 @@
+{
+ "_meta": {
+  "edizione": "01 · ottobre 2026",
+  "estratto_il": "2026-10-06",
+  "punto_di_riferimento": {
+   "nome": "Milano, Piazza del Duomo",
+   "lat": 45.4639102,
+   "lon": 9.1906398,
+   "secondo_hub": "Aeroporto di Malpensa, Terminal 1 (45.6271525, 8.7112533)"
+  },
+  "nomi_lingue": "i nomi dei luoghi non cambiano in en/de/sl (nessun esonimo d'uso corrente); il lago sì: Lake Orta / Ortasee / Jezero Orta (tag name:* di OSM relation 2024365)",
+  "lago": {
+   "it": "Lago d'Orta",
+   "en": "Lake Orta",
+   "de": "Ortasee",
+   "sl": "Jezero Orta",
+   "altro": "Cusio"
+  }
+ },
+ "mondi": [
+  {
+   "id": "sponda-est",
+   "nome": {
+    "it": "Orta e la sponda est",
+    "en": "Orta and the east shore",
+    "de": "Orta und das Ostufer",
+    "sl": "Orta in vzhodna obala"
+   },
+   "luoghi": [
+    "orta-san-giulio",
+    "legro",
+    "pettenasco"
+   ],
+   "perche": "Sono i luoghi sulla riva orientale, lungo la SS229 e la ferrovia Novara–Domodossola (stazioni Orta-Miasino e Pettenasco). La riva guarda a ovest: il lago e il sole del pomeriggio stanno davanti; il Mottarone, alle spalle, ritarda l'alba d'inverno (orizzonte a est 14–16°, vedi sole). Orta concentra Sacro Monte, isola, imbarcadero principale e le quotazioni OMI più alte del lago."
+  },
+  {
+   "id": "sponda-ovest",
+   "nome": {
+    "it": "La sponda ovest",
+    "en": "The west shore",
+    "de": "Das Westufer",
+    "sl": "Zahodna obala"
+   },
+   "luoghi": [
+    "pella",
+    "ronco",
+    "san-maurizio-dopaglio",
+    "madonna-del-sasso"
+   ],
+   "perche": "Riva occidentale e suo crinale: nessuna ferrovia (la linea corre sull'altra sponda), strada provinciale SP46, imbarcaderi Navigazione Lago d'Orta a Pella, Ronco, San Filiberto, Lagna. Guarda a est: sole del mattino e vista su Orta e l'isola, ma tramonto anticipato dietro il crinale (Ronco: ultimo sole il 21 dicembre alle 14:06 secondo il nostro calcolo). Madonna del Sasso è il balcone sopra questa riva, a ~690 m."
+  },
+  {
+   "id": "colline-mottarone",
+   "nome": {
+    "it": "Le colline del Mottarone",
+    "en": "The Mottarone hills",
+    "de": "Die Hügel am Mottarone",
+    "sl": "Griči pod Mottaronejem"
+   },
+   "luoghi": [
+    "ameno",
+    "vacciago",
+    "miasino",
+    "armeno"
+   ],
+   "perche": "Paesi a mezza costa (470–550 m) sul versante del Mottarone sopra Orta, a 0,5–2,5 km dalla riva: niente affaccio diretto, ma vista dall'alto, più sole d'inverno (sono i luoghi con più minuti di sole diretto il 21 dicembre, 7 h 38 – 8 h 04 su 8 h 29 teoriche) e ville storiche. Armeno è la porta della strada SP41 per la vetta."
+  },
+  {
+   "id": "teste-del-lago",
+   "nome": {
+    "it": "Le due teste del lago: Omegna e Gozzano",
+    "en": "The lake's two ends: Omegna and Gozzano",
+    "de": "Die beiden Enden des Sees: Omegna und Gozzano",
+    "sl": "Konca jezera: Omegna in Gozzano"
+   },
+   "luoghi": [
+    "omegna",
+    "nonio",
+    "quarna-sopra",
+    "gozzano",
+    "bolzano-novarese"
+   ],
+   "perche": "I due capi del lago, dove stanno i servizi e l'industria: a nord Omegna (14.182 abitanti, l'unica città del lago, ospedale, emissario Nigoglia) con le alture di Nonio e Quarna Sopra in provincia VCO; a sud Gozzano e Bolzano Novarese, con stazioni ferroviarie e la strada verso Borgomanero e l'autostrada. Li teniamo in un mondo solo perché, per chi compra, sono la stessa scelta: vita di paese con negozi, scuole e treno, prezzi OMI più bassi della riva di Orta. Quarna Sopra (~830 m) è il punto più alto dell'atlante."
+  }
+ ],
+ "luoghi": [
+  {
+   "id": "orta-san-giulio",
+   "nome": {
+    "it": "Orta San Giulio"
+   },
+   "nome_esteso": "Orta San Giulio (borgo, Piazza Motta)",
+   "tipo": "comune (capoluogo)",
+   "comune": "Orta San Giulio",
+   "codice_istat": "003112",
+   "provincia": "NO",
+   "mondo": "sponda-est",
+   "punto": {
+    "lat": 45.7980134,
+    "lon": 8.4058762,
+    "fonte": "OpenStreetMap Nominatim, Nominatim: way 172935475 Piazza Mario Motta",
+    "nota": "per i comuni Nominatim restituisce il nodo place/admin_centre del capoluogo"
+   },
+   "quota_m": {
+    "punto_copernicus_glo90": 299.0,
+    "fonte": "Open-Meteo Elevation API (Copernicus DEM GLO-90, ~90 m)",
+    "terrain_tiles_400m": {
+     "min": 284,
+     "mediana": 290,
+     "max": 390,
+     "fonte": "AWS Terrain Tiles z12 (EU-DEM/SRTM), raggio 400 m come SloveniaVillas"
+    },
+    "sopra_il_lago_m": 9,
+    "nota_lago": "quota del lago 290 m (tag ele di OSM relation 2024365; vedi fatti.md per la quota ufficiale)"
+   },
+   "distanza_riva_m": {
+    "valore": 18,
+    "metodo": "distanza minima in linea d'aria dal punto al poligono OSM del lago (relation 2024365), proiezione locale"
+   },
+   "popolazione": {
+    "al_1_gennaio_2025": 1102,
+    "al_1_gennaio_2026_stima": 1086,
+    "fonte": "ISTAT, demo.istat.it – Popolazione residente al 1° gennaio (POSAS); il 2026 è una stima ISTAT",
+    "nota": null
+   },
+   "popolazione_comune": null,
+   "superficie_comune_km2": {
+    "valore": 6.65,
+    "fonte": "ISPRA IdroGEO (piattaforma, api/pir/comuni)"
+   },
+   "carattere": [
+    {
+     "testo": "Borgo sulla sponda orientale con l'isola di San Giulio nel territorio comunale (circa 400 m dalla riva); Piazza Motta è il punto d'imbarco per l'isola.",
+     "fonte": "https://it.wikipedia.org/wiki/Orta_San_Giulio",
+     "consultato": "2026-10-06"
+    },
+    {
+     "testo": "Fa parte dei «Borghi più belli d'Italia» e ha la Bandiera arancione del Touring Club Italiano (dato da Wikipedia, non verificato sui siti dei due circuiti).",
+     "fonte": "https://it.wikipedia.org/wiki/Orta_San_Giulio",
+     "consultato": "2026-10-06"
+    },
+    {
+     "testo": "Il Sacro Monte di Orta, avviato alla fine del Cinquecento, è parte del sito UNESCO «Sacri Monti del Piemonte e della Lombardia» (vedi fatti.md).",
+     "fonte": "https://it.wikipedia.org/wiki/Orta_San_Giulio",
+     "consultato": "2026-10-06"
+    },
+    {
+     "testo": "Il municipio è a Villa Bossi (XVII secolo), sul lago.",
+     "fonte": "https://it.wikipedia.org/wiki/Orta_San_Giulio",
+     "consultato": "2026-10-06"
+    }
+   ],
+   "servizi": {
+    "stazione_piu_vicina": [
+     {
+      "nome": "Orta-Miasino",
+      "operatore_osm": "Rete Ferroviaria Italiana",
+      "osm": "node/820255764",
+      "distanza_linea_aria_km": 1.2
+     },
+     {
+      "nome": "Pettenasco",
+      "operatore_osm": "Rete Ferroviaria Italiana",
+      "osm": "node/4414586469",
+      "distanza_linea_aria_km": 2.5
+     }
+    ],
+    "imbarcadero_piu_vicino": [
+     {
+      "nome": "Orta piazza",
+      "operatore_osm": "Navigazione Lago d'Orta",
+      "osm": "node/1837704813",
+      "distanza_linea_aria_km": 0.0
+     }
+    ],
+    "nota_distanze": "in linea d'aria",
+    "scuole_statali_nel_comune": [
+     {
+      "grado": "scuola infanzia",
+      "nome": "ORTA SAN GIULIO",
+      "codice": "NOAA804047"
+     },
+     {
+      "grado": "scuola primaria",
+      "nome": "ORTA SAN GIULIO",
+      "codice": "NOEE80406E"
+     },
+     {
+      "grado": "scuola primo grado",
+      "nome": "S.M.S. DI ORTA S.GIULIO",
+      "codice": "NOMM804029"
+     }
+    ],
+    "scuole_fonte": "MIM, Open data Scuola – Anagrafe scuole statali a.s. 2026/27 (SCUANAGRAFESTAT20262720260901.csv); escluse le paritarie",
+    "ospedale_riferimento": "vedi fatti.md (Omegna – Madonna del Popolo; Borgomanero – SS. Trinità); distanze stradali non misurate",
+    "fonte_stazioni_imbarcaderi": "OpenStreetMap (Overpass), estratto 2026-10-06; distanze in linea d'aria; orari e stagionalità in fatti.md"
+   },
+   "rischi_ispra_comune": {
+    "frane_area_p3p4_pct": 0.812,
+    "frane_popolazione_p3p4_pct": 1.061,
+    "idraulica_area_p3_pct": 0.015,
+    "idraulica_area_p2_pct": 0.271,
+    "idraulica_popolazione_p2_pct": 1.204,
+    "fonte": "ISPRA IdroGEO, https://idrogeo.isprambiente.it/app/page/pir/comuni/3112 (API /api/pir/comuni/3112), mosaicature nazionali ISPRA della pericolosità (frane PAI, alluvioni D.Lgs. 49/2010); popolazione censimento 2021",
+    "nota": "percentuali sull'intero comune, non sul punto"
+   },
+   "sole": {
+    "orizzonte_max_gradi": {
+     "est_60_130": 14.7,
+     "sud_150_210": 3.5,
+     "ovest_230_310": 9.5
+    },
+    "21_dicembre": {
+     "minuti_sole_diretto_terreno": 399,
+     "minuti_sole_orizzonte_piatto": 509,
+     "primo_sole_ora_locale": "09:10",
+     "ultimo_sole_ora_locale": "15:48"
+    },
+    "21_giugno": {
+     "minuti_sole_diretto_terreno": 792,
+     "minuti_sole_orizzonte_piatto": 932,
+     "primo_sole_ora_locale": "07:15",
+     "ultimo_sole_ora_locale": "20:26"
+    },
+    "21_marzo": {
+     "minuti_sole_diretto_terreno": 592,
+     "minuti_sole_orizzonte_piatto": 719,
+     "primo_sole_ora_locale": "07:59",
+     "ultimo_sole_ora_locale": "17:50"
+    },
+    "metodo": "orizzonte calcolato ogni 2° di azimut sul DEM Terrain Tiles z12 fino a 15 km (o al bordo del riquadro), osservatore 2 m sopra il terreno, curvatura e rifrazione; posizione del sole con formule NOAA; nessun edificio, albero o nuvola. Ore locali (CET d'inverno e marzo, CEST a giugno)."
+   },
+   "tempi_auto": {
+    "milano-duomo": {
+     "minuti": 75,
+     "km": 87.1
+    },
+    "malpensa-t1": {
+     "minuti": 54,
+     "km": 47.1
+    },
+    "linate": {
+     "minuti": 83,
+     "km": 92.1
+    },
+    "novara": {
+     "minuti": 50,
+     "km": 48.3
+    },
+    "torino": {
+     "minuti": 97,
+     "km": 126.9
+    },
+    "lugano": {
+     "minuti": 82,
+     "km": 95.5
+    },
+    "zuerich": {
+     "minuti": 232,
+     "km": 298.9
+    },
+    "basel": {
+     "minuti": 265,
+     "km": 355.8
+    },
+    "bern": {
+     "minuti": 260,
+     "km": 319.6
+    },
+    "geneve": {
+     "minuti": 235,
+     "km": 303.8
+    },
+    "muenchen": {
+     "minuti": 366,
+     "km": 510.4
+    }
+   },
+   "prezzi_omi": "vedi prezzi.json, comune Orta San Giulio",
+   "limiti": [
+    "Inverno corto di sole: il 21 dicembre 6 h 39 di sole diretto sul punto (su 8 h 29 teoriche), dalle 09:10 alle 15:48: calcolo nostro sul DEM, solo rilievo (né edifici né alberi).",
+    "Centro storico pedonale con accesso auto riservato e parcheggi a pagamento ai margini del borgo: riportato da guide turistiche, regolamento ZTL del Comune NON verificato (dato da controllare su comune.ortasangiulio.no.it).",
+    "Affollamento turistico nei fine settimana e d'estate: non abbiamo trovato una misura pubblica (presenze turistiche per comune ISTAT/Osservatorio turistico regionale: da cercare)."
+   ]
+  },
+  {
+   "id": "legro",
+   "nome": {
+    "it": "Legro"
+   },
+   "nome_esteso": "Legro (Orta San Giulio)",
+   "tipo": "frazione",
+   "comune": "Orta San Giulio",
+   "codice_istat": "003112",
+   "provincia": "NO",
+   "mondo": "sponda-est",
+   "punto": {
+    "lat": 45.7955642,
+    "lon": 8.4216604,
+    "fonte": "OpenStreetMap Nominatim, Nominatim: node 2088481867 hamlet Legro",
+    "nota": "per i comuni Nominatim restituisce il nodo place/admin_centre del capoluogo"
+   },
+   "quota_m": {
+    "punto_copernicus_glo90": 360.0,
+    "fonte": "Open-Meteo Elevation API (Copernicus DEM GLO-90, ~90 m)",
+    "terrain_tiles_400m": {
+     "min": 307,
+     "mediana": 358,
+     "max": 450,
+     "fonte": "AWS Terrain Tiles z12 (EU-DEM/SRTM), raggio 400 m come SloveniaVillas"
+    },
+    "sopra_il_lago_m": 70,
+    "nota_lago": "quota del lago 290 m (tag ele di OSM relation 2024365; vedi fatti.md per la quota ufficiale)"
+   },
+   "distanza_riva_m": {
+    "valore": 448,
+    "metodo": "distanza minima in linea d'aria dal punto al poligono OSM del lago (relation 2024365), proiezione locale"
+   },
+   "popolazione": null,
+   "popolazione_comune": {
+    "al_1_gennaio_2025": 1102,
+    "fonte": "ISTAT POSAS 2025",
+    "nota": "dato del comune intero, non della frazione"
+   },
+   "superficie_comune_km2": {
+    "valore": 6.65,
+    "fonte": "ISPRA IdroGEO (piattaforma, api/pir/comuni)"
+   },
+   "carattere": [
+    {
+     "testo": "Frazione di Orta San Giulio a mezza costa sopra il borgo, dove si trova la stazione Orta-Miasino (OSM node 2088481867 è il nodo della frazione; stazione in servizi).",
+     "fonte": "https://it.wikipedia.org/wiki/Orta_San_Giulio",
+     "consultato": "2026-10-06"
+    },
+    {
+     "testo": "La zona OMI C1 di Orta la nomina esplicitamente: «semicentrale – fascia a lago collinare e frazione Legro».",
+     "fonte": "https://www1.agenziaentrate.gov.it/servizi/Consultazione/ricerca.htm",
+     "consultato": "2026-10-06"
+    }
+   ],
+   "servizi": {
+    "stazione_piu_vicina": [
+     {
+      "nome": "Orta-Miasino",
+      "operatore_osm": "Rete Ferroviaria Italiana",
+      "osm": "node/820255764",
+      "distanza_linea_aria_km": 0.0
+     },
+     {
+      "nome": "Pettenasco",
+      "operatore_osm": "Rete Ferroviaria Italiana",
+      "osm": "node/4414586469",
+      "distanza_linea_aria_km": 3.0
+     }
+    ],
+    "imbarcadero_piu_vicino": [
+     {
+      "nome": "Orta piazza",
+      "operatore_osm": "Navigazione Lago d'Orta",
+      "osm": "node/1837704813",
+      "distanza_linea_aria_km": 1.3
+     }
+    ],
+    "nota_distanze": "in linea d'aria",
+    "scuole_statali_nel_comune": [
+     {
+      "grado": "scuola infanzia",
+      "nome": "ORTA SAN GIULIO",
+      "codice": "NOAA804047"
+     },
+     {
+      "grado": "scuola primaria",
+      "nome": "ORTA SAN GIULIO",
+      "codice": "NOEE80406E"
+     },
+     {
+      "grado": "scuola primo grado",
+      "nome": "S.M.S. DI ORTA S.GIULIO",
+      "codice": "NOMM804029"
+     }
+    ],
+    "scuole_fonte": "MIM, Open data Scuola – Anagrafe scuole statali a.s. 2026/27 (SCUANAGRAFESTAT20262720260901.csv); escluse le paritarie",
+    "ospedale_riferimento": "vedi fatti.md (Omegna – Madonna del Popolo; Borgomanero – SS. Trinità); distanze stradali non misurate",
+    "fonte_stazioni_imbarcaderi": "OpenStreetMap (Overpass), estratto 2026-10-06; distanze in linea d'aria; orari e stagionalità in fatti.md"
+   },
+   "rischi_ispra_comune": {
+    "frane_area_p3p4_pct": 0.812,
+    "frane_popolazione_p3p4_pct": 1.061,
+    "idraulica_area_p3_pct": 0.015,
+    "idraulica_area_p2_pct": 0.271,
+    "idraulica_popolazione_p2_pct": 1.204,
+    "fonte": "ISPRA IdroGEO, https://idrogeo.isprambiente.it/app/page/pir/comuni/3112 (API /api/pir/comuni/3112), mosaicature nazionali ISPRA della pericolosità (frane PAI, alluvioni D.Lgs. 49/2010); popolazione censimento 2021",
+    "nota": "percentuali sull'intero comune, non sul punto"
+   },
+   "sole": {
+    "orizzonte_max_gradi": {
+     "est_60_130": 14.5,
+     "sud_150_210": 7.0,
+     "ovest_230_310": 7.1
+    },
+    "21_dicembre": {
+     "minuti_sole_diretto_terreno": 406,
+     "minuti_sole_orizzonte_piatto": 509,
+     "primo_sole_ora_locale": "09:26",
+     "ultimo_sole_ora_locale": "16:11"
+    },
+    "21_giugno": {
+     "minuti_sole_diretto_terreno": 816,
+     "minuti_sole_orizzonte_piatto": 932,
+     "primo_sole_ora_locale": "06:59",
+     "ultimo_sole_ora_locale": "20:34"
+    },
+    "21_marzo": {
+     "minuti_sole_diretto_terreno": 601,
+     "minuti_sole_orizzonte_piatto": 720,
+     "primo_sole_ora_locale": "07:58",
+     "ultimo_sole_ora_locale": "18:01"
+    },
+    "metodo": "orizzonte calcolato ogni 2° di azimut sul DEM Terrain Tiles z12 fino a 15 km (o al bordo del riquadro), osservatore 2 m sopra il terreno, curvatura e rifrazione; posizione del sole con formule NOAA; nessun edificio, albero o nuvola. Ore locali (CET d'inverno e marzo, CEST a giugno)."
+   },
+   "tempi_auto": {
+    "milano-duomo": {
+     "minuti": 73,
+     "km": 86.5
+    },
+    "malpensa-t1": {
+     "minuti": 53,
+     "km": 46.5
+    },
+    "linate": {
+     "minuti": 81,
+     "km": 91.5
+    },
+    "novara": {
+     "minuti": 49,
+     "km": 47.7
+    },
+    "torino": {
+     "minuti": 95,
+     "km": 126.3
+    },
+    "lugano": {
+     "minuti": 80,
+     "km": 95.0
+    },
+    "zuerich": {
+     "minuti": 230,
+     "km": 298.3
+    },
+    "basel": {
+     "minuti": 263,
+     "km": 355.3
+    },
+    "bern": {
+     "minuti": 258,
+     "km": 319.1
+    },
+    "geneve": {
+     "minuti": 233,
+     "km": 303.2
+    },
+    "muenchen": {
+     "minuti": 364,
+     "km": 509.8
+    }
+   },
+   "prezzi_omi": "vedi prezzi.json, comune Orta San Giulio (zona C1 nominata «frazione Legro»)",
+   "limiti": []
+  },
+  {
+   "id": "pettenasco",
+   "nome": {
+    "it": "Pettenasco"
+   },
+   "nome_esteso": "Pettenasco",
+   "tipo": "comune (capoluogo)",
+   "comune": "Pettenasco",
+   "codice_istat": "003116",
+   "provincia": "NO",
+   "mondo": "sponda-est",
+   "punto": {
+    "lat": 45.8171622,
+    "lon": 8.4087011,
+    "fonte": "OpenStreetMap Nominatim, Nominatim: relation 46236 (comune), punto restituito",
+    "nota": "per i comuni Nominatim restituisce il nodo place/admin_centre del capoluogo"
+   },
+   "quota_m": {
+    "punto_copernicus_glo90": 307.0,
+    "fonte": "Open-Meteo Elevation API (Copernicus DEM GLO-90, ~90 m)",
+    "terrain_tiles_400m": {
+     "min": 287,
+     "mediana": 305,
+     "max": 382,
+     "fonte": "AWS Terrain Tiles z12 (EU-DEM/SRTM), raggio 400 m come SloveniaVillas"
+    },
+    "sopra_il_lago_m": 17,
+    "nota_lago": "quota del lago 290 m (tag ele di OSM relation 2024365; vedi fatti.md per la quota ufficiale)"
+   },
+   "distanza_riva_m": {
+    "valore": 380,
+    "metodo": "distanza minima in linea d'aria dal punto al poligono OSM del lago (relation 2024365), proiezione locale"
+   },
+   "popolazione": {
+    "al_1_gennaio_2025": 1308,
+    "al_1_gennaio_2026_stima": 1296,
+    "fonte": "ISTAT, demo.istat.it – Popolazione residente al 1° gennaio (POSAS); il 2026 è una stima ISTAT",
+    "nota": null
+   },
+   "popolazione_comune": null,
+   "superficie_comune_km2": {
+    "valore": 7.071,
+    "fonte": "ISPRA IdroGEO (piattaforma, api/pir/comuni)"
+   },
+   "carattere": [
+    {
+     "testo": "A metà della sponda orientale; dalla metà dell'Ottocento i mulini divennero tornerie idrauliche per oggetti in legno; una è oggi il Museo dell'arte della tornitura del legno.",
+     "fonte": "https://it.wikipedia.org/wiki/Pettenasco",
+     "consultato": "2026-10-06"
+    }
+   ],
+   "servizi": {
+    "stazione_piu_vicina": [
+     {
+      "nome": "Pettenasco",
+      "operatore_osm": "Rete Ferroviaria Italiana",
+      "osm": "node/4414586469",
+      "distanza_linea_aria_km": 0.4
+     },
+     {
+      "nome": "Orta-Miasino",
+      "operatore_osm": "Rete Ferroviaria Italiana",
+      "osm": "node/820255764",
+      "distanza_linea_aria_km": 2.5
+     }
+    ],
+    "imbarcadero_piu_vicino": [
+     {
+      "nome": "Navigazione Orta Omegna",
+      "operatore_osm": null,
+      "osm": "node/1424162848",
+      "distanza_linea_aria_km": 0.4
+     }
+    ],
+    "nota_distanze": "in linea d'aria",
+    "scuole_statali_nel_comune": [
+     {
+      "grado": "scuola infanzia",
+      "nome": "SCUOLA MATERNA PETTENASCO",
+      "codice": "NOAA804069"
+     },
+     {
+      "grado": "scuola primaria",
+      "nome": "PETTENASCO",
+      "codice": "NOEE80404C"
+     }
+    ],
+    "scuole_fonte": "MIM, Open data Scuola – Anagrafe scuole statali a.s. 2026/27 (SCUANAGRAFESTAT20262720260901.csv); escluse le paritarie",
+    "ospedale_riferimento": "vedi fatti.md (Omegna – Madonna del Popolo; Borgomanero – SS. Trinità); distanze stradali non misurate",
+    "fonte_stazioni_imbarcaderi": "OpenStreetMap (Overpass), estratto 2026-10-06; distanze in linea d'aria; orari e stagionalità in fatti.md",
+    "nota_imbarcadero": "OSM ha nel riquadro alcuni imbarcaderi senza nome o operatore (o con nome ambiguo, es. «Navigazione Orta Omegna» presso Pettenasco) e non mappa un pontile a Omegna: le fermate effettive e la stagione vanno lette sull'orario di Navigazione Lago d'Orta (fatti.md)."
+   },
+   "rischi_ispra_comune": {
+    "frane_area_p3p4_pct": 3.606,
+    "frane_popolazione_p3p4_pct": 18.867,
+    "idraulica_area_p3_pct": 0.933,
+    "idraulica_area_p2_pct": 3.649,
+    "idraulica_popolazione_p2_pct": 19.81,
+    "fonte": "ISPRA IdroGEO, https://idrogeo.isprambiente.it/app/page/pir/comuni/3116 (API /api/pir/comuni/3116), mosaicature nazionali ISPRA della pericolosità (frane PAI, alluvioni D.Lgs. 49/2010); popolazione censimento 2021",
+    "nota": "percentuali sull'intero comune, non sul punto"
+   },
+   "sole": {
+    "orizzonte_max_gradi": {
+     "est_60_130": 15.7,
+     "sud_150_210": 6.2,
+     "ovest_230_310": 9.9
+    },
+    "21_dicembre": {
+     "minuti_sole_diretto_terreno": 379,
+     "minuti_sole_orizzonte_piatto": 509,
+     "primo_sole_ora_locale": "09:33",
+     "ultimo_sole_ora_locale": "15:51"
+    },
+    "21_giugno": {
+     "minuti_sole_diretto_terreno": 818,
+     "minuti_sole_orizzonte_piatto": 932,
+     "primo_sole_ora_locale": "06:42",
+     "ultimo_sole_ora_locale": "20:19"
+    },
+    "21_marzo": {
+     "minuti_sole_diretto_terreno": 612,
+     "minuti_sole_orizzonte_piatto": 719,
+     "primo_sole_ora_locale": "07:39",
+     "ultimo_sole_ora_locale": "17:50"
+    },
+    "metodo": "orizzonte calcolato ogni 2° di azimut sul DEM Terrain Tiles z12 fino a 15 km (o al bordo del riquadro), osservatore 2 m sopra il terreno, curvatura e rifrazione; posizione del sole con formule NOAA; nessun edificio, albero o nuvola. Ore locali (CET d'inverno e marzo, CEST a giugno)."
+   },
+   "tempi_auto": {
+    "milano-duomo": {
+     "minuti": 75,
+     "km": 88.6
+    },
+    "malpensa-t1": {
+     "minuti": 54,
+     "km": 48.6
+    },
+    "linate": {
+     "minuti": 83,
+     "km": 93.6
+    },
+    "novara": {
+     "minuti": 50,
+     "km": 49.8
+    },
+    "torino": {
+     "minuti": 96,
+     "km": 128.4
+    },
+    "lugano": {
+     "minuti": 82,
+     "km": 97.0
+    },
+    "zuerich": {
+     "minuti": 232,
+     "km": 300.4
+    },
+    "basel": {
+     "minuti": 264,
+     "km": 357.4
+    },
+    "bern": {
+     "minuti": 255,
+     "km": 315.8
+    },
+    "geneve": {
+     "minuti": 234,
+     "km": 305.3
+    },
+    "muenchen": {
+     "minuti": 365,
+     "km": 511.9
+    }
+   },
+   "prezzi_omi": "vedi prezzi.json, comune Pettenasco",
+   "limiti": [
+    "Inverno corto di sole: il 21 dicembre 6 h 19 di sole diretto sul punto (su 8 h 29 teoriche), dalle 09:33 alle 15:51: calcolo nostro sul DEM, solo rilievo (né edifici né alberi).",
+    "Frane: secondo ISPRA IdroGEO il 18.9% dei residenti del comune vive in aree a pericolosità da frana elevata o molto elevata (P3+P4), su 3.6% della superficie.",
+    "Allagamenti: secondo ISPRA IdroGEO il 19.8% dei residenti del comune sta in aree a pericolosità idraulica media (P2, scenario con tempo di ritorno 100–200 anni) — sul lago significa soprattutto la fascia di riva."
+   ]
+  },
+  {
+   "id": "pella",
+   "nome": {
+    "it": "Pella"
+   },
+   "nome_esteso": "Pella",
+   "tipo": "comune (capoluogo)",
+   "comune": "Pella",
+   "codice_istat": "003115",
+   "provincia": "NO",
+   "mondo": "sponda-ovest",
+   "punto": {
+    "lat": 45.8016249,
+    "lon": 8.3847792,
+    "fonte": "OpenStreetMap Nominatim, Nominatim: relation 46141 (comune), punto restituito",
+    "nota": "per i comuni Nominatim restituisce il nodo place/admin_centre del capoluogo"
+   },
+   "quota_m": {
+    "punto_copernicus_glo90": 314.0,
+    "fonte": "Open-Meteo Elevation API (Copernicus DEM GLO-90, ~90 m)",
+    "terrain_tiles_400m": {
+     "min": 284,
+     "mediana": 305,
+     "max": 431,
+     "fonte": "AWS Terrain Tiles z12 (EU-DEM/SRTM), raggio 400 m come SloveniaVillas"
+    },
+    "sopra_il_lago_m": 24,
+    "nota_lago": "quota del lago 290 m (tag ele di OSM relation 2024365; vedi fatti.md per la quota ufficiale)"
+   },
+   "distanza_riva_m": {
+    "valore": 212,
+    "metodo": "distanza minima in linea d'aria dal punto al poligono OSM del lago (relation 2024365), proiezione locale"
+   },
+   "popolazione": {
+    "al_1_gennaio_2025": 876,
+    "al_1_gennaio_2026_stima": 874,
+    "fonte": "ISTAT, demo.istat.it – Popolazione residente al 1° gennaio (POSAS); il 2026 è una stima ISTAT",
+    "nota": null
+   },
+   "popolazione_comune": null,
+   "superficie_comune_km2": {
+    "valore": 8.134,
+    "fonte": "ISPRA IdroGEO (piattaforma, api/pir/comuni)"
+   },
+   "carattere": [
+    {
+     "testo": "Paese sulla riva occidentale, di fronte a Orta e all'isola; imbarcadero della Navigazione Lago d'Orta (OSM).",
+     "fonte": "https://it.wikipedia.org/wiki/Pella_(Italia)",
+     "consultato": "2026-10-06"
+    }
+   ],
+   "servizi": {
+    "stazione_piu_vicina": [
+     {
+      "nome": "Pettenasco",
+      "operatore_osm": "Rete Ferroviaria Italiana",
+      "osm": "node/4414586469",
+      "distanza_linea_aria_km": 2.7
+     },
+     {
+      "nome": "Orta-Miasino",
+      "operatore_osm": "Rete Ferroviaria Italiana",
+      "osm": "node/820255764",
+      "distanza_linea_aria_km": 2.9
+     }
+    ],
+    "imbarcadero_piu_vicino": [
+     {
+      "nome": "Pella",
+      "operatore_osm": "Navigazione Lago d'Orta",
+      "osm": "node/820267895",
+      "distanza_linea_aria_km": 0.3
+     }
+    ],
+    "nota_distanze": "in linea d'aria: dalla sponda ovest la stazione più vicina è sull'altra riva, la distanza stradale è molto maggiore",
+    "scuole_statali_nel_comune": [
+     {
+      "grado": "scuola primaria",
+      "nome": "PELLA-FRAZ.ALZO",
+      "codice": "NOEE80402A"
+     }
+    ],
+    "scuole_fonte": "MIM, Open data Scuola – Anagrafe scuole statali a.s. 2026/27 (SCUANAGRAFESTAT20262720260901.csv); escluse le paritarie",
+    "ospedale_riferimento": "vedi fatti.md (Omegna – Madonna del Popolo; Borgomanero – SS. Trinità); distanze stradali non misurate",
+    "fonte_stazioni_imbarcaderi": "OpenStreetMap (Overpass), estratto 2026-10-06; distanze in linea d'aria; orari e stagionalità in fatti.md"
+   },
+   "rischi_ispra_comune": {
+    "frane_area_p3p4_pct": 3.11,
+    "frane_popolazione_p3p4_pct": 8.613,
+    "idraulica_area_p3_pct": 0.086,
+    "idraulica_area_p2_pct": 0.738,
+    "idraulica_popolazione_p2_pct": 5.491,
+    "fonte": "ISPRA IdroGEO, https://idrogeo.isprambiente.it/app/page/pir/comuni/3115 (API /api/pir/comuni/3115), mosaicature nazionali ISPRA della pericolosità (frane PAI, alluvioni D.Lgs. 49/2010); popolazione censimento 2021",
+    "nota": "percentuali sull'intero comune, non sul punto"
+   },
+   "sole": {
+    "orizzonte_max_gradi": {
+     "est_60_130": 5.6,
+     "sud_150_210": 10.1,
+     "ovest_230_310": 16.4
+    },
+    "21_dicembre": {
+     "minuti_sole_diretto_terreno": 404,
+     "minuti_sole_orizzonte_piatto": 509,
+     "primo_sole_ora_locale": "08:25",
+     "ultimo_sole_ora_locale": "15:08"
+    },
+    "21_giugno": {
+     "minuti_sole_diretto_terreno": 822,
+     "minuti_sole_orizzonte_piatto": 932,
+     "primo_sole_ora_locale": "06:11",
+     "ultimo_sole_ora_locale": "19:52"
+    },
+    "21_marzo": {
+     "minuti_sole_diretto_terreno": 611,
+     "minuti_sole_orizzonte_piatto": 719,
+     "primo_sole_ora_locale": "06:57",
+     "ultimo_sole_ora_locale": "17:07"
+    },
+    "metodo": "orizzonte calcolato ogni 2° di azimut sul DEM Terrain Tiles z12 fino a 15 km (o al bordo del riquadro), osservatore 2 m sopra il terreno, curvatura e rifrazione; posizione del sole con formule NOAA; nessun edificio, albero o nuvola. Ore locali (CET d'inverno e marzo, CEST a giugno)."
+   },
+   "tempi_auto": {
+    "milano-duomo": {
+     "minuti": 77,
+     "km": 87.9
+    },
+    "malpensa-t1": {
+     "minuti": 57,
+     "km": 47.9
+    },
+    "linate": {
+     "minuti": 86,
+     "km": 92.9
+    },
+    "novara": {
+     "minuti": 53,
+     "km": 49.1
+    },
+    "torino": {
+     "minuti": 99,
+     "km": 127.7
+    },
+    "lugano": {
+     "minuti": 85,
+     "km": 96.4
+    },
+    "zuerich": {
+     "minuti": 234,
+     "km": 299.7
+    },
+    "basel": {
+     "minuti": 267,
+     "km": 356.7
+    },
+    "bern": {
+     "minuti": 261,
+     "km": 322.5
+    },
+    "geneve": {
+     "minuti": 237,
+     "km": 304.6
+    },
+    "muenchen": {
+     "minuti": 368,
+     "km": 511.2
+    }
+   },
+   "prezzi_omi": "vedi prezzi.json, comune Pella",
+   "limiti": [
+    "Frane: secondo ISPRA IdroGEO il 8.6% dei residenti del comune vive in aree a pericolosità da frana elevata o molto elevata (P3+P4), su 3.1% della superficie.",
+    "Allagamenti: secondo ISPRA IdroGEO il 5.5% dei residenti del comune sta in aree a pericolosità idraulica media (P2, scenario con tempo di ritorno 100–200 anni) — sul lago significa soprattutto la fascia di riva."
+   ]
+  },
+  {
+   "id": "ronco",
+   "nome": {
+    "it": "Ronco"
+   },
+   "nome_esteso": "Ronco (Pella)",
+   "tipo": "frazione",
+   "comune": "Pella",
+   "codice_istat": "003115",
+   "provincia": "NO",
+   "mondo": "sponda-ovest",
+   "punto": {
+    "lat": 45.8271148,
+    "lon": 8.3818783,
+    "fonte": "OpenStreetMap Nominatim, Nominatim: node 964680524 hamlet Ronco",
+    "nota": "per i comuni Nominatim restituisce il nodo place/admin_centre del capoluogo"
+   },
+   "quota_m": {
+    "punto_copernicus_glo90": 300.0,
+    "fonte": "Open-Meteo Elevation API (Copernicus DEM GLO-90, ~90 m)",
+    "terrain_tiles_400m": {
+     "min": 281,
+     "mediana": 287,
+     "max": 494,
+     "fonte": "AWS Terrain Tiles z12 (EU-DEM/SRTM), raggio 400 m come SloveniaVillas"
+    },
+    "sopra_il_lago_m": 10,
+    "nota_lago": "quota del lago 290 m (tag ele di OSM relation 2024365; vedi fatti.md per la quota ufficiale)"
+   },
+   "distanza_riva_m": {
+    "valore": 45,
+    "metodo": "distanza minima in linea d'aria dal punto al poligono OSM del lago (relation 2024365), proiezione locale"
+   },
+   "popolazione": null,
+   "popolazione_comune": {
+    "al_1_gennaio_2025": 876,
+    "fonte": "ISTAT POSAS 2025",
+    "nota": "dato del comune intero, non della frazione"
+   },
+   "superficie_comune_km2": {
+    "valore": 8.134,
+    "fonte": "ISPRA IdroGEO (piattaforma, api/pir/comuni)"
+   },
+   "carattere": [
+    {
+     "testo": "Località di Pella sulla riva, a nord del capoluogo, con imbarcadero; per l'OMI è la zona E1 «suburbana turistica – località Ronco».",
+     "fonte": "https://www1.agenziaentrate.gov.it/servizi/Consultazione/ricerca.htm",
+     "consultato": "2026-10-06"
+    }
+   ],
+   "servizi": {
+    "stazione_piu_vicina": [
+     {
+      "nome": "Pettenasco",
+      "operatore_osm": "Rete Ferroviaria Italiana",
+      "osm": "node/4414586469",
+      "distanza_linea_aria_km": 2.1
+     },
+     {
+      "nome": "Orta-Miasino",
+      "operatore_osm": "Rete Ferroviaria Italiana",
+      "osm": "node/820255764",
+      "distanza_linea_aria_km": 4.6
+     }
+    ],
+    "imbarcadero_piu_vicino": [
+     {
+      "nome": "Ronco",
+      "operatore_osm": null,
+      "osm": "node/3419855464",
+      "distanza_linea_aria_km": 0.0
+     }
+    ],
+    "nota_distanze": "in linea d'aria: dalla sponda ovest la stazione più vicina è sull'altra riva, la distanza stradale è molto maggiore",
+    "scuole_statali_nel_comune": [
+     {
+      "grado": "scuola primaria",
+      "nome": "PELLA-FRAZ.ALZO",
+      "codice": "NOEE80402A"
+     }
+    ],
+    "scuole_fonte": "MIM, Open data Scuola – Anagrafe scuole statali a.s. 2026/27 (SCUANAGRAFESTAT20262720260901.csv); escluse le paritarie",
+    "ospedale_riferimento": "vedi fatti.md (Omegna – Madonna del Popolo; Borgomanero – SS. Trinità); distanze stradali non misurate",
+    "fonte_stazioni_imbarcaderi": "OpenStreetMap (Overpass), estratto 2026-10-06; distanze in linea d'aria; orari e stagionalità in fatti.md"
+   },
+   "rischi_ispra_comune": {
+    "frane_area_p3p4_pct": 3.11,
+    "frane_popolazione_p3p4_pct": 8.613,
+    "idraulica_area_p3_pct": 0.086,
+    "idraulica_area_p2_pct": 0.738,
+    "idraulica_popolazione_p2_pct": 5.491,
+    "fonte": "ISPRA IdroGEO, https://idrogeo.isprambiente.it/app/page/pir/comuni/3115 (API /api/pir/comuni/3115), mosaicature nazionali ISPRA della pericolosità (frane PAI, alluvioni D.Lgs. 49/2010); popolazione censimento 2021",
+    "nota": "percentuali sull'intero comune, non sul punto"
+   },
+   "sole": {
+    "orizzonte_max_gradi": {
+     "est_60_130": 9.1,
+     "sud_150_210": 19.7,
+     "ovest_230_310": 26.4
+    },
+    "21_dicembre": {
+     "minuti_sole_diretto_terreno": 339,
+     "minuti_sole_orizzonte_piatto": 508,
+     "primo_sole_ora_locale": "08:28",
+     "ultimo_sole_ora_locale": "14:06"
+    },
+    "21_giugno": {
+     "minuti_sole_diretto_terreno": 717,
+     "minuti_sole_orizzonte_piatto": 932,
+     "primo_sole_ora_locale": "06:34",
+     "ultimo_sole_ora_locale": "18:30"
+    },
+    "21_marzo": {
+     "minuti_sole_diretto_terreno": 538,
+     "minuti_sole_orizzonte_piatto": 719,
+     "primo_sole_ora_locale": "07:00",
+     "ultimo_sole_ora_locale": "15:57"
+    },
+    "metodo": "orizzonte calcolato ogni 2° di azimut sul DEM Terrain Tiles z12 fino a 15 km (o al bordo del riquadro), osservatore 2 m sopra il terreno, curvatura e rifrazione; posizione del sole con formule NOAA; nessun edificio, albero o nuvola. Ore locali (CET d'inverno e marzo, CEST a giugno)."
+   },
+   "tempi_auto": {
+    "milano-duomo": {
+     "minuti": 82,
+     "km": 90.8
+    },
+    "malpensa-t1": {
+     "minuti": 61,
+     "km": 50.7
+    },
+    "linate": {
+     "minuti": 90,
+     "km": 95.8
+    },
+    "novara": {
+     "minuti": 57,
+     "km": 51.9
+    },
+    "torino": {
+     "minuti": 103,
+     "km": 130.6
+    },
+    "lugano": {
+     "minuti": 89,
+     "km": 99.2
+    },
+    "zuerich": {
+     "minuti": 238,
+     "km": 302.5
+    },
+    "basel": {
+     "minuti": 271,
+     "km": 359.5
+    },
+    "bern": {
+     "minuti": 265,
+     "km": 325.3
+    },
+    "geneve": {
+     "minuti": 241,
+     "km": 307.4
+    },
+    "muenchen": {
+     "minuti": 372,
+     "km": 514.1
+    }
+   },
+   "prezzi_omi": "vedi prezzi.json, comune Pella (zona E1 «località Ronco»)",
+   "limiti": [
+    "Inverno corto di sole: il 21 dicembre 5 h 39 di sole diretto sul punto (su 8 h 28 teoriche), dalle 08:28 alle 14:06: calcolo nostro sul DEM, solo rilievo (né edifici né alberi).",
+    "Frane: secondo ISPRA IdroGEO il 8.6% dei residenti del comune vive in aree a pericolosità da frana elevata o molto elevata (P3+P4), su 3.1% della superficie.",
+    "Allagamenti: secondo ISPRA IdroGEO il 5.5% dei residenti del comune sta in aree a pericolosità idraulica media (P2, scenario con tempo di ritorno 100–200 anni) — sul lago significa soprattutto la fascia di riva."
+   ]
+  },
+  {
+   "id": "san-maurizio-dopaglio",
+   "nome": {
+    "it": "San Maurizio d'Opaglio"
+   },
+   "nome_esteso": "San Maurizio d'Opaglio",
+   "tipo": "comune (capoluogo)",
+   "comune": "San Maurizio d'Opaglio",
+   "codice_istat": "003133",
+   "provincia": "NO",
+   "mondo": "sponda-ovest",
+   "punto": {
+    "lat": 45.7734531,
+    "lon": 8.3903949,
+    "fonte": "OpenStreetMap Nominatim, Nominatim: relation 46066 (comune), punto restituito",
+    "nota": "per i comuni Nominatim restituisce il nodo place/admin_centre del capoluogo"
+   },
+   "quota_m": {
+    "punto_copernicus_glo90": 372.0,
+    "fonte": "Open-Meteo Elevation API (Copernicus DEM GLO-90, ~90 m)",
+    "terrain_tiles_400m": {
+     "min": 355,
+     "mediana": 372,
+     "max": 410,
+     "fonte": "AWS Terrain Tiles z12 (EU-DEM/SRTM), raggio 400 m come SloveniaVillas"
+    },
+    "sopra_il_lago_m": 82,
+    "nota_lago": "quota del lago 290 m (tag ele di OSM relation 2024365; vedi fatti.md per la quota ufficiale)"
+   },
+   "distanza_riva_m": {
+    "valore": 1270,
+    "metodo": "distanza minima in linea d'aria dal punto al poligono OSM del lago (relation 2024365), proiezione locale"
+   },
+   "popolazione": {
+    "al_1_gennaio_2025": 2999,
+    "al_1_gennaio_2026_stima": 2931,
+    "fonte": "ISTAT, demo.istat.it – Popolazione residente al 1° gennaio (POSAS); il 2026 è una stima ISTAT",
+    "nota": null
+   },
+   "popolazione_comune": null,
+   "superficie_comune_km2": {
+    "valore": 8.51,
+    "fonte": "ISPRA IdroGEO (piattaforma, api/pir/comuni)"
+   },
+   "carattere": [
+    {
+     "testo": "Cuore del distretto industriale del rubinetto; prima rubinetteria verso il 1920; ospita il Museo del rubinetto e della sua tecnologia.",
+     "fonte": "https://it.wikipedia.org/wiki/San_Maurizio_d'Opaglio",
+     "consultato": "2026-10-06"
+    },
+    {
+     "testo": "Nato nel 1568 dall'unione dei villaggi di Briallo, Lagna e Opaglio; Lagna ha un imbarcadero sul lago.",
+     "fonte": "https://it.wikipedia.org/wiki/San_Maurizio_d'Opaglio",
+     "consultato": "2026-10-06"
+    }
+   ],
+   "servizi": {
+    "stazione_piu_vicina": [
+     {
+      "nome": "Orta-Miasino",
+      "operatore_osm": "Rete Ferroviaria Italiana",
+      "osm": "node/820255764",
+      "distanza_linea_aria_km": 3.4
+     },
+     {
+      "nome": "Bolzano Novarese",
+      "operatore_osm": "Rete Ferroviaria Italiana",
+      "osm": "node/4209783310",
+      "distanza_linea_aria_km": 4.2
+     }
+    ],
+    "imbarcadero_piu_vicino": [
+     {
+      "nome": "Lagna",
+      "operatore_osm": "Navigazione Lago d'Orta",
+      "osm": "node/3689511103",
+      "distanza_linea_aria_km": 1.4
+     }
+    ],
+    "nota_distanze": "in linea d'aria: dalla sponda ovest la stazione più vicina è sull'altra riva, la distanza stradale è molto maggiore",
+    "scuole_statali_nel_comune": [
+     {
+      "grado": "scuola primaria",
+      "nome": "S. MAURIZIO D'OPAGLIO",
+      "codice": "NOEE804019"
+     },
+     {
+      "grado": "scuola primo grado",
+      "nome": "S.M.S. SAN MAURIZIO D'OPAGLIO",
+      "codice": "NOMM804018"
+     },
+     {
+      "grado": "scuola infanzia",
+      "nome": "SAN MAURIZIO D'OPAGLIO",
+      "codice": "NOAA804025"
+     },
+     {
+      "grado": "istituto comprensivo",
+      "nome": "ISTITUTO COMPRENSIVO SAN GIULIO",
+      "codice": "NOIC804007"
+     }
+    ],
+    "scuole_fonte": "MIM, Open data Scuola – Anagrafe scuole statali a.s. 2026/27 (SCUANAGRAFESTAT20262720260901.csv); escluse le paritarie",
+    "ospedale_riferimento": "vedi fatti.md (Omegna – Madonna del Popolo; Borgomanero – SS. Trinità); distanze stradali non misurate",
+    "fonte_stazioni_imbarcaderi": "OpenStreetMap (Overpass), estratto 2026-10-06; distanze in linea d'aria; orari e stagionalità in fatti.md"
+   },
+   "rischi_ispra_comune": {
+    "frane_area_p3p4_pct": 0.881,
+    "frane_popolazione_p3p4_pct": 0.267,
+    "idraulica_area_p3_pct": 0.188,
+    "idraulica_area_p2_pct": 1.375,
+    "idraulica_popolazione_p2_pct": 0.226,
+    "fonte": "ISPRA IdroGEO, https://idrogeo.isprambiente.it/app/page/pir/comuni/3133 (API /api/pir/comuni/3133), mosaicature nazionali ISPRA della pericolosità (frane PAI, alluvioni D.Lgs. 49/2010); popolazione censimento 2021",
+    "nota": "percentuali sull'intero comune, non sul punto"
+   },
+   "sole": {
+    "orizzonte_max_gradi": {
+     "est_60_130": 3.5,
+     "sud_150_210": 6.7,
+     "ovest_230_310": 13.1
+    },
+    "21_dicembre": {
+     "minuti_sole_diretto_terreno": 437,
+     "minuti_sole_orizzonte_piatto": 509,
+     "primo_sole_ora_locale": "08:15",
+     "ultimo_sole_ora_locale": "15:31"
+    },
+    "21_giugno": {
+     "minuti_sole_diretto_terreno": 829,
+     "minuti_sole_orizzonte_piatto": 932,
+     "primo_sole_ora_locale": "06:06",
+     "ultimo_sole_ora_locale": "19:54"
+    },
+    "21_marzo": {
+     "minuti_sole_diretto_terreno": 635,
+     "minuti_sole_orizzonte_piatto": 719,
+     "primo_sole_ora_locale": "06:49",
+     "ultimo_sole_ora_locale": "17:23"
+    },
+    "metodo": "orizzonte calcolato ogni 2° di azimut sul DEM Terrain Tiles z12 fino a 15 km (o al bordo del riquadro), osservatore 2 m sopra il terreno, curvatura e rifrazione; posizione del sole con formule NOAA; nessun edificio, albero o nuvola. Ore locali (CET d'inverno e marzo, CEST a giugno)."
+   },
+   "tempi_auto": {
+    "milano-duomo": {
+     "minuti": 72,
+     "km": 84.3
+    },
+    "malpensa-t1": {
+     "minuti": 51,
+     "km": 44.3
+    },
+    "linate": {
+     "minuti": 80,
+     "km": 89.3
+    },
+    "novara": {
+     "minuti": 47,
+     "km": 45.5
+    },
+    "torino": {
+     "minuti": 94,
+     "km": 124.1
+    },
+    "lugano": {
+     "minuti": 79,
+     "km": 92.8
+    },
+    "zuerich": {
+     "minuti": 229,
+     "km": 296.1
+    },
+    "basel": {
+     "minuti": 262,
+     "km": 353.1
+    },
+    "bern": {
+     "minuti": 260,
+     "km": 323.0
+    },
+    "geneve": {
+     "minuti": 231,
+     "km": 301.0
+    },
+    "muenchen": {
+     "minuti": 363,
+     "km": 507.6
+    }
+   },
+   "prezzi_omi": "vedi prezzi.json, comune San Maurizio d'Opaglio",
+   "limiti": []
+  },
+  {
+   "id": "madonna-del-sasso",
+   "nome": {
+    "it": "Madonna del Sasso"
+   },
+   "nome_esteso": "Madonna del Sasso (Boleto, municipio)",
+   "tipo": "comune (capoluogo)",
+   "comune": "Madonna del Sasso",
+   "codice_istat": "103040",
+   "provincia": "VB",
+   "mondo": "sponda-ovest",
+   "punto": {
+    "lat": 45.7924094,
+    "lon": 8.3683708,
+    "fonte": "OpenStreetMap Nominatim, Nominatim: way 257087083 Municipio di Madonna del Sasso",
+    "nota": "per i comuni Nominatim restituisce il nodo place/admin_centre del capoluogo"
+   },
+   "quota_m": {
+    "punto_copernicus_glo90": 689.0,
+    "fonte": "Open-Meteo Elevation API (Copernicus DEM GLO-90, ~90 m)",
+    "terrain_tiles_400m": {
+     "min": 578,
+     "mediana": 676,
+     "max": 713,
+     "fonte": "AWS Terrain Tiles z12 (EU-DEM/SRTM), raggio 400 m come SloveniaVillas"
+    },
+    "sopra_il_lago_m": 399,
+    "nota_lago": "quota del lago 290 m (tag ele di OSM relation 2024365; vedi fatti.md per la quota ufficiale)"
+   },
+   "distanza_riva_m": {
+    "valore": 1169,
+    "metodo": "distanza minima in linea d'aria dal punto al poligono OSM del lago (relation 2024365), proiezione locale"
+   },
+   "popolazione": {
+    "al_1_gennaio_2025": 351,
+    "al_1_gennaio_2026_stima": 347,
+    "fonte": "ISTAT, demo.istat.it – Popolazione residente al 1° gennaio (POSAS); il 2026 è una stima ISTAT",
+    "nota": null
+   },
+   "popolazione_comune": null,
+   "superficie_comune_km2": {
+    "valore": 15.411,
+    "fonte": "ISPRA IdroGEO (piattaforma, api/pir/comuni)"
+   },
+   "carattere": [
+    {
+     "testo": "Il santuario della Madonna del Sasso (OSM way 200916252) sta sul crinale a ovest del lago, sopra Pella; il municipio è a Boleto. La quota del punto (689 m, Copernicus GLO-90) è circa 400 m sopra il lago.",
+     "fonte": "https://www.openstreetmap.org/way/200916252",
+     "consultato": "2026-10-06"
+    }
+   ],
+   "servizi": {
+    "stazione_piu_vicina": [
+     {
+      "nome": "Orta-Miasino",
+      "operatore_osm": "Rete Ferroviaria Italiana",
+      "osm": "node/820255764",
+      "distanza_linea_aria_km": 4.1
+     },
+     {
+      "nome": "Pettenasco",
+      "operatore_osm": "Rete Ferroviaria Italiana",
+      "osm": "node/4414586469",
+      "distanza_linea_aria_km": 4.3
+     }
+    ],
+    "imbarcadero_piu_vicino": [
+     {
+      "nome": "San Filiberto",
+      "operatore_osm": "Navigazione Lago d'Orta",
+      "osm": "node/3689511104",
+      "distanza_linea_aria_km": 1.2
+     }
+    ],
+    "nota_distanze": "in linea d'aria: dalla sponda ovest la stazione più vicina è sull'altra riva, la distanza stradale è molto maggiore",
+    "scuole_statali_nel_comune": [],
+    "scuole_fonte": "MIM, Open data Scuola – Anagrafe scuole statali a.s. 2026/27 (SCUANAGRAFESTAT20262720260901.csv); escluse le paritarie",
+    "ospedale_riferimento": "vedi fatti.md (Omegna – Madonna del Popolo; Borgomanero – SS. Trinità); distanze stradali non misurate",
+    "fonte_stazioni_imbarcaderi": "OpenStreetMap (Overpass), estratto 2026-10-06; distanze in linea d'aria; orari e stagionalità in fatti.md"
+   },
+   "rischi_ispra_comune": {
+    "frane_area_p3p4_pct": 0,
+    "frane_popolazione_p3p4_pct": 0,
+    "idraulica_area_p3_pct": 0.032,
+    "idraulica_area_p2_pct": 0.032,
+    "idraulica_popolazione_p2_pct": 0,
+    "fonte": "ISPRA IdroGEO, https://idrogeo.isprambiente.it/app/page/pir/comuni/103040 (API /api/pir/comuni/103040), mosaicature nazionali ISPRA della pericolosità (frane PAI, alluvioni D.Lgs. 49/2010); popolazione censimento 2021",
+    "nota": "percentuali sull'intero comune, non sul punto"
+   },
+   "sole": {
+    "orizzonte_max_gradi": {
+     "est_60_130": 1.0,
+     "sud_150_210": 11.4,
+     "ovest_230_310": 12.5
+    },
+    "21_dicembre": {
+     "minuti_sole_diretto_terreno": 414,
+     "minuti_sole_orizzonte_piatto": 508,
+     "primo_sole_ora_locale": "08:11",
+     "ultimo_sole_ora_locale": "15:04"
+    },
+    "21_giugno": {
+     "minuti_sole_diretto_terreno": 888,
+     "minuti_sole_orizzonte_piatto": 932,
+     "primo_sole_ora_locale": "05:56",
+     "ultimo_sole_ora_locale": "20:43"
+    },
+    "21_marzo": {
+     "minuti_sole_diretto_terreno": 662,
+     "minuti_sole_orizzonte_piatto": 719,
+     "primo_sole_ora_locale": "06:37",
+     "ultimo_sole_ora_locale": "17:41"
+    },
+    "metodo": "orizzonte calcolato ogni 2° di azimut sul DEM Terrain Tiles z12 fino a 15 km (o al bordo del riquadro), osservatore 2 m sopra il terreno, curvatura e rifrazione; posizione del sole con formule NOAA; nessun edificio, albero o nuvola. Ore locali (CET d'inverno e marzo, CEST a giugno)."
+   },
+   "tempi_auto": {
+    "milano-duomo": {
+     "minuti": 81,
+     "km": 90.8
+    },
+    "malpensa-t1": {
+     "minuti": 61,
+     "km": 50.8
+    },
+    "linate": {
+     "minuti": 89,
+     "km": 95.8
+    },
+    "novara": {
+     "minuti": 57,
+     "km": 52.0
+    },
+    "torino": {
+     "minuti": 103,
+     "km": 130.6
+    },
+    "lugano": {
+     "minuti": 88,
+     "km": 99.2
+    },
+    "zuerich": {
+     "minuti": 238,
+     "km": 302.6
+    },
+    "basel": {
+     "minuti": 271,
+     "km": 359.6
+    },
+    "bern": {
+     "minuti": 264,
+     "km": 324.5
+    },
+    "geneve": {
+     "minuti": 241,
+     "km": 307.5
+    },
+    "muenchen": {
+     "minuti": 372,
+     "km": 514.1
+    }
+   },
+   "prezzi_omi": "vedi prezzi.json, comune Madonna del Sasso",
+   "limiti": []
+  },
+  {
+   "id": "ameno",
+   "nome": {
+    "it": "Ameno"
+   },
+   "nome_esteso": "Ameno",
+   "tipo": "comune (capoluogo)",
+   "comune": "Ameno",
+   "codice_istat": "003002",
+   "provincia": "NO",
+   "mondo": "colline-mottarone",
+   "punto": {
+    "lat": 45.7886563,
+    "lon": 8.4413106,
+    "fonte": "OpenStreetMap Nominatim, Nominatim: relation 46081 (comune), punto restituito",
+    "nota": "per i comuni Nominatim restituisce il nodo place/admin_centre del capoluogo"
+   },
+   "quota_m": {
+    "punto_copernicus_glo90": 531.0,
+    "fonte": "Open-Meteo Elevation API (Copernicus DEM GLO-90, ~90 m)",
+    "terrain_tiles_400m": {
+     "min": 471,
+     "mediana": 525,
+     "max": 573,
+     "fonte": "AWS Terrain Tiles z12 (EU-DEM/SRTM), raggio 400 m come SloveniaVillas"
+    },
+    "sopra_il_lago_m": 241,
+    "nota_lago": "quota del lago 290 m (tag ele di OSM relation 2024365; vedi fatti.md per la quota ufficiale)"
+   },
+   "distanza_riva_m": {
+    "valore": 1419,
+    "metodo": "distanza minima in linea d'aria dal punto al poligono OSM del lago (relation 2024365), proiezione locale"
+   },
+   "popolazione": {
+    "al_1_gennaio_2025": 874,
+    "al_1_gennaio_2026_stima": 866,
+    "fonte": "ISTAT, demo.istat.it – Popolazione residente al 1° gennaio (POSAS); il 2026 è una stima ISTAT",
+    "nota": null
+   },
+   "popolazione_comune": null,
+   "superficie_comune_km2": {
+    "valore": 9.996,
+    "fonte": "ISPRA IdroGEO (piattaforma, api/pir/comuni)"
+   },
+   "carattere": [
+    {
+     "testo": "A Vacciago (frazione) la Casa Calderara, con loggiato rinascimentale, ospita la Fondazione Calderara, collezione d'arte contemporanea voluta dal pittore Antonio Calderara (1903–1978).",
+     "fonte": "https://it.wikipedia.org/wiki/Ameno",
+     "consultato": "2026-10-06"
+    }
+   ],
+   "servizi": {
+    "stazione_piu_vicina": [
+     {
+      "nome": "Orta-Miasino",
+      "operatore_osm": "Rete Ferroviaria Italiana",
+      "osm": "node/820255764",
+      "distanza_linea_aria_km": 1.8
+     },
+     {
+      "nome": "Bolzano Novarese",
+      "operatore_osm": "Rete Ferroviaria Italiana",
+      "osm": "node/4209783310",
+      "distanza_linea_aria_km": 3.2
+     }
+    ],
+    "imbarcadero_piu_vicino": [
+     {
+      "nome": "Orta piazza",
+      "operatore_osm": "Navigazione Lago d'Orta",
+      "osm": "node/1837704813",
+      "distanza_linea_aria_km": 3.0
+     }
+    ],
+    "nota_distanze": "in linea d'aria",
+    "scuole_statali_nel_comune": [
+     {
+      "grado": "scuola infanzia",
+      "nome": "SCUOLA MATERNA DI AMENO",
+      "codice": "NOAA804058"
+     }
+    ],
+    "scuole_fonte": "MIM, Open data Scuola – Anagrafe scuole statali a.s. 2026/27 (SCUANAGRAFESTAT20262720260901.csv); escluse le paritarie",
+    "ospedale_riferimento": "vedi fatti.md (Omegna – Madonna del Popolo; Borgomanero – SS. Trinità); distanze stradali non misurate",
+    "fonte_stazioni_imbarcaderi": "OpenStreetMap (Overpass), estratto 2026-10-06; distanze in linea d'aria; orari e stagionalità in fatti.md"
+   },
+   "rischi_ispra_comune": {
+    "frane_area_p3p4_pct": 0.33,
+    "frane_popolazione_p3p4_pct": 0.118,
+    "idraulica_area_p3_pct": 4.882,
+    "idraulica_area_p2_pct": 4.882,
+    "idraulica_popolazione_p2_pct": 1.259,
+    "fonte": "ISPRA IdroGEO, https://idrogeo.isprambiente.it/app/page/pir/comuni/3002 (API /api/pir/comuni/3002), mosaicature nazionali ISPRA della pericolosità (frane PAI, alluvioni D.Lgs. 49/2010); popolazione censimento 2021",
+    "nota": "percentuali sull'intero comune, non sul punto"
+   },
+   "sole": {
+    "orizzonte_max_gradi": {
+     "est_60_130": 6.3,
+     "sud_150_210": 2.0,
+     "ovest_230_310": 5.1
+    },
+    "21_dicembre": {
+     "minuti_sole_diretto_terreno": 484,
+     "minuti_sole_orizzonte_piatto": 509,
+     "primo_sole_ora_locale": "08:28",
+     "ultimo_sole_ora_locale": "16:31"
+    },
+    "21_giugno": {
+     "minuti_sole_diretto_terreno": 869,
+     "minuti_sole_orizzonte_piatto": 932,
+     "primo_sole_ora_locale": "06:17",
+     "ultimo_sole_ora_locale": "20:45"
+    },
+    "21_marzo": {
+     "minuti_sole_diretto_terreno": 666,
+     "minuti_sole_orizzonte_piatto": 720,
+     "primo_sole_ora_locale": "07:05",
+     "ultimo_sole_ora_locale": "18:10"
+    },
+    "metodo": "orizzonte calcolato ogni 2° di azimut sul DEM Terrain Tiles z12 fino a 15 km (o al bordo del riquadro), osservatore 2 m sopra il terreno, curvatura e rifrazione; posizione del sole con formule NOAA; nessun edificio, albero o nuvola. Ore locali (CET d'inverno e marzo, CEST a giugno)."
+   },
+   "tempi_auto": {
+    "milano-duomo": {
+     "minuti": 74,
+     "km": 85.3
+    },
+    "malpensa-t1": {
+     "minuti": 54,
+     "km": 45.2
+    },
+    "linate": {
+     "minuti": 82,
+     "km": 90.3
+    },
+    "novara": {
+     "minuti": 50,
+     "km": 46.5
+    },
+    "torino": {
+     "minuti": 96,
+     "km": 125.1
+    },
+    "lugano": {
+     "minuti": 81,
+     "km": 93.7
+    },
+    "zuerich": {
+     "minuti": 231,
+     "km": 297.0
+    },
+    "basel": {
+     "minuti": 264,
+     "km": 354.0
+    },
+    "bern": {
+     "minuti": 262,
+     "km": 321.0
+    },
+    "geneve": {
+     "minuti": 234,
+     "km": 301.9
+    },
+    "muenchen": {
+     "minuti": 365,
+     "km": 508.6
+    }
+   },
+   "prezzi_omi": "vedi prezzi.json, comune Ameno",
+   "limiti": []
+  },
+  {
+   "id": "vacciago",
+   "nome": {
+    "it": "Vacciago"
+   },
+   "nome_esteso": "Vacciago (Ameno)",
+   "tipo": "frazione",
+   "comune": "Ameno",
+   "codice_istat": "003002",
+   "provincia": "NO",
+   "mondo": "colline-mottarone",
+   "punto": {
+    "lat": 45.7864497,
+    "lon": 8.429395,
+    "fonte": "OpenStreetMap Nominatim, Nominatim: node 964680160 village Vacciago",
+    "nota": "per i comuni Nominatim restituisce il nodo place/admin_centre del capoluogo"
+   },
+   "quota_m": {
+    "punto_copernicus_glo90": 484.0,
+    "fonte": "Open-Meteo Elevation API (Copernicus DEM GLO-90, ~90 m)",
+    "terrain_tiles_400m": {
+     "min": 347,
+     "mediana": 472,
+     "max": 510,
+     "fonte": "AWS Terrain Tiles z12 (EU-DEM/SRTM), raggio 400 m come SloveniaVillas"
+    },
+    "sopra_il_lago_m": 194,
+    "nota_lago": "quota del lago 290 m (tag ele di OSM relation 2024365; vedi fatti.md per la quota ufficiale)"
+   },
+   "distanza_riva_m": {
+    "valore": 495,
+    "metodo": "distanza minima in linea d'aria dal punto al poligono OSM del lago (relation 2024365), proiezione locale"
+   },
+   "popolazione": null,
+   "popolazione_comune": {
+    "al_1_gennaio_2025": 874,
+    "fonte": "ISTAT POSAS 2025",
+    "nota": "dato del comune intero, non della frazione"
+   },
+   "superficie_comune_km2": {
+    "valore": 9.996,
+    "fonte": "ISPRA IdroGEO (piattaforma, api/pir/comuni)"
+   },
+   "carattere": [
+    {
+     "testo": "Frazione di Ameno, più in basso del capoluogo, verso Orta; sede della Fondazione Calderara.",
+     "fonte": "https://it.wikipedia.org/wiki/Ameno",
+     "consultato": "2026-10-06"
+    }
+   ],
+   "servizi": {
+    "stazione_piu_vicina": [
+     {
+      "nome": "Orta-Miasino",
+      "operatore_osm": "Rete Ferroviaria Italiana",
+      "osm": "node/820255764",
+      "distanza_linea_aria_km": 1.2
+     },
+     {
+      "nome": "Bolzano Novarese",
+      "operatore_osm": "Rete Ferroviaria Italiana",
+      "osm": "node/4209783310",
+      "distanza_linea_aria_km": 3.1
+     }
+    ],
+    "imbarcadero_piu_vicino": [
+     {
+      "nome": "Orta piazza",
+      "operatore_osm": "Navigazione Lago d'Orta",
+      "osm": "node/1837704813",
+      "distanza_linea_aria_km": 2.3
+     }
+    ],
+    "nota_distanze": "in linea d'aria",
+    "scuole_statali_nel_comune": [
+     {
+      "grado": "scuola infanzia",
+      "nome": "SCUOLA MATERNA DI AMENO",
+      "codice": "NOAA804058"
+     }
+    ],
+    "scuole_fonte": "MIM, Open data Scuola – Anagrafe scuole statali a.s. 2026/27 (SCUANAGRAFESTAT20262720260901.csv); escluse le paritarie",
+    "ospedale_riferimento": "vedi fatti.md (Omegna – Madonna del Popolo; Borgomanero – SS. Trinità); distanze stradali non misurate",
+    "fonte_stazioni_imbarcaderi": "OpenStreetMap (Overpass), estratto 2026-10-06; distanze in linea d'aria; orari e stagionalità in fatti.md"
+   },
+   "rischi_ispra_comune": {
+    "frane_area_p3p4_pct": 0.33,
+    "frane_popolazione_p3p4_pct": 0.118,
+    "idraulica_area_p3_pct": 4.882,
+    "idraulica_area_p2_pct": 4.882,
+    "idraulica_popolazione_p2_pct": 1.259,
+    "fonte": "ISPRA IdroGEO, https://idrogeo.isprambiente.it/app/page/pir/comuni/3002 (API /api/pir/comuni/3002), mosaicature nazionali ISPRA della pericolosità (frane PAI, alluvioni D.Lgs. 49/2010); popolazione censimento 2021",
+    "nota": "percentuali sull'intero comune, non sul punto"
+   },
+   "sole": {
+    "orizzonte_max_gradi": {
+     "est_60_130": 4.9,
+     "sud_150_210": 1.6,
+     "ovest_230_310": 5.4
+    },
+    "21_dicembre": {
+     "minuti_sole_diretto_terreno": 480,
+     "minuti_sole_orizzonte_piatto": 509,
+     "primo_sole_ora_locale": "08:28",
+     "ultimo_sole_ora_locale": "16:27"
+    },
+    "21_giugno": {
+     "minuti_sole_diretto_terreno": 875,
+     "minuti_sole_orizzonte_piatto": 932,
+     "primo_sole_ora_locale": "06:13",
+     "ultimo_sole_ora_locale": "20:47"
+    },
+    "21_marzo": {
+     "minuti_sole_diretto_terreno": 672,
+     "minuti_sole_orizzonte_piatto": 720,
+     "primo_sole_ora_locale": "06:56",
+     "ultimo_sole_ora_locale": "18:07"
+    },
+    "metodo": "orizzonte calcolato ogni 2° di azimut sul DEM Terrain Tiles z12 fino a 15 km (o al bordo del riquadro), osservatore 2 m sopra il terreno, curvatura e rifrazione; posizione del sole con formule NOAA; nessun edificio, albero o nuvola. Ore locali (CET d'inverno e marzo, CEST a giugno)."
+   },
+   "tempi_auto": {
+    "milano-duomo": {
+     "minuti": 72,
+     "km": 84.4
+    },
+    "malpensa-t1": {
+     "minuti": 51,
+     "km": 44.4
+    },
+    "linate": {
+     "minuti": 80,
+     "km": 89.4
+    },
+    "novara": {
+     "minuti": 47,
+     "km": 45.6
+    },
+    "torino": {
+     "minuti": 94,
+     "km": 124.2
+    },
+    "lugano": {
+     "minuti": 79,
+     "km": 92.9
+    },
+    "zuerich": {
+     "minuti": 229,
+     "km": 296.2
+    },
+    "basel": {
+     "minuti": 262,
+     "km": 353.2
+    },
+    "bern": {
+     "minuti": 261,
+     "km": 320.6
+    },
+    "geneve": {
+     "minuti": 232,
+     "km": 301.1
+    },
+    "muenchen": {
+     "minuti": 363,
+     "km": 507.7
+    }
+   },
+   "prezzi_omi": "vedi prezzi.json, comune Ameno (nessuna zona OMI nomina Vacciago: zone B1/D1 di Ameno)",
+   "limiti": []
+  },
+  {
+   "id": "miasino",
+   "nome": {
+    "it": "Miasino"
+   },
+   "nome_esteso": "Miasino",
+   "tipo": "comune (capoluogo)",
+   "comune": "Miasino",
+   "codice_istat": "003098",
+   "provincia": "NO",
+   "mondo": "colline-mottarone",
+   "punto": {
+    "lat": 45.801972,
+    "lon": 8.429724,
+    "fonte": "OpenStreetMap Nominatim, Nominatim: node 63628034 village Miasino",
+    "nota": "per i comuni Nominatim restituisce il nodo place/admin_centre del capoluogo"
+   },
+   "quota_m": {
+    "punto_copernicus_glo90": 478.0,
+    "fonte": "Open-Meteo Elevation API (Copernicus DEM GLO-90, ~90 m)",
+    "terrain_tiles_400m": {
+     "min": 375,
+     "mediana": 476,
+     "max": 502,
+     "fonte": "AWS Terrain Tiles z12 (EU-DEM/SRTM), raggio 400 m come SloveniaVillas"
+    },
+    "sopra_il_lago_m": 188,
+    "nota_lago": "quota del lago 290 m (tag ele di OSM relation 2024365; vedi fatti.md per la quota ufficiale)"
+   },
+   "distanza_riva_m": {
+    "valore": 743,
+    "metodo": "distanza minima in linea d'aria dal punto al poligono OSM del lago (relation 2024365), proiezione locale"
+   },
+   "popolazione": {
+    "al_1_gennaio_2025": 810,
+    "al_1_gennaio_2026_stima": 805,
+    "fonte": "ISTAT, demo.istat.it – Popolazione residente al 1° gennaio (POSAS); il 2026 è una stima ISTAT",
+    "nota": null
+   },
+   "popolazione_comune": null,
+   "superficie_comune_km2": {
+    "valore": 5.521,
+    "fonte": "ISPRA IdroGEO (piattaforma, api/pir/comuni)"
+   },
+   "carattere": [
+    {
+     "testo": "Villa Nigra, nel centro, di origine cinquecentesca ampliata nel Sei-Settecento, oggi del Comune; forte emigrazione storica verso Milano e la Toscana.",
+     "fonte": "https://it.wikipedia.org/wiki/Miasino",
+     "consultato": "2026-10-06"
+    }
+   ],
+   "servizi": {
+    "stazione_piu_vicina": [
+     {
+      "nome": "Orta-Miasino",
+      "operatore_osm": "Rete Ferroviaria Italiana",
+      "osm": "node/820255764",
+      "distanza_linea_aria_km": 0.9
+     },
+     {
+      "nome": "Pettenasco",
+      "operatore_osm": "Rete Ferroviaria Italiana",
+      "osm": "node/4414586469",
+      "distanza_linea_aria_km": 2.7
+     }
+    ],
+    "imbarcadero_piu_vicino": [
+     {
+      "nome": "Orta piazza",
+      "operatore_osm": "Navigazione Lago d'Orta",
+      "osm": "node/1837704813",
+      "distanza_linea_aria_km": 1.9
+     }
+    ],
+    "nota_distanze": "in linea d'aria",
+    "scuole_statali_nel_comune": [
+     {
+      "grado": "scuola primaria",
+      "nome": "MIASINO",
+      "codice": "NOEE80405D"
+     }
+    ],
+    "scuole_fonte": "MIM, Open data Scuola – Anagrafe scuole statali a.s. 2026/27 (SCUANAGRAFESTAT20262720260901.csv); escluse le paritarie",
+    "ospedale_riferimento": "vedi fatti.md (Omegna – Madonna del Popolo; Borgomanero – SS. Trinità); distanze stradali non misurate",
+    "fonte_stazioni_imbarcaderi": "OpenStreetMap (Overpass), estratto 2026-10-06; distanze in linea d'aria; orari e stagionalità in fatti.md"
+   },
+   "rischi_ispra_comune": {
+    "frane_area_p3p4_pct": 5.09,
+    "frane_popolazione_p3p4_pct": 10.481,
+    "idraulica_area_p3_pct": 1.485,
+    "idraulica_area_p2_pct": 2.264,
+    "idraulica_popolazione_p2_pct": 1.127,
+    "fonte": "ISPRA IdroGEO, https://idrogeo.isprambiente.it/app/page/pir/comuni/3098 (API /api/pir/comuni/3098), mosaicature nazionali ISPRA della pericolosità (frane PAI, alluvioni D.Lgs. 49/2010); popolazione censimento 2021",
+    "nota": "percentuali sull'intero comune, non sul punto"
+   },
+   "sole": {
+    "orizzonte_max_gradi": {
+     "est_60_130": 8.7,
+     "sud_150_210": 4.2,
+     "ovest_230_310": 5.6
+    },
+    "21_dicembre": {
+     "minuti_sole_diretto_terreno": 467,
+     "minuti_sole_orizzonte_piatto": 509,
+     "primo_sole_ora_locale": "08:32",
+     "ultimo_sole_ora_locale": "16:18"
+    },
+    "21_giugno": {
+     "minuti_sole_diretto_terreno": 859,
+     "minuti_sole_orizzonte_piatto": 932,
+     "primo_sole_ora_locale": "06:19",
+     "ultimo_sole_ora_locale": "20:39"
+    },
+    "21_marzo": {
+     "minuti_sole_diretto_terreno": 663,
+     "minuti_sole_orizzonte_piatto": 720,
+     "primo_sole_ora_locale": "07:07",
+     "ultimo_sole_ora_locale": "18:09"
+    },
+    "metodo": "orizzonte calcolato ogni 2° di azimut sul DEM Terrain Tiles z12 fino a 15 km (o al bordo del riquadro), osservatore 2 m sopra il terreno, curvatura e rifrazione; posizione del sole con formule NOAA; nessun edificio, albero o nuvola. Ore locali (CET d'inverno e marzo, CEST a giugno)."
+   },
+   "tempi_auto": {
+    "milano-duomo": {
+     "minuti": 75,
+     "km": 86.6
+    },
+    "malpensa-t1": {
+     "minuti": 54,
+     "km": 46.6
+    },
+    "linate": {
+     "minuti": 83,
+     "km": 91.6
+    },
+    "novara": {
+     "minuti": 50,
+     "km": 47.8
+    },
+    "torino": {
+     "minuti": 97,
+     "km": 126.4
+    },
+    "lugano": {
+     "minuti": 82,
+     "km": 95.0
+    },
+    "zuerich": {
+     "minuti": 232,
+     "km": 298.4
+    },
+    "basel": {
+     "minuti": 265,
+     "km": 355.4
+    },
+    "bern": {
+     "minuti": 259,
+     "km": 318.8
+    },
+    "geneve": {
+     "minuti": 235,
+     "km": 303.3
+    },
+    "muenchen": {
+     "minuti": 366,
+     "km": 509.9
+    }
+   },
+   "prezzi_omi": "vedi prezzi.json, comune Miasino",
+   "limiti": [
+    "Frane: secondo ISPRA IdroGEO il 10.5% dei residenti del comune vive in aree a pericolosità da frana elevata o molto elevata (P3+P4), su 5.1% della superficie."
+   ]
+  },
+  {
+   "id": "armeno",
+   "nome": {
+    "it": "Armeno"
+   },
+   "nome_esteso": "Armeno",
+   "tipo": "comune (capoluogo)",
+   "comune": "Armeno",
+   "codice_istat": "003006",
+   "provincia": "NO",
+   "mondo": "colline-mottarone",
+   "punto": {
+    "lat": 45.8224566,
+    "lon": 8.4391986,
+    "fonte": "OpenStreetMap Nominatim, Nominatim: relation 46178 (comune), punto restituito",
+    "nota": "per i comuni Nominatim restituisce il nodo place/admin_centre del capoluogo"
+   },
+   "quota_m": {
+    "punto_copernicus_glo90": 543.0,
+    "fonte": "Open-Meteo Elevation API (Copernicus DEM GLO-90, ~90 m)",
+    "terrain_tiles_400m": {
+     "min": 499,
+     "mediana": 539,
+     "max": 693,
+     "fonte": "AWS Terrain Tiles z12 (EU-DEM/SRTM), raggio 400 m come SloveniaVillas"
+    },
+    "sopra_il_lago_m": 253,
+    "nota_lago": "quota del lago 290 m (tag ele di OSM relation 2024365; vedi fatti.md per la quota ufficiale)"
+   },
+   "distanza_riva_m": {
+    "valore": 2495,
+    "metodo": "distanza minima in linea d'aria dal punto al poligono OSM del lago (relation 2024365), proiezione locale"
+   },
+   "popolazione": {
+    "al_1_gennaio_2025": 2085,
+    "al_1_gennaio_2026_stima": 2089,
+    "fonte": "ISTAT, demo.istat.it – Popolazione residente al 1° gennaio (POSAS); il 2026 è una stima ISTAT",
+    "nota": null
+   },
+   "popolazione_comune": null,
+   "superficie_comune_km2": {
+    "valore": 31.515,
+    "fonte": "ISPRA IdroGEO (piattaforma, api/pir/comuni)"
+   },
+   "carattere": [
+    {
+     "testo": "Territorio collinare-montuoso fino a quasi 1.400 m sulle pendici del Mottarone; la SP41 parte da Armeno ed è la principale via di accesso alla vetta (non a pedaggio).",
+     "fonte": "https://it.wikipedia.org/wiki/Armeno_(Italia)",
+     "consultato": "2026-10-06"
+    },
+    {
+     "testo": "Accanto alle tradizionali attività del legno, aziende di articoli casalinghi.",
+     "fonte": "https://it.wikipedia.org/wiki/Armeno_(Italia)",
+     "consultato": "2026-10-06"
+    }
+   ],
+   "servizi": {
+    "stazione_piu_vicina": [
+     {
+      "nome": "Pettenasco",
+      "operatore_osm": "Rete Ferroviaria Italiana",
+      "osm": "node/4414586469",
+      "distanza_linea_aria_km": 2.5
+     },
+     {
+      "nome": "Orta-Miasino",
+      "operatore_osm": "Rete Ferroviaria Italiana",
+      "osm": "node/820255764",
+      "distanza_linea_aria_km": 3.3
+     }
+    ],
+    "imbarcadero_piu_vicino": [
+     {
+      "nome": "Navigazione Orta Omegna",
+      "operatore_osm": null,
+      "osm": "node/1424162848",
+      "distanza_linea_aria_km": 2.8
+     }
+    ],
+    "nota_distanze": "in linea d'aria",
+    "scuole_statali_nel_comune": [
+     {
+      "grado": "scuola infanzia",
+      "nome": "SCUOLA MATERNA DI ARMENO",
+      "codice": "NOAA804036"
+     },
+     {
+      "grado": "scuola primaria",
+      "nome": "ARMENO",
+      "codice": "NOEE80407G"
+     },
+     {
+      "grado": "scuola primo grado",
+      "nome": "S.M.S. DI ARMENO",
+      "codice": "NOMM80403A"
+     }
+    ],
+    "scuole_fonte": "MIM, Open data Scuola – Anagrafe scuole statali a.s. 2026/27 (SCUANAGRAFESTAT20262720260901.csv); escluse le paritarie",
+    "ospedale_riferimento": "vedi fatti.md (Omegna – Madonna del Popolo; Borgomanero – SS. Trinità); distanze stradali non misurate",
+    "fonte_stazioni_imbarcaderi": "OpenStreetMap (Overpass), estratto 2026-10-06; distanze in linea d'aria; orari e stagionalità in fatti.md",
+    "nota_imbarcadero": "OSM ha nel riquadro alcuni imbarcaderi senza nome o operatore (o con nome ambiguo, es. «Navigazione Orta Omegna» presso Pettenasco) e non mappa un pontile a Omegna: le fermate effettive e la stagione vanno lette sull'orario di Navigazione Lago d'Orta (fatti.md)."
+   },
+   "rischi_ispra_comune": {
+    "frane_area_p3p4_pct": 0.539,
+    "frane_popolazione_p3p4_pct": 2.417,
+    "idraulica_area_p3_pct": 0.574,
+    "idraulica_area_p2_pct": 1.034,
+    "idraulica_popolazione_p2_pct": 4.316,
+    "fonte": "ISPRA IdroGEO, https://idrogeo.isprambiente.it/app/page/pir/comuni/3006 (API /api/pir/comuni/3006), mosaicature nazionali ISPRA della pericolosità (frane PAI, alluvioni D.Lgs. 49/2010); popolazione censimento 2021",
+    "nota": "percentuali sull'intero comune, non sul punto"
+   },
+   "sole": {
+    "orizzonte_max_gradi": {
+     "est_60_130": 6.5,
+     "sud_150_210": 5.9,
+     "ovest_230_310": 5.5
+    },
+    "21_dicembre": {
+     "minuti_sole_diretto_terreno": 458,
+     "minuti_sole_orizzonte_piatto": 509,
+     "primo_sole_ora_locale": "08:44",
+     "ultimo_sole_ora_locale": "16:21"
+    },
+    "21_giugno": {
+     "minuti_sole_diretto_terreno": 863,
+     "minuti_sole_orizzonte_piatto": 932,
+     "primo_sole_ora_locale": "06:24",
+     "ultimo_sole_ora_locale": "20:46"
+    },
+    "21_marzo": {
+     "minuti_sole_diretto_terreno": 680,
+     "minuti_sole_orizzonte_piatto": 720,
+     "primo_sole_ora_locale": "06:57",
+     "ultimo_sole_ora_locale": "18:16"
+    },
+    "metodo": "orizzonte calcolato ogni 2° di azimut sul DEM Terrain Tiles z12 fino a 15 km (o al bordo del riquadro), osservatore 2 m sopra il terreno, curvatura e rifrazione; posizione del sole con formule NOAA; nessun edificio, albero o nuvola. Ore locali (CET d'inverno e marzo, CEST a giugno)."
+   },
+   "tempi_auto": {
+    "milano-duomo": {
+     "minuti": 77,
+     "km": 90.4
+    },
+    "malpensa-t1": {
+     "minuti": 57,
+     "km": 50.4
+    },
+    "linate": {
+     "minuti": 86,
+     "km": 95.4
+    },
+    "novara": {
+     "minuti": 53,
+     "km": 51.6
+    },
+    "torino": {
+     "minuti": 99,
+     "km": 130.2
+    },
+    "lugano": {
+     "minuti": 85,
+     "km": 98.9
+    },
+    "zuerich": {
+     "minuti": 234,
+     "km": 302.2
+    },
+    "basel": {
+     "minuti": 267,
+     "km": 359.2
+    },
+    "bern": {
+     "minuti": 255,
+     "km": 316.0
+    },
+    "geneve": {
+     "minuti": 237,
+     "km": 307.1
+    },
+    "muenchen": {
+     "minuti": 368,
+     "km": 513.7
+    }
+   },
+   "prezzi_omi": "vedi prezzi.json, comune Armeno",
+   "limiti": []
+  },
+  {
+   "id": "omegna",
+   "nome": {
+    "it": "Omegna"
+   },
+   "nome_esteso": "Omegna",
+   "tipo": "comune (capoluogo)",
+   "comune": "Omegna",
+   "codice_istat": "103050",
+   "provincia": "VB",
+   "mondo": "teste-del-lago",
+   "punto": {
+    "lat": 45.879774,
+    "lon": 8.408022,
+    "fonte": "OpenStreetMap Nominatim, Nominatim: relation 46345 (comune), punto restituito",
+    "nota": "per i comuni Nominatim restituisce il nodo place/admin_centre del capoluogo"
+   },
+   "quota_m": {
+    "punto_copernicus_glo90": 307.0,
+    "fonte": "Open-Meteo Elevation API (Copernicus DEM GLO-90, ~90 m)",
+    "terrain_tiles_400m": {
+     "min": 287,
+     "mediana": 302,
+     "max": 356,
+     "fonte": "AWS Terrain Tiles z12 (EU-DEM/SRTM), raggio 400 m come SloveniaVillas"
+    },
+    "sopra_il_lago_m": 17,
+    "nota_lago": "quota del lago 290 m (tag ele di OSM relation 2024365; vedi fatti.md per la quota ufficiale)"
+   },
+   "distanza_riva_m": {
+    "valore": 495,
+    "metodo": "distanza minima in linea d'aria dal punto al poligono OSM del lago (relation 2024365), proiezione locale"
+   },
+   "popolazione": {
+    "al_1_gennaio_2025": 14185,
+    "al_1_gennaio_2026_stima": 14182,
+    "fonte": "ISTAT, demo.istat.it – Popolazione residente al 1° gennaio (POSAS); il 2026 è una stima ISTAT",
+    "nota": null
+   },
+   "popolazione_comune": null,
+   "superficie_comune_km2": {
+    "valore": 30.372,
+    "fonte": "ISPRA IdroGEO (piattaforma, api/pir/comuni)"
+   },
+   "carattere": [
+    {
+     "testo": "Principale centro del Cusio, all'estremità nord del lago, dove esce la Nigoglia. Patria di Gianni Rodari: il Museo Rodari è stato inaugurato il 16 ottobre 2021.",
+     "fonte": "https://it.wikipedia.org/wiki/Omegna",
+     "consultato": "2026-10-06"
+    },
+    {
+     "testo": "Storica capitale italiana dei casalinghi (Piazza, Bialetti, Alessi, Lagostina, Girmi); nel marzo 2026 è stato aperto il museo «Le fabbriche del gioco».",
+     "fonte": "https://it.wikipedia.org/wiki/Omegna",
+     "consultato": "2026-10-06"
+    }
+   ],
+   "servizi": {
+    "stazione_piu_vicina": [
+     {
+      "nome": "Omegna",
+      "operatore_osm": "Rete Ferroviaria Italiana",
+      "osm": "node/3218602866",
+      "distanza_linea_aria_km": 1.0
+     },
+     {
+      "nome": "Omegna Crusinallo",
+      "operatore_osm": "Rete Ferroviaria Italiana",
+      "osm": "node/3218602865",
+      "distanza_linea_aria_km": 2.1
+     }
+    ],
+    "imbarcadero_piu_vicino": [
+     {
+      "nome": null,
+      "operatore_osm": null,
+      "osm": "node/3419983733",
+      "distanza_linea_aria_km": 4.2
+     }
+    ],
+    "nota_distanze": "in linea d'aria",
+    "scuole_statali_nel_comune": [
+     {
+      "grado": "istituto comprensivo",
+      "nome": "IC \"FILIPPO MARIA BELTRAMI\"",
+      "codice": "VBIC817009"
+     },
+     {
+      "grado": "scuola primaria",
+      "nome": "SCUOLA ELEMENTARE DI BAGNELLA",
+      "codice": "VBEE81705G"
+     },
+     {
+      "grado": "scuola primaria",
+      "nome": "SCUOLA ELEMENTARE DI AGRANO",
+      "codice": "VBEE81703D"
+     },
+     {
+      "grado": "scuola primaria",
+      "nome": "SC. ELEM. MADONNA DEL POPOLO",
+      "codice": "VBEE81702C"
+     },
+     {
+      "grado": "scuola primaria",
+      "nome": "SCUOLA ELEMENTARE DI OMEGNA",
+      "codice": "VBEE81701B"
+     },
+     {
+      "grado": "istituto comprensivo",
+      "nome": "IC \"GIANNI RODARI\"",
+      "codice": "VBIC819001"
+     },
+     {
+      "grado": "scuola infanzia",
+      "nome": "SCUOLA MATERNA DI OMEGNA",
+      "codice": "VBAA817049"
+     },
+     {
+      "grado": "scuola infanzia",
+      "nome": "SCUOLA MATERNA DI AGRANO",
+      "codice": "VBAA817027"
+     },
+     {
+      "grado": "scuola primo grado",
+      "nome": "SMS \"F. M. BELTRAMI\"",
+      "codice": "VBMM81701A"
+     },
+     {
+      "grado": "scuola primo grado",
+      "nome": "SMS DI CRUSINALLO",
+      "codice": "VBMM819012"
+     },
+     {
+      "grado": "istituto superiore",
+      "nome": "IS \"DALLA CHIESA-SPINELLI\"",
+      "codice": "VBIS00400B"
+     },
+     {
+      "grado": "istituto tecnico commerciale",
+      "nome": "ITC \"A. SPINELLI\" - INDIRIZZO SERALE ITC",
+      "codice": "VBTD004502"
+     },
+     {
+      "grado": "istituto tecnico commerciale",
+      "nome": "ITCPACLE \"A. SPINELLI\"",
+      "codice": "VBTD00401N"
+     },
+     {
+      "grado": "ist prof industria e artigianato",
+      "nome": "IPSIA \"DALLA CHIESA\"",
+      "codice": "VBRI004013"
+     },
+     {
+      "grado": "centro territoriale",
+      "nome": "C.T.P. DI OMEGNA",
+      "codice": "VBCT70100L"
+     },
+     {
+      "grado": "scuola primaria",
+      "nome": "SCUOLA ELEMENTARE DI CIREGGIO",
+      "codice": "VBEE81706L"
+     },
+     {
+      "grado": "scuola primaria",
+      "nome": "SCUOLA ELEMENTARE DI CRUSINALLO",
+      "codice": "VBEE819035"
+     },
+     {
+      "grado": "istituto superiore",
+      "nome": "IS \"GOBETTI\"",
+      "codice": "VBIS00100X"
+     },
+     {
+      "grado": "liceo artistico",
+      "nome": "LICEO MUSICALE \"GOBETTI\"",
+      "codice": "VBSL001017"
+     },
+     {
+      "grado": "liceo scientifico",
+      "nome": "LICEO SC. ART. E SPORTIVO \"GOBETTI\"",
+      "codice": "VBPS00101A"
+     }
+    ],
+    "scuole_fonte": "MIM, Open data Scuola – Anagrafe scuole statali a.s. 2026/27 (SCUANAGRAFESTAT20262720260901.csv); escluse le paritarie",
+    "ospedale_riferimento": "vedi fatti.md (Omegna – Madonna del Popolo; Borgomanero – SS. Trinità); distanze stradali non misurate",
+    "fonte_stazioni_imbarcaderi": "OpenStreetMap (Overpass), estratto 2026-10-06; distanze in linea d'aria; orari e stagionalità in fatti.md",
+    "nota_imbarcadero": "OSM ha nel riquadro alcuni imbarcaderi senza nome o operatore (o con nome ambiguo, es. «Navigazione Orta Omegna» presso Pettenasco) e non mappa un pontile a Omegna: le fermate effettive e la stagione vanno lette sull'orario di Navigazione Lago d'Orta (fatti.md)."
+   },
+   "rischi_ispra_comune": {
+    "frane_area_p3p4_pct": 1.857,
+    "frane_popolazione_p3p4_pct": 11.494,
+    "idraulica_area_p3_pct": 0.899,
+    "idraulica_area_p2_pct": 2.782,
+    "idraulica_popolazione_p2_pct": 9.553,
+    "fonte": "ISPRA IdroGEO, https://idrogeo.isprambiente.it/app/page/pir/comuni/103050 (API /api/pir/comuni/103050), mosaicature nazionali ISPRA della pericolosità (frane PAI, alluvioni D.Lgs. 49/2010); popolazione censimento 2021",
+    "nota": "percentuali sull'intero comune, non sul punto"
+   },
+   "sole": {
+    "orizzonte_max_gradi": {
+     "est_60_130": 22.2,
+     "sud_150_210": 12.8,
+     "ovest_230_310": 16.6
+    },
+    "21_dicembre": {
+     "minuti_sole_diretto_terreno": 337,
+     "minuti_sole_orizzonte_piatto": 508,
+     "primo_sole_ora_locale": "10:01",
+     "ultimo_sole_ora_locale": "15:37"
+    },
+    "21_giugno": {
+     "minuti_sole_diretto_terreno": 717,
+     "minuti_sole_orizzonte_piatto": 933,
+     "primo_sole_ora_locale": "07:51",
+     "ultimo_sole_ora_locale": "19:47"
+    },
+    "21_marzo": {
+     "minuti_sole_diretto_terreno": 518,
+     "minuti_sole_orizzonte_piatto": 719,
+     "primo_sole_ora_locale": "08:42",
+     "ultimo_sole_ora_locale": "17:19"
+    },
+    "metodo": "orizzonte calcolato ogni 2° di azimut sul DEM Terrain Tiles z12 fino a 15 km (o al bordo del riquadro), osservatore 2 m sopra il terreno, curvatura e rifrazione; posizione del sole con formule NOAA; nessun edificio, albero o nuvola. Ore locali (CET d'inverno e marzo, CEST a giugno)."
+   },
+   "tempi_auto": {
+    "milano-duomo": {
+     "minuti": 82,
+     "km": 105.9
+    },
+    "malpensa-t1": {
+     "minuti": 62,
+     "km": 65.8
+    },
+    "linate": {
+     "minuti": 91,
+     "km": 110.9
+    },
+    "novara": {
+     "minuti": 63,
+     "km": 58.3
+    },
+    "torino": {
+     "minuti": 108,
+     "km": 153.6
+    },
+    "lugano": {
+     "minuti": 89,
+     "km": 114.3
+    },
+    "zuerich": {
+     "minuti": 230,
+     "km": 254.8
+    },
+    "basel": {
+     "minuti": 263,
+     "km": 311.7
+    },
+    "bern": {
+     "minuti": 244,
+     "km": 307.9
+    },
+    "geneve": {
+     "minuti": 246,
+     "km": 330.4
+    },
+    "muenchen": {
+     "minuti": 364,
+     "km": 466.3
+    }
+   },
+   "prezzi_omi": "vedi prezzi.json, comune Omegna",
+   "limiti": [
+    "Inverno corto di sole: il 21 dicembre 5 h 37 di sole diretto sul punto (su 8 h 28 teoriche), dalle 10:01 alle 15:37: calcolo nostro sul DEM, solo rilievo (né edifici né alberi).",
+    "Frane: secondo ISPRA IdroGEO il 11.5% dei residenti del comune vive in aree a pericolosità da frana elevata o molto elevata (P3+P4), su 1.9% della superficie.",
+    "Allagamenti: secondo ISPRA IdroGEO il 9.6% dei residenti del comune sta in aree a pericolosità idraulica media (P2, scenario con tempo di ritorno 100–200 anni) — sul lago significa soprattutto la fascia di riva."
+   ]
+  },
+  {
+   "id": "nonio",
+   "nome": {
+    "it": "Nonio"
+   },
+   "nome_esteso": "Nonio",
+   "tipo": "comune (capoluogo)",
+   "comune": "Nonio",
+   "codice_istat": "103048",
+   "provincia": "VB",
+   "mondo": "teste-del-lago",
+   "punto": {
+    "lat": 45.845773,
+    "lon": 8.377522,
+    "fonte": "OpenStreetMap Nominatim, Nominatim: node 63631006 village Nonio",
+    "nota": "per i comuni Nominatim restituisce il nodo place/admin_centre del capoluogo"
+   },
+   "quota_m": {
+    "punto_copernicus_glo90": 465.0,
+    "fonte": "Open-Meteo Elevation API (Copernicus DEM GLO-90, ~90 m)",
+    "terrain_tiles_400m": {
+     "min": 376,
+     "mediana": 476,
+     "max": 641,
+     "fonte": "AWS Terrain Tiles z12 (EU-DEM/SRTM), raggio 400 m come SloveniaVillas"
+    },
+    "sopra_il_lago_m": 175,
+    "nota_lago": "quota del lago 290 m (tag ele di OSM relation 2024365; vedi fatti.md per la quota ufficiale)"
+   },
+   "distanza_riva_m": {
+    "valore": 656,
+    "metodo": "distanza minima in linea d'aria dal punto al poligono OSM del lago (relation 2024365), proiezione locale"
+   },
+   "popolazione": {
+    "al_1_gennaio_2025": 830,
+    "al_1_gennaio_2026_stima": 820,
+    "fonte": "ISTAT, demo.istat.it – Popolazione residente al 1° gennaio (POSAS); il 2026 è una stima ISTAT",
+    "nota": null
+   },
+   "popolazione_comune": null,
+   "superficie_comune_km2": {
+    "valore": 9.8,
+    "fonte": "ISPRA IdroGEO (piattaforma, api/pir/comuni)"
+   },
+   "carattere": [
+    {
+     "testo": "Sovrasta la sponda occidentale nel tratto nord; nel territorio ci sono cave di serpentino.",
+     "fonte": "https://it.wikipedia.org/wiki/Nonio",
+     "consultato": "2026-10-06"
+    }
+   ],
+   "servizi": {
+    "stazione_piu_vicina": [
+     {
+      "nome": "Pettenasco",
+      "operatore_osm": "Rete Ferroviaria Italiana",
+      "osm": "node/4414586469",
+      "distanza_linea_aria_km": 3.6
+     },
+     {
+      "nome": "Omegna",
+      "operatore_osm": "Rete Ferroviaria Italiana",
+      "osm": "node/3218602866",
+      "distanza_linea_aria_km": 4.0
+     }
+    ],
+    "imbarcadero_piu_vicino": [
+     {
+      "nome": null,
+      "operatore_osm": null,
+      "osm": "node/3419983733",
+      "distanza_linea_aria_km": 0.7
+     }
+    ],
+    "nota_distanze": "in linea d'aria: dalla sponda ovest la stazione più vicina è sull'altra riva, la distanza stradale è molto maggiore",
+    "scuole_statali_nel_comune": [
+     {
+      "grado": "scuola infanzia",
+      "nome": "SCUOLA MATERNA DI NONIO",
+      "codice": "VBAA81705A"
+     }
+    ],
+    "scuole_fonte": "MIM, Open data Scuola – Anagrafe scuole statali a.s. 2026/27 (SCUANAGRAFESTAT20262720260901.csv); escluse le paritarie",
+    "ospedale_riferimento": "vedi fatti.md (Omegna – Madonna del Popolo; Borgomanero – SS. Trinità); distanze stradali non misurate",
+    "fonte_stazioni_imbarcaderi": "OpenStreetMap (Overpass), estratto 2026-10-06; distanze in linea d'aria; orari e stagionalità in fatti.md",
+    "nota_imbarcadero": "OSM ha nel riquadro alcuni imbarcaderi senza nome o operatore (o con nome ambiguo, es. «Navigazione Orta Omegna» presso Pettenasco) e non mappa un pontile a Omegna: le fermate effettive e la stagione vanno lette sull'orario di Navigazione Lago d'Orta (fatti.md)."
+   },
+   "rischi_ispra_comune": {
+    "frane_area_p3p4_pct": 7.582,
+    "frane_popolazione_p3p4_pct": 1.066,
+    "idraulica_area_p3_pct": 0.01,
+    "idraulica_area_p2_pct": 0.235,
+    "idraulica_popolazione_p2_pct": 0.911,
+    "fonte": "ISPRA IdroGEO, https://idrogeo.isprambiente.it/app/page/pir/comuni/103048 (API /api/pir/comuni/103048), mosaicature nazionali ISPRA della pericolosità (frane PAI, alluvioni D.Lgs. 49/2010); popolazione censimento 2021",
+    "nota": "percentuali sull'intero comune, non sul punto"
+   },
+   "sole": {
+    "orizzonte_max_gradi": {
+     "est_60_130": 8.0,
+     "sud_150_210": 6.7,
+     "ovest_230_310": 27.2
+    },
+    "21_dicembre": {
+     "minuti_sole_diretto_terreno": 417,
+     "minuti_sole_orizzonte_piatto": 508,
+     "primo_sole_ora_locale": "08:28",
+     "ultimo_sole_ora_locale": "15:24"
+    },
+    "21_giugno": {
+     "minuti_sole_diretto_terreno": 747,
+     "minuti_sole_orizzonte_piatto": 933,
+     "primo_sole_ora_locale": "06:33",
+     "ultimo_sole_ora_locale": "18:59"
+    },
+    "21_marzo": {
+     "minuti_sole_diretto_terreno": 557,
+     "minuti_sole_orizzonte_piatto": 719,
+     "primo_sole_ora_locale": "07:06",
+     "ultimo_sole_ora_locale": "16:22"
+    },
+    "metodo": "orizzonte calcolato ogni 2° di azimut sul DEM Terrain Tiles z12 fino a 15 km (o al bordo del riquadro), osservatore 2 m sopra il terreno, curvatura e rifrazione; posizione del sole con formule NOAA; nessun edificio, albero o nuvola. Ore locali (CET d'inverno e marzo, CEST a giugno)."
+   },
+   "tempi_auto": {
+    "milano-duomo": {
+     "minuti": 83,
+     "km": 94.3
+    },
+    "malpensa-t1": {
+     "minuti": 62,
+     "km": 54.2
+    },
+    "linate": {
+     "minuti": 91,
+     "km": 99.3
+    },
+    "novara": {
+     "minuti": 58,
+     "km": 55.5
+    },
+    "torino": {
+     "minuti": 104,
+     "km": 134.1
+    },
+    "lugano": {
+     "minuti": 90,
+     "km": 102.7
+    },
+    "zuerich": {
+     "minuti": 235,
+     "km": 259.8
+    },
+    "basel": {
+     "minuti": 268,
+     "km": 316.8
+    },
+    "bern": {
+     "minuti": 249,
+     "km": 313.0
+    },
+    "geneve": {
+     "minuti": 242,
+     "km": 311.0
+    },
+    "muenchen": {
+     "minuti": 369,
+     "km": 471.4
+    }
+   },
+   "prezzi_omi": "vedi prezzi.json, comune Nonio",
+   "limiti": []
+  },
+  {
+   "id": "quarna-sopra",
+   "nome": {
+    "it": "Quarna Sopra"
+   },
+   "nome_esteso": "Quarna Sopra",
+   "tipo": "comune (capoluogo)",
+   "comune": "Quarna Sopra",
+   "codice_istat": "103058",
+   "provincia": "VB",
+   "mondo": "teste-del-lago",
+   "punto": {
+    "lat": 45.8721773,
+    "lon": 8.3736717,
+    "fonte": "OpenStreetMap Nominatim, Nominatim: node 63630935 village Quarna Sopra",
+    "nota": "per i comuni Nominatim restituisce il nodo place/admin_centre del capoluogo"
+   },
+   "quota_m": {
+    "punto_copernicus_glo90": 844.0,
+    "fonte": "Open-Meteo Elevation API (Copernicus DEM GLO-90, ~90 m)",
+    "terrain_tiles_400m": {
+     "min": 687,
+     "mediana": 833,
+     "max": 895,
+     "fonte": "AWS Terrain Tiles z12 (EU-DEM/SRTM), raggio 400 m come SloveniaVillas"
+    },
+    "sopra_il_lago_m": 554,
+    "nota_lago": "quota del lago 290 m (tag ele di OSM relation 2024365; vedi fatti.md per la quota ufficiale)"
+   },
+   "distanza_riva_m": {
+    "valore": 1773,
+    "metodo": "distanza minima in linea d'aria dal punto al poligono OSM del lago (relation 2024365), proiezione locale"
+   },
+   "popolazione": {
+    "al_1_gennaio_2025": 242,
+    "al_1_gennaio_2026_stima": 240,
+    "fonte": "ISTAT, demo.istat.it – Popolazione residente al 1° gennaio (POSAS); il 2026 è una stima ISTAT",
+    "nota": null
+   },
+   "popolazione_comune": null,
+   "superficie_comune_km2": {
+    "valore": 9.395,
+    "fonte": "ISPRA IdroGEO (piattaforma, api/pir/comuni)"
+   },
+   "carattere": [
+    {
+     "testo": "Paese di montagna (241–242 abitanti) sopra Omegna; percorso di 24 murales «Quarna paese dipinto».",
+     "fonte": "https://it.wikipedia.org/wiki/Quarna_Sopra",
+     "consultato": "2026-10-06"
+    }
+   ],
+   "servizi": {
+    "stazione_piu_vicina": [
+     {
+      "nome": "Omegna",
+      "operatore_osm": "Rete Ferroviaria Italiana",
+      "osm": "node/3218602866",
+      "distanza_linea_aria_km": 3.1
+     },
+     {
+      "nome": "Omegna Crusinallo",
+      "operatore_osm": "Rete Ferroviaria Italiana",
+      "osm": "node/3218602865",
+      "distanza_linea_aria_km": 4.2
+     }
+    ],
+    "imbarcadero_piu_vicino": [
+     {
+      "nome": null,
+      "operatore_osm": null,
+      "osm": "node/3419983733",
+      "distanza_linea_aria_km": 3.2
+     }
+    ],
+    "nota_distanze": "in linea d'aria",
+    "scuole_statali_nel_comune": [
+     {
+      "grado": "scuola primaria",
+      "nome": "SCUOLA ELEMENTARE QUARNA SOPRA",
+      "codice": "VBEE81707N"
+     }
+    ],
+    "scuole_fonte": "MIM, Open data Scuola – Anagrafe scuole statali a.s. 2026/27 (SCUANAGRAFESTAT20262720260901.csv); escluse le paritarie",
+    "ospedale_riferimento": "vedi fatti.md (Omegna – Madonna del Popolo; Borgomanero – SS. Trinità); distanze stradali non misurate",
+    "fonte_stazioni_imbarcaderi": "OpenStreetMap (Overpass), estratto 2026-10-06; distanze in linea d'aria; orari e stagionalità in fatti.md",
+    "nota_imbarcadero": "OSM ha nel riquadro alcuni imbarcaderi senza nome o operatore (o con nome ambiguo, es. «Navigazione Orta Omegna» presso Pettenasco) e non mappa un pontile a Omegna: le fermate effettive e la stagione vanno lette sull'orario di Navigazione Lago d'Orta (fatti.md)."
+   },
+   "rischi_ispra_comune": {
+    "frane_area_p3p4_pct": 0.788,
+    "frane_popolazione_p3p4_pct": 0,
+    "idraulica_area_p3_pct": 0.287,
+    "idraulica_area_p2_pct": 0.287,
+    "idraulica_popolazione_p2_pct": 0,
+    "fonte": "ISPRA IdroGEO, https://idrogeo.isprambiente.it/app/page/pir/comuni/103058 (API /api/pir/comuni/103058), mosaicature nazionali ISPRA della pericolosità (frane PAI, alluvioni D.Lgs. 49/2010); popolazione censimento 2021",
+    "nota": "percentuali sull'intero comune, non sul punto"
+   },
+   "sole": {
+    "orizzonte_max_gradi": {
+     "est_60_130": 5.8,
+     "sud_150_210": 6.4,
+     "ovest_230_310": 14.5
+    },
+    "21_dicembre": {
+     "minuti_sole_diretto_terreno": 466,
+     "minuti_sole_orizzonte_piatto": 508,
+     "primo_sole_ora_locale": "08:14",
+     "ultimo_sole_ora_locale": "15:59"
+    },
+    "21_giugno": {
+     "minuti_sole_diretto_terreno": 845,
+     "minuti_sole_orizzonte_piatto": 933,
+     "primo_sole_ora_locale": "05:49",
+     "ultimo_sole_ora_locale": "19:53"
+    },
+    "21_marzo": {
+     "minuti_sole_diretto_terreno": 650,
+     "minuti_sole_orizzonte_piatto": 719,
+     "primo_sole_ora_locale": "06:58",
+     "ultimo_sole_ora_locale": "17:47"
+    },
+    "metodo": "orizzonte calcolato ogni 2° di azimut sul DEM Terrain Tiles z12 fino a 15 km (o al bordo del riquadro), osservatore 2 m sopra il terreno, curvatura e rifrazione; posizione del sole con formule NOAA; nessun edificio, albero o nuvola. Ore locali (CET d'inverno e marzo, CEST a giugno)."
+   },
+   "tempi_auto": {
+    "milano-duomo": {
+     "minuti": 96,
+     "km": 114.6
+    },
+    "malpensa-t1": {
+     "minuti": 75,
+     "km": 74.6
+    },
+    "linate": {
+     "minuti": 104,
+     "km": 119.6
+    },
+    "novara": {
+     "minuti": 75,
+     "km": 66.5
+    },
+    "torino": {
+     "minuti": 121,
+     "km": 145.1
+    },
+    "lugano": {
+     "minuti": 103,
+     "km": 123.0
+    },
+    "zuerich": {
+     "minuti": 243,
+     "km": 263.5
+    },
+    "basel": {
+     "minuti": 276,
+     "km": 320.5
+    },
+    "bern": {
+     "minuti": 257,
+     "km": 316.7
+    },
+    "geneve": {
+     "minuti": 259,
+     "km": 322.0
+    },
+    "muenchen": {
+     "minuti": 377,
+     "km": 475.1
+    }
+   },
+   "prezzi_omi": "vedi prezzi.json, comune Quarna Sopra",
+   "limiti": []
+  },
+  {
+   "id": "gozzano",
+   "nome": {
+    "it": "Gozzano"
+   },
+   "nome_esteso": "Gozzano",
+   "tipo": "comune (capoluogo)",
+   "comune": "Gozzano",
+   "codice_istat": "003076",
+   "provincia": "NO",
+   "mondo": "teste-del-lago",
+   "punto": {
+    "lat": 45.7464568,
+    "lon": 8.4360668,
+    "fonte": "OpenStreetMap Nominatim, Nominatim: relation 45908 (comune), punto restituito",
+    "nota": "per i comuni Nominatim restituisce il nodo place/admin_centre del capoluogo"
+   },
+   "quota_m": {
+    "punto_copernicus_glo90": 360.0,
+    "fonte": "Open-Meteo Elevation API (Copernicus DEM GLO-90, ~90 m)",
+    "terrain_tiles_400m": {
+     "min": 346,
+     "mediana": 353,
+     "max": 365,
+     "fonte": "AWS Terrain Tiles z12 (EU-DEM/SRTM), raggio 400 m come SloveniaVillas"
+    },
+    "sopra_il_lago_m": 70,
+    "nota_lago": "quota del lago 290 m (tag ele di OSM relation 2024365; vedi fatti.md per la quota ufficiale)"
+   },
+   "distanza_riva_m": {
+    "valore": 2095,
+    "metodo": "distanza minima in linea d'aria dal punto al poligono OSM del lago (relation 2024365), proiezione locale"
+   },
+   "popolazione": {
+    "al_1_gennaio_2025": 5499,
+    "al_1_gennaio_2026_stima": 5464,
+    "fonte": "ISTAT, demo.istat.it – Popolazione residente al 1° gennaio (POSAS); il 2026 è una stima ISTAT",
+    "nota": null
+   },
+   "popolazione_comune": null,
+   "superficie_comune_km2": {
+    "valore": 12.582,
+    "fonte": "ISPRA IdroGEO (piattaforma, api/pir/comuni)"
+   },
+   "carattere": [
+    {
+     "testo": "All'estremità sud del lago. Per decenni l'economia è stata la produzione di rayon al cuproammonio della Bemberg (frazione Monterosso), chiusa del tutto nel 2009: è lo stabilimento all'origine dell'inquinamento del lago (vedi fatti.md).",
+     "fonte": "https://it.wikipedia.org/wiki/Gozzano",
+     "consultato": "2026-10-06"
+    },
+    {
+     "testo": "Basilica di San Giuliano (secoli IX–XIX) con il corpo del patrono nella cripta.",
+     "fonte": "https://it.wikipedia.org/wiki/Gozzano",
+     "consultato": "2026-10-06"
+    }
+   ],
+   "servizi": {
+    "stazione_piu_vicina": [
+     {
+      "nome": "Gozzano",
+      "operatore_osm": "Rete Ferroviaria Italiana",
+      "osm": "node/4413423792",
+      "distanza_linea_aria_km": 0.4
+     },
+     {
+      "nome": "Bolzano Novarese",
+      "operatore_osm": "Rete Ferroviaria Italiana",
+      "osm": "node/4209783310",
+      "distanza_linea_aria_km": 1.5
+     }
+    ],
+    "imbarcadero_piu_vicino": [
+     {
+      "nome": "Lagna",
+      "operatore_osm": "Navigazione Lago d'Orta",
+      "osm": "node/3689511103",
+      "distanza_linea_aria_km": 5.5
+     }
+    ],
+    "nota_distanze": "in linea d'aria",
+    "scuole_statali_nel_comune": [
+     {
+      "grado": "istituto comprensivo",
+      "nome": "G. PASCOLI",
+      "codice": "NOIC80800E"
+     },
+     {
+      "grado": "scuola primo grado",
+      "nome": "\"G. PASCOLI\"",
+      "codice": "NOMM80801G"
+     },
+     {
+      "grado": "scuola infanzia",
+      "nome": "\"GOZZANO\"",
+      "codice": "NOAA80804E"
+     },
+     {
+      "grado": "liceo scientifico",
+      "nome": "SEZ.MAG.LE \"G.GALILEI\" GOZZANO",
+      "codice": "NOPS040011"
+     },
+     {
+      "grado": "scuola primaria",
+      "nome": "\"GOZZANO\"",
+      "codice": "NOEE80804Q"
+     }
+    ],
+    "scuole_fonte": "MIM, Open data Scuola – Anagrafe scuole statali a.s. 2026/27 (SCUANAGRAFESTAT20262720260901.csv); escluse le paritarie",
+    "ospedale_riferimento": "vedi fatti.md (Omegna – Madonna del Popolo; Borgomanero – SS. Trinità); distanze stradali non misurate",
+    "fonte_stazioni_imbarcaderi": "OpenStreetMap (Overpass), estratto 2026-10-06; distanze in linea d'aria; orari e stagionalità in fatti.md"
+   },
+   "rischi_ispra_comune": {
+    "frane_area_p3p4_pct": 0.294,
+    "frane_popolazione_p3p4_pct": 0.018,
+    "idraulica_area_p3_pct": 2.337,
+    "idraulica_area_p2_pct": 3.6,
+    "idraulica_popolazione_p2_pct": 0.875,
+    "fonte": "ISPRA IdroGEO, https://idrogeo.isprambiente.it/app/page/pir/comuni/3076 (API /api/pir/comuni/3076), mosaicature nazionali ISPRA della pericolosità (frane PAI, alluvioni D.Lgs. 49/2010); popolazione censimento 2021",
+    "nota": "percentuali sull'intero comune, non sul punto"
+   },
+   "sole": {
+    "orizzonte_max_gradi": {
+     "est_60_130": 5.1,
+     "sud_150_210": 1.7,
+     "ovest_230_310": 5.3
+    },
+    "21_dicembre": {
+     "minuti_sole_diretto_terreno": 468,
+     "minuti_sole_orizzonte_piatto": 509,
+     "primo_sole_ora_locale": "08:26",
+     "ultimo_sole_ora_locale": "16:13"
+    },
+    "21_giugno": {
+     "minuti_sole_diretto_terreno": 869,
+     "minuti_sole_orizzonte_piatto": 932,
+     "primo_sole_ora_locale": "06:12",
+     "ultimo_sole_ora_locale": "20:40"
+    },
+    "21_marzo": {
+     "minuti_sole_diretto_terreno": 678,
+     "minuti_sole_orizzonte_piatto": 720,
+     "primo_sole_ora_locale": "06:56",
+     "ultimo_sole_ora_locale": "18:13"
+    },
+    "metodo": "orizzonte calcolato ogni 2° di azimut sul DEM Terrain Tiles z12 fino a 15 km (o al bordo del riquadro), osservatore 2 m sopra il terreno, curvatura e rifrazione; posizione del sole con formule NOAA; nessun edificio, albero o nuvola. Ore locali (CET d'inverno e marzo, CEST a giugno)."
+   },
+   "tempi_auto": {
+    "milano-duomo": {
+     "minuti": 67,
+     "km": 79.0
+    },
+    "malpensa-t1": {
+     "minuti": 46,
+     "km": 38.9
+    },
+    "linate": {
+     "minuti": 75,
+     "km": 84.0
+    },
+    "novara": {
+     "minuti": 42,
+     "km": 40.2
+    },
+    "torino": {
+     "minuti": 88,
+     "km": 118.8
+    },
+    "lugano": {
+     "minuti": 74,
+     "km": 87.4
+    },
+    "zuerich": {
+     "minuti": 223,
+     "km": 290.7
+    },
+    "basel": {
+     "minuti": 256,
+     "km": 347.7
+    },
+    "bern": {
+     "minuti": 260,
+     "km": 333.1
+    },
+    "geneve": {
+     "minuti": 226,
+     "km": 295.7
+    },
+    "muenchen": {
+     "minuti": 357,
+     "km": 502.3
+    }
+   },
+   "prezzi_omi": "vedi prezzi.json, comune Gozzano",
+   "limiti": []
+  },
+  {
+   "id": "bolzano-novarese",
+   "nome": {
+    "it": "Bolzano Novarese"
+   },
+   "nome_esteso": "Bolzano Novarese",
+   "tipo": "comune (capoluogo)",
+   "comune": "Bolzano Novarese",
+   "codice_istat": "003022",
+   "provincia": "NO",
+   "mondo": "teste-del-lago",
+   "punto": {
+    "lat": 45.7627855,
+    "lon": 8.4451747,
+    "fonte": "OpenStreetMap Nominatim, Nominatim: relation 46068 (comune), punto restituito",
+    "nota": "per i comuni Nominatim restituisce il nodo place/admin_centre del capoluogo"
+   },
+   "quota_m": {
+    "punto_copernicus_glo90": 409.0,
+    "fonte": "Open-Meteo Elevation API (Copernicus DEM GLO-90, ~90 m)",
+    "terrain_tiles_400m": {
+     "min": 371,
+     "mediana": 409,
+     "max": 452,
+     "fonte": "AWS Terrain Tiles z12 (EU-DEM/SRTM), raggio 400 m come SloveniaVillas"
+    },
+    "sopra_il_lago_m": 119,
+    "nota_lago": "quota del lago 290 m (tag ele di OSM relation 2024365; vedi fatti.md per la quota ufficiale)"
+   },
+   "distanza_riva_m": {
+    "valore": 1325,
+    "metodo": "distanza minima in linea d'aria dal punto al poligono OSM del lago (relation 2024365), proiezione locale"
+   },
+   "popolazione": {
+    "al_1_gennaio_2025": 1128,
+    "al_1_gennaio_2026_stima": 1110,
+    "fonte": "ISTAT, demo.istat.it – Popolazione residente al 1° gennaio (POSAS); il 2026 è una stima ISTAT",
+    "nota": null
+   },
+   "popolazione_comune": null,
+   "superficie_comune_km2": {
+    "valore": 3.304,
+    "fonte": "ISPRA IdroGEO (piattaforma, api/pir/comuni)"
+   },
+   "carattere": [
+    {
+     "testo": "Piccolo comune a sud del lago, fra Gozzano e Ameno; dal 1928 al 1947 fu aggregato a Gozzano.",
+     "fonte": "https://it.wikipedia.org/wiki/Bolzano_Novarese",
+     "consultato": "2026-10-06"
+    }
+   ],
+   "servizi": {
+    "stazione_piu_vicina": [
+     {
+      "nome": "Bolzano Novarese",
+      "operatore_osm": "Rete Ferroviaria Italiana",
+      "osm": "node/4209783310",
+      "distanza_linea_aria_km": 0.5
+     },
+     {
+      "nome": "Gozzano",
+      "operatore_osm": "Rete Ferroviaria Italiana",
+      "osm": "node/4413423792",
+      "distanza_linea_aria_km": 2.0
+     }
+    ],
+    "imbarcadero_piu_vicino": [
+     {
+      "nome": "Lagna",
+      "operatore_osm": "Navigazione Lago d'Orta",
+      "osm": "node/3689511103",
+      "distanza_linea_aria_km": 4.8
+     }
+    ],
+    "nota_distanze": "in linea d'aria",
+    "scuole_statali_nel_comune": [
+     {
+      "grado": "scuola primaria",
+      "nome": "BOLZANO NOVARESE",
+      "codice": "NOEE80802N"
+     },
+     {
+      "grado": "scuola infanzia",
+      "nome": "BOLZANO NOVARESE",
+      "codice": "NOAA80802C"
+     }
+    ],
+    "scuole_fonte": "MIM, Open data Scuola – Anagrafe scuole statali a.s. 2026/27 (SCUANAGRAFESTAT20262720260901.csv); escluse le paritarie",
+    "ospedale_riferimento": "vedi fatti.md (Omegna – Madonna del Popolo; Borgomanero – SS. Trinità); distanze stradali non misurate",
+    "fonte_stazioni_imbarcaderi": "OpenStreetMap (Overpass), estratto 2026-10-06; distanze in linea d'aria; orari e stagionalità in fatti.md"
+   },
+   "rischi_ispra_comune": {
+    "frane_area_p3p4_pct": 0.061,
+    "frane_popolazione_p3p4_pct": 0,
+    "idraulica_area_p3_pct": 4.419,
+    "idraulica_area_p2_pct": 4.419,
+    "idraulica_popolazione_p2_pct": 0.765,
+    "fonte": "ISPRA IdroGEO, https://idrogeo.isprambiente.it/app/page/pir/comuni/3022 (API /api/pir/comuni/3022), mosaicature nazionali ISPRA della pericolosità (frane PAI, alluvioni D.Lgs. 49/2010); popolazione censimento 2021",
+    "nota": "percentuali sull'intero comune, non sul punto"
+   },
+   "sole": {
+    "orizzonte_max_gradi": {
+     "est_60_130": 6.5,
+     "sud_150_210": 3.3,
+     "ovest_230_310": 4.9
+    },
+    "21_dicembre": {
+     "minuti_sole_diretto_terreno": 465,
+     "minuti_sole_orizzonte_piatto": 509,
+     "primo_sole_ora_locale": "08:39",
+     "ultimo_sole_ora_locale": "16:23"
+    },
+    "21_giugno": {
+     "minuti_sole_diretto_terreno": 875,
+     "minuti_sole_orizzonte_piatto": 932,
+     "primo_sole_ora_locale": "06:17",
+     "ultimo_sole_ora_locale": "20:51"
+    },
+    "21_marzo": {
+     "minuti_sole_diretto_terreno": 667,
+     "minuti_sole_orizzonte_piatto": 720,
+     "primo_sole_ora_locale": "07:05",
+     "ultimo_sole_ora_locale": "18:11"
+    },
+    "metodo": "orizzonte calcolato ogni 2° di azimut sul DEM Terrain Tiles z12 fino a 15 km (o al bordo del riquadro), osservatore 2 m sopra il terreno, curvatura e rifrazione; posizione del sole con formule NOAA; nessun edificio, albero o nuvola. Ore locali (CET d'inverno e marzo, CEST a giugno)."
+   },
+   "tempi_auto": {
+    "milano-duomo": {
+     "minuti": 69,
+     "km": 82.1
+    },
+    "malpensa-t1": {
+     "minuti": 48,
+     "km": 42.0
+    },
+    "linate": {
+     "minuti": 77,
+     "km": 87.1
+    },
+    "novara": {
+     "minuti": 44,
+     "km": 43.3
+    },
+    "torino": {
+     "minuti": 91,
+     "km": 121.9
+    },
+    "lugano": {
+     "minuti": 76,
+     "km": 90.5
+    },
+    "zuerich": {
+     "minuti": 226,
+     "km": 293.8
+    },
+    "basel": {
+     "minuti": 259,
+     "km": 350.8
+    },
+    "bern": {
+     "minuti": 259,
+     "km": 331.8
+    },
+    "geneve": {
+     "minuti": 228,
+     "km": 298.7
+    },
+    "muenchen": {
+     "minuti": 360,
+     "km": 505.4
+    }
+   },
+   "prezzi_omi": "vedi prezzi.json, comune Bolzano Novarese",
+   "limiti": []
+  }
+ ]
+}

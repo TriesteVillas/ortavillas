@@ -1,0 +1,2886 @@
+{
+ "_meta": {
+  "fonte_quotazioni": "Agenzia delle Entrate – OMI, Banca dati delle quotazioni immobiliari, servizio pubblico di consultazione https://www1.agenziaentrate.gov.it/servizi/Consultazione/ricerca.htm (senza autenticazione)",
+  "semestre": "2° semestre 2025 (ultimo pubblicato al 2026-10-06); confronto con il 2° semestre 2024",
+  "estratto_il": "2026-10-06",
+  "licenza": "CC BY 4.0 – citare «Agenzia delle Entrate – OMI»",
+  "metodo": "per ogni comune, ogni zona OMI, destinazione Residenziale: lettura della tabella dei risultati (script curl+python, una richiesta ogni 1,3 s). Riportate solo le tipologie abitative (civili, economiche, signorili, ville e villini); box e posti auto restano nel file grezzo raw/omi_20252_20242.json.",
+  "come_leggere": [
+   "Le quotazioni OMI NON sono prezzi di singole compravendite né medie di atti: sono intervalli min–max in €/m² stimati dall'Agenzia per zona omogenea, tipologia e stato conservativo, elaborati anche da atti, offerte e rilevazioni (vedi Manuale della banca dati OMI). L'Agenzia stessa avverte che non sostituiscono la stima puntuale.",
+   "Superficie L = lorda (commerciale), N = netta. Qui sono tutte L.",
+   "Lo stato conservativo riportato è quello prevalente nella zona (NORMALE); ottimo/scadente non sono quotati in questi comuni.",
+   "Quando una tipologia manca in una zona, l'OMI non la quota (mercato non significativo): non è un prezzo zero.",
+   "La «variazione» è calcolata da noi sul centro dell'intervallo, 2° sem. 2025 vs 2° sem. 2024: misura come l'OMI ha spostato la quotazione, non l'andamento delle vendite."
+  ],
+  "non_ottenuto": [
+   {
+    "dato": "NTN (numero di compravendite normalizzate) per singolo comune",
+    "stato": "non scaricato",
+    "perche": "il dettaglio comunale si ottiene solo dal servizio «Forniture dati OMI» nell'area riservata (SPID/CIE/CNS o credenziali Fisconline/Entratel); non usiamo credenziali per conto dell'utente. Pagina: https://www.agenziaentrate.gov.it/portale/schede/fabbricatiterreni/omi/forniture-dati-omi. Un operatore con SPID può scaricarlo gratuitamente (CC BY 4.0)."
+   },
+   {
+    "dato": "Prezzi dichiarati nei singoli atti (equivalente italiano del registro ETN sloveno)",
+    "stato": "non usato",
+    "perche": "il servizio «Consultazione valori immobiliari dichiarati» richiede autenticazione Fisconline/Entratel con SPID/CIE/CNS, mostra atti degli ultimi 5 anni uno per uno su mappa; non c'è download massivo né una licenza aperta dichiarata sulla pagina, quindi niente mediane alla slovena senza raccolta manuale e una verifica delle condizioni d'uso. Pagina: https://www.agenziaentrate.gov.it/portale/schede/fabbricatiterreni/omi/consultazione-valori-immobiliari-dichiarati (aggiornata 19/06/2026)."
+   },
+   {
+    "dato": "Perimetri delle zone OMI (KML)",
+    "stato": "non scaricato",
+    "perche": "stesso servizio Forniture (area riservata) oppure visualizzazione GEOPOI; le zone qui sono descritte solo a parole."
+   }
+  ]
+ },
+ "comuni": [
+  {
+   "id_comune": "ameno",
+   "comune": "Ameno",
+   "provincia": "NO",
+   "codice_catastale": "A264",
+   "sintesi_2025_2": {
+    "intervallo_residenziale_eur_m2": [
+     580.0,
+     1650.0
+    ],
+    "abitazioni_civili_zona_piu_cara": [
+     1100.0,
+     1550.0,
+     "D1",
+     "COLLINARE RESIDENZIALE"
+    ],
+    "ville_villini_zona_piu_cara": [
+     1150.0,
+     1650.0,
+     "D1",
+     "COLLINARE RESIDENZIALE"
+    ],
+    "nota": "min del minimo e max del massimo fra tutte le zone e tipologie residenziali; stato conservativo NORMALE (il prevalente di zona)"
+   },
+   "zone": [
+    {
+     "zona_omi": "B1",
+     "fascia": "Centrale",
+     "descrizione": "VECCHIO NUCLEO CENTRALE",
+     "quotazioni_2025_2": [
+      {
+       "tipologia": "Abitazioni civili",
+       "stato": "NORMALE",
+       "eur_m2_min": 990.0,
+       "eur_m2_max": 1450.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 3.2,
+       "affitto_eur_m2_mese_max": 4.6,
+       "variazione_centro_intervallo_vs_2024_2_pct": 4.3
+      },
+      {
+       "tipologia": "Abitazioni di tipo economico",
+       "stato": "NORMALE",
+       "eur_m2_min": 580.0,
+       "eur_m2_max": 840.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 2.0,
+       "affitto_eur_m2_mese_max": 2.8,
+       "variazione_centro_intervallo_vs_2024_2_pct": 1.4
+      }
+     ],
+     "quotazioni_2024_2": [
+      {
+       "tipologia": "Abitazioni civili",
+       "stato": "NORMALE",
+       "eur_m2_min": 940.0,
+       "eur_m2_max": 1400.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 2.9,
+       "affitto_eur_m2_mese_max": 4.1
+      },
+      {
+       "tipologia": "Abitazioni di tipo economico",
+       "stato": "NORMALE",
+       "eur_m2_min": 560.0,
+       "eur_m2_max": 840.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 1.8,
+       "affitto_eur_m2_mese_max": 2.7
+      }
+     ]
+    },
+    {
+     "zona_omi": "D1",
+     "fascia": "Periferica",
+     "descrizione": "COLLINARE RESIDENZIALE",
+     "quotazioni_2025_2": [
+      {
+       "tipologia": "Abitazioni civili",
+       "stato": "NORMALE",
+       "eur_m2_min": 1100.0,
+       "eur_m2_max": 1550.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 3.5,
+       "affitto_eur_m2_mese_max": 5.0,
+       "variazione_centro_intervallo_vs_2024_2_pct": 6.0
+      },
+      {
+       "tipologia": "Abitazioni di tipo economico",
+       "stato": "NORMALE",
+       "eur_m2_min": 590.0,
+       "eur_m2_max": 850.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 2.0,
+       "affitto_eur_m2_mese_max": 2.9,
+       "variazione_centro_intervallo_vs_2024_2_pct": 1.4
+      },
+      {
+       "tipologia": "Ville e Villini",
+       "stato": "NORMALE",
+       "eur_m2_min": 1150.0,
+       "eur_m2_max": 1650.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 4.2,
+       "affitto_eur_m2_mese_max": 6.0,
+       "variazione_centro_intervallo_vs_2024_2_pct": 3.7
+      }
+     ],
+     "quotazioni_2024_2": [
+      {
+       "tipologia": "Abitazioni civili",
+       "stato": "NORMALE",
+       "eur_m2_min": 1000.0,
+       "eur_m2_max": 1500.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 3.1,
+       "affitto_eur_m2_mese_max": 4.4
+      },
+      {
+       "tipologia": "Abitazioni di tipo economico",
+       "stato": "NORMALE",
+       "eur_m2_min": 570.0,
+       "eur_m2_max": 850.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 1.7,
+       "affitto_eur_m2_mese_max": 2.5
+      },
+      {
+       "tipologia": "Ville e Villini",
+       "stato": "NORMALE",
+       "eur_m2_min": 1100.0,
+       "eur_m2_max": 1600.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 4.1,
+       "affitto_eur_m2_mese_max": 5.8
+      }
+     ]
+    },
+    {
+     "zona_omi": "R",
+     "fascia": "Extraurbana",
+     "descrizione": "COLLINARE AGRICOLA",
+     "quotazioni_2025_2": [],
+     "quotazioni_2024_2": []
+    }
+   ]
+  },
+  {
+   "id_comune": "armeno",
+   "comune": "Armeno",
+   "provincia": "NO",
+   "codice_catastale": "A414",
+   "sintesi_2025_2": {
+    "intervallo_residenziale_eur_m2": [
+     550.0,
+     1650.0
+    ],
+    "abitazioni_civili_zona_piu_cara": [
+     990.0,
+     1450.0,
+     "B1",
+     "VECCHIO NUCLEO CENTRALE"
+    ],
+    "ville_villini_zona_piu_cara": [
+     1150.0,
+     1650.0,
+     "D1",
+     "COLLINARE RESIDENZIALE"
+    ],
+    "nota": "min del minimo e max del massimo fra tutte le zone e tipologie residenziali; stato conservativo NORMALE (il prevalente di zona)"
+   },
+   "zone": [
+    {
+     "zona_omi": "B1",
+     "fascia": "Centrale",
+     "descrizione": "VECCHIO NUCLEO CENTRALE",
+     "quotazioni_2025_2": [
+      {
+       "tipologia": "Abitazioni civili",
+       "stato": "NORMALE",
+       "eur_m2_min": 990.0,
+       "eur_m2_max": 1450.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 3.3,
+       "affitto_eur_m2_mese_max": 4.6,
+       "variazione_centro_intervallo_vs_2024_2_pct": 4.3
+      },
+      {
+       "tipologia": "Abitazioni di tipo economico",
+       "stato": "NORMALE",
+       "eur_m2_min": 550.0,
+       "eur_m2_max": 810.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 1.9,
+       "affitto_eur_m2_mese_max": 2.7,
+       "variazione_centro_intervallo_vs_2024_2_pct": 1.5
+      }
+     ],
+     "quotazioni_2024_2": [
+      {
+       "tipologia": "Abitazioni civili",
+       "stato": "NORMALE",
+       "eur_m2_min": 940.0,
+       "eur_m2_max": 1400.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 3.0,
+       "affitto_eur_m2_mese_max": 4.1
+      },
+      {
+       "tipologia": "Abitazioni di tipo economico",
+       "stato": "NORMALE",
+       "eur_m2_min": 540.0,
+       "eur_m2_max": 800.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 1.8,
+       "affitto_eur_m2_mese_max": 2.5
+      }
+     ]
+    },
+    {
+     "zona_omi": "D1",
+     "fascia": "Periferica",
+     "descrizione": "COLLINARE RESIDENZIALE",
+     "quotazioni_2025_2": [
+      {
+       "tipologia": "Abitazioni civili",
+       "stato": "NORMALE",
+       "eur_m2_min": 950.0,
+       "eur_m2_max": 1400.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 3.2,
+       "affitto_eur_m2_mese_max": 4.5,
+       "variazione_centro_intervallo_vs_2024_2_pct": 4.4
+      },
+      {
+       "tipologia": "Abitazioni di tipo economico",
+       "stato": "NORMALE",
+       "eur_m2_min": 560.0,
+       "eur_m2_max": 820.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 1.9,
+       "affitto_eur_m2_mese_max": 2.7,
+       "variazione_centro_intervallo_vs_2024_2_pct": 1.5
+      },
+      {
+       "tipologia": "Ville e Villini",
+       "stato": "NORMALE",
+       "eur_m2_min": 1150.0,
+       "eur_m2_max": 1650.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 4.3,
+       "affitto_eur_m2_mese_max": 5.9,
+       "variazione_centro_intervallo_vs_2024_2_pct": 3.7
+      }
+     ],
+     "quotazioni_2024_2": [
+      {
+       "tipologia": "Abitazioni civili",
+       "stato": "NORMALE",
+       "eur_m2_min": 900.0,
+       "eur_m2_max": 1350.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 2.9,
+       "affitto_eur_m2_mese_max": 4.0
+      },
+      {
+       "tipologia": "Abitazioni di tipo economico",
+       "stato": "NORMALE",
+       "eur_m2_min": 550.0,
+       "eur_m2_max": 810.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 1.8,
+       "affitto_eur_m2_mese_max": 2.6
+      },
+      {
+       "tipologia": "Ville e Villini",
+       "stato": "NORMALE",
+       "eur_m2_min": 1100.0,
+       "eur_m2_max": 1600.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 4.1,
+       "affitto_eur_m2_mese_max": 5.7
+      }
+     ]
+    },
+    {
+     "zona_omi": "R",
+     "fascia": "Extraurbana",
+     "descrizione": "COLLINARE AGRICOLA",
+     "quotazioni_2025_2": [],
+     "quotazioni_2024_2": []
+    }
+   ]
+  },
+  {
+   "id_comune": "bolzano-novarese",
+   "comune": "Bolzano Novarese",
+   "provincia": "NO",
+   "codice_catastale": "A953",
+   "sintesi_2025_2": {
+    "intervallo_residenziale_eur_m2": [
+     970.0,
+     1600.0
+    ],
+    "abitazioni_civili_zona_piu_cara": [
+     1000.0,
+     1500.0,
+     "D1",
+     "PERIFERICA RESIDENZIALE"
+    ],
+    "ville_villini_zona_piu_cara": [
+     1100.0,
+     1600.0,
+     "D1",
+     "PERIFERICA RESIDENZIALE"
+    ],
+    "nota": "min del minimo e max del massimo fra tutte le zone e tipologie residenziali; stato conservativo NORMALE (il prevalente di zona)"
+   },
+   "zone": [
+    {
+     "zona_omi": "B1",
+     "fascia": "Centrale",
+     "descrizione": "VECCHIO NUCLEO CENTRALE",
+     "quotazioni_2025_2": [
+      {
+       "tipologia": "Abitazioni civili",
+       "stato": "NORMALE",
+       "eur_m2_min": 970.0,
+       "eur_m2_max": 1450.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 3.0,
+       "affitto_eur_m2_mese_max": 4.5,
+       "variazione_centro_intervallo_vs_2024_2_pct": 7.6
+      },
+      {
+       "tipologia": "Ville e Villini",
+       "stato": "NORMALE",
+       "eur_m2_min": 1050.0,
+       "eur_m2_max": 1550.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 3.3,
+       "affitto_eur_m2_mese_max": 4.9,
+       "variazione_centro_intervallo_vs_2024_2_pct": 4.0
+      }
+     ],
+     "quotazioni_2024_2": [
+      {
+       "tipologia": "Abitazioni civili",
+       "stato": "NORMALE",
+       "eur_m2_min": 900.0,
+       "eur_m2_max": 1350.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 2.5,
+       "affitto_eur_m2_mese_max": 3.5
+      },
+      {
+       "tipologia": "Ville e Villini",
+       "stato": "NORMALE",
+       "eur_m2_min": 1000.0,
+       "eur_m2_max": 1500.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 3.0,
+       "affitto_eur_m2_mese_max": 4.2
+      }
+     ]
+    },
+    {
+     "zona_omi": "D1",
+     "fascia": "Periferica",
+     "descrizione": "PERIFERICA RESIDENZIALE",
+     "quotazioni_2025_2": [
+      {
+       "tipologia": "Abitazioni civili",
+       "stato": "NORMALE",
+       "eur_m2_min": 1000.0,
+       "eur_m2_max": 1500.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 3.1,
+       "affitto_eur_m2_mese_max": 4.6,
+       "variazione_centro_intervallo_vs_2024_2_pct": 6.8
+      },
+      {
+       "tipologia": "Ville e Villini",
+       "stato": "NORMALE",
+       "eur_m2_min": 1100.0,
+       "eur_m2_max": 1600.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 3.4,
+       "affitto_eur_m2_mese_max": 5.0,
+       "variazione_centro_intervallo_vs_2024_2_pct": 3.8
+      }
+     ],
+     "quotazioni_2024_2": [
+      {
+       "tipologia": "Abitazioni civili",
+       "stato": "NORMALE",
+       "eur_m2_min": 940.0,
+       "eur_m2_max": 1400.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 2.5,
+       "affitto_eur_m2_mese_max": 3.5
+      },
+      {
+       "tipologia": "Ville e Villini",
+       "stato": "NORMALE",
+       "eur_m2_min": 1050.0,
+       "eur_m2_max": 1550.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 3.2,
+       "affitto_eur_m2_mese_max": 4.4
+      }
+     ]
+    },
+    {
+     "zona_omi": "R",
+     "fascia": "Extraurbana",
+     "descrizione": "AGRICOLA",
+     "quotazioni_2025_2": [],
+     "quotazioni_2024_2": []
+    }
+   ]
+  },
+  {
+   "id_comune": "gozzano",
+   "comune": "Gozzano",
+   "provincia": "NO",
+   "codice_catastale": "E120",
+   "sintesi_2025_2": {
+    "intervallo_residenziale_eur_m2": [
+     370.0,
+     1600.0
+    ],
+    "abitazioni_civili_zona_piu_cara": [
+     1000.0,
+     1500.0,
+     "C2",
+     "SEMICENTRALE CON NORD EST ABITATO, NORD LAGO"
+    ],
+    "ville_villini_zona_piu_cara": [
+     1100.0,
+     1600.0,
+     "C2",
+     "SEMICENTRALE CON NORD EST ABITATO, NORD LAGO"
+    ],
+    "nota": "min del minimo e max del massimo fra tutte le zone e tipologie residenziali; stato conservativo NORMALE (il prevalente di zona)"
+   },
+   "zone": [
+    {
+     "zona_omi": "B1",
+     "fascia": "Centrale",
+     "descrizione": "CENTRALE",
+     "quotazioni_2025_2": [
+      {
+       "tipologia": "Abitazioni civili",
+       "stato": "NORMALE",
+       "eur_m2_min": 1000.0,
+       "eur_m2_max": 1450.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 3.2,
+       "affitto_eur_m2_mese_max": 4.5,
+       "variazione_centro_intervallo_vs_2024_2_pct": 4.7
+      },
+      {
+       "tipologia": "Abitazioni di tipo economico",
+       "stato": "NORMALE",
+       "eur_m2_min": 540.0,
+       "eur_m2_max": 800.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 2.0,
+       "affitto_eur_m2_mese_max": 2.9,
+       "variazione_centro_intervallo_vs_2024_2_pct": 1.5
+      }
+     ],
+     "quotazioni_2024_2": [
+      {
+       "tipologia": "Abitazioni civili",
+       "stato": "NORMALE",
+       "eur_m2_min": 940.0,
+       "eur_m2_max": 1400.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 3.0,
+       "affitto_eur_m2_mese_max": 4.3
+      },
+      {
+       "tipologia": "Abitazioni di tipo economico",
+       "stato": "NORMALE",
+       "eur_m2_min": 530.0,
+       "eur_m2_max": 790.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 1.9,
+       "affitto_eur_m2_mese_max": 2.8
+      }
+     ]
+    },
+    {
+     "zona_omi": "C2",
+     "fascia": "Semicentrale",
+     "descrizione": "SEMICENTRALE CON NORD EST ABITATO, NORD LAGO",
+     "quotazioni_2025_2": [
+      {
+       "tipologia": "Abitazioni civili",
+       "stato": "NORMALE",
+       "eur_m2_min": 1000.0,
+       "eur_m2_max": 1500.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 3.2,
+       "affitto_eur_m2_mese_max": 4.6,
+       "variazione_centro_intervallo_vs_2024_2_pct": 3.3
+      },
+      {
+       "tipologia": "Abitazioni di tipo economico",
+       "stato": "NORMALE",
+       "eur_m2_min": 580.0,
+       "eur_m2_max": 850.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 2.0,
+       "affitto_eur_m2_mese_max": 2.9,
+       "variazione_centro_intervallo_vs_2024_2_pct": 1.4
+      },
+      {
+       "tipologia": "Ville e Villini",
+       "stato": "NORMALE",
+       "eur_m2_min": 1100.0,
+       "eur_m2_max": 1600.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 3.4,
+       "affitto_eur_m2_mese_max": 4.6,
+       "variazione_centro_intervallo_vs_2024_2_pct": 3.8
+      }
+     ],
+     "quotazioni_2024_2": [
+      {
+       "tipologia": "Abitazioni civili",
+       "stato": "NORMALE",
+       "eur_m2_min": 970.0,
+       "eur_m2_max": 1450.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 3.1,
+       "affitto_eur_m2_mese_max": 4.4
+      },
+      {
+       "tipologia": "Abitazioni di tipo economico",
+       "stato": "NORMALE",
+       "eur_m2_min": 570.0,
+       "eur_m2_max": 840.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 1.9,
+       "affitto_eur_m2_mese_max": 2.8
+      },
+      {
+       "tipologia": "Ville e Villini",
+       "stato": "NORMALE",
+       "eur_m2_min": 1050.0,
+       "eur_m2_max": 1550.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 3.2,
+       "affitto_eur_m2_mese_max": 4.4
+      }
+     ]
+    },
+    {
+     "zona_omi": "D2",
+     "fascia": "Periferica",
+     "descrizione": "PERIFERICA RESIDENZIALE, AUZATE E BUGNATE",
+     "quotazioni_2025_2": [
+      {
+       "tipologia": "Abitazioni civili",
+       "stato": "NORMALE",
+       "eur_m2_min": 790.0,
+       "eur_m2_max": 1150.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 2.3,
+       "affitto_eur_m2_mese_max": 3.2,
+       "variazione_centro_intervallo_vs_2024_2_pct": 5.4
+      },
+      {
+       "tipologia": "Abitazioni di tipo economico",
+       "stato": "NORMALE",
+       "eur_m2_min": 420.0,
+       "eur_m2_max": 600.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 1.5,
+       "affitto_eur_m2_mese_max": 2.0,
+       "variazione_centro_intervallo_vs_2024_2_pct": 2.0
+      },
+      {
+       "tipologia": "Ville e Villini",
+       "stato": "NORMALE",
+       "eur_m2_min": 940.0,
+       "eur_m2_max": 1400.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 2.9,
+       "affitto_eur_m2_mese_max": 4.0,
+       "variazione_centro_intervallo_vs_2024_2_pct": 4.0
+      }
+     ],
+     "quotazioni_2024_2": [
+      {
+       "tipologia": "Abitazioni civili",
+       "stato": "NORMALE",
+       "eur_m2_min": 740.0,
+       "eur_m2_max": 1100.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 1.8,
+       "affitto_eur_m2_mese_max": 2.6
+      },
+      {
+       "tipologia": "Abitazioni di tipo economico",
+       "stato": "NORMALE",
+       "eur_m2_min": 400.0,
+       "eur_m2_max": 600.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 1.3,
+       "affitto_eur_m2_mese_max": 1.9
+      },
+      {
+       "tipologia": "Ville e Villini",
+       "stato": "NORMALE",
+       "eur_m2_min": 900.0,
+       "eur_m2_max": 1350.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 2.7,
+       "affitto_eur_m2_mese_max": 3.8
+      }
+     ]
+    },
+    {
+     "zona_omi": "R5",
+     "fascia": "Extraurbana",
+     "descrizione": "AGRICOLA",
+     "quotazioni_2025_2": [
+      {
+       "tipologia": "Abitazioni di tipo economico",
+       "stato": "NORMALE",
+       "eur_m2_min": 370.0,
+       "eur_m2_max": 530.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 1.2,
+       "affitto_eur_m2_mese_max": 1.5,
+       "variazione_centro_intervallo_vs_2024_2_pct": 2.3
+      },
+      {
+       "tipologia": "Ville e Villini",
+       "stato": "NORMALE",
+       "eur_m2_min": 870.0,
+       "eur_m2_max": 1300.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 2.7,
+       "affitto_eur_m2_mese_max": 3.7,
+       "variazione_centro_intervallo_vs_2024_2_pct": 3.8
+      }
+     ],
+     "quotazioni_2024_2": [
+      {
+       "tipologia": "Abitazioni di tipo economico",
+       "stato": "NORMALE",
+       "eur_m2_min": 360.0,
+       "eur_m2_max": 520.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 1.1,
+       "affitto_eur_m2_mese_max": 1.4
+      },
+      {
+       "tipologia": "Ville e Villini",
+       "stato": "NORMALE",
+       "eur_m2_min": 840.0,
+       "eur_m2_max": 1250.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 2.5,
+       "affitto_eur_m2_mese_max": 3.5
+      }
+     ]
+    },
+    {
+     "zona_omi": "R6",
+     "fascia": "Extraurbana",
+     "descrizione": "AGRICOLA",
+     "quotazioni_2025_2": [
+      {
+       "tipologia": "Abitazioni di tipo economico",
+       "stato": "NORMALE",
+       "eur_m2_min": 370.0,
+       "eur_m2_max": 530.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 1.2,
+       "affitto_eur_m2_mese_max": 1.5,
+       "variazione_centro_intervallo_vs_2024_2_pct": 2.3
+      },
+      {
+       "tipologia": "Ville e Villini",
+       "stato": "NORMALE",
+       "eur_m2_min": 870.0,
+       "eur_m2_max": 1300.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 2.7,
+       "affitto_eur_m2_mese_max": 3.7,
+       "variazione_centro_intervallo_vs_2024_2_pct": 3.8
+      }
+     ],
+     "quotazioni_2024_2": [
+      {
+       "tipologia": "Abitazioni di tipo economico",
+       "stato": "NORMALE",
+       "eur_m2_min": 360.0,
+       "eur_m2_max": 520.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 1.1,
+       "affitto_eur_m2_mese_max": 1.4
+      },
+      {
+       "tipologia": "Ville e Villini",
+       "stato": "NORMALE",
+       "eur_m2_min": 840.0,
+       "eur_m2_max": 1250.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 2.5,
+       "affitto_eur_m2_mese_max": 3.5
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id_comune": "miasino",
+   "comune": "Miasino",
+   "provincia": "NO",
+   "codice_catastale": "F191",
+   "sintesi_2025_2": {
+    "intervallo_residenziale_eur_m2": [
+     520.0,
+     2200.0
+    ],
+    "abitazioni_civili_zona_piu_cara": [
+     1250.0,
+     1800.0,
+     "D1",
+     "PERIFERICA RESIDENZIALE"
+    ],
+    "ville_villini_zona_piu_cara": [
+     1500.0,
+     2200.0,
+     "D1",
+     "PERIFERICA RESIDENZIALE"
+    ],
+    "nota": "min del minimo e max del massimo fra tutte le zone e tipologie residenziali; stato conservativo NORMALE (il prevalente di zona)"
+   },
+   "zone": [
+    {
+     "zona_omi": "B1",
+     "fascia": "Centrale",
+     "descrizione": "VECCHIO NUCLEO",
+     "quotazioni_2025_2": [
+      {
+       "tipologia": "Abitazioni civili",
+       "stato": "NORMALE",
+       "eur_m2_min": 1200.0,
+       "eur_m2_max": 1750.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 3.8,
+       "affitto_eur_m2_mese_max": 5.3,
+       "variazione_centro_intervallo_vs_2024_2_pct": 5.4
+      }
+     ],
+     "quotazioni_2024_2": [
+      {
+       "tipologia": "Abitazioni civili",
+       "stato": "NORMALE",
+       "eur_m2_min": 1150.0,
+       "eur_m2_max": 1650.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 3.6,
+       "affitto_eur_m2_mese_max": 4.7
+      }
+     ]
+    },
+    {
+     "zona_omi": "D1",
+     "fascia": "Periferica",
+     "descrizione": "PERIFERICA RESIDENZIALE",
+     "quotazioni_2025_2": [
+      {
+       "tipologia": "Abitazioni civili",
+       "stato": "NORMALE",
+       "eur_m2_min": 1250.0,
+       "eur_m2_max": 1800.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 4.0,
+       "affitto_eur_m2_mese_max": 5.4,
+       "variazione_centro_intervallo_vs_2024_2_pct": 5.2
+      },
+      {
+       "tipologia": "Ville e Villini",
+       "stato": "NORMALE",
+       "eur_m2_min": 1500.0,
+       "eur_m2_max": 2200.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 5.0,
+       "affitto_eur_m2_mese_max": 6.9,
+       "variazione_centro_intervallo_vs_2024_2_pct": 1.4
+      }
+     ],
+     "quotazioni_2024_2": [
+      {
+       "tipologia": "Abitazioni civili",
+       "stato": "NORMALE",
+       "eur_m2_min": 1200.0,
+       "eur_m2_max": 1700.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 3.8,
+       "affitto_eur_m2_mese_max": 4.8
+      },
+      {
+       "tipologia": "Ville e Villini",
+       "stato": "NORMALE",
+       "eur_m2_min": 1500.0,
+       "eur_m2_max": 2150.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 4.9,
+       "affitto_eur_m2_mese_max": 6.6
+      }
+     ]
+    },
+    {
+     "zona_omi": "E1",
+     "fascia": "Suburbana",
+     "descrizione": "COLLINARE ISOLATA",
+     "quotazioni_2025_2": [
+      {
+       "tipologia": "Abitazioni civili",
+       "stato": "NORMALE",
+       "eur_m2_min": 920.0,
+       "eur_m2_max": 1300.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 2.7,
+       "affitto_eur_m2_mese_max": 3.9,
+       "variazione_centro_intervallo_vs_2024_2_pct": 6.2
+      },
+      {
+       "tipologia": "Abitazioni di tipo economico",
+       "stato": "NORMALE",
+       "eur_m2_min": 520.0,
+       "eur_m2_max": 770.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 1.8,
+       "affitto_eur_m2_mese_max": 2.6,
+       "variazione_centro_intervallo_vs_2024_2_pct": 1.6
+      }
+     ],
+     "quotazioni_2024_2": [
+      {
+       "tipologia": "Abitazioni civili",
+       "stato": "NORMALE",
+       "eur_m2_min": 840.0,
+       "eur_m2_max": 1250.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 2.1,
+       "affitto_eur_m2_mese_max": 3.1
+      },
+      {
+       "tipologia": "Abitazioni di tipo economico",
+       "stato": "NORMALE",
+       "eur_m2_min": 510.0,
+       "eur_m2_max": 760.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 1.7,
+       "affitto_eur_m2_mese_max": 2.5
+      }
+     ]
+    },
+    {
+     "zona_omi": "R1",
+     "fascia": "Extraurbana",
+     "descrizione": "AGRICOLA",
+     "quotazioni_2025_2": [],
+     "quotazioni_2024_2": []
+    },
+    {
+     "zona_omi": "R2",
+     "fascia": "Extraurbana",
+     "descrizione": "AGRICOLA",
+     "quotazioni_2025_2": [],
+     "quotazioni_2024_2": []
+    }
+   ]
+  },
+  {
+   "id_comune": "orta-san-giulio",
+   "comune": "Orta San Giulio",
+   "provincia": "NO",
+   "codice_catastale": "G134",
+   "sintesi_2025_2": {
+    "intervallo_residenziale_eur_m2": [
+     570.0,
+     3000.0
+    ],
+    "abitazioni_civili_zona_piu_cara": [
+     2050.0,
+     2950.0,
+     "B2",
+     "LUNGOLAGO, ISOLA S. GIULIO"
+    ],
+    "ville_villini_zona_piu_cara": [
+     2100.0,
+     3000.0,
+     "B2",
+     "LUNGOLAGO, ISOLA S. GIULIO"
+    ],
+    "nota": "min del minimo e max del massimo fra tutte le zone e tipologie residenziali; stato conservativo NORMALE (il prevalente di zona)"
+   },
+   "zone": [
+    {
+     "zona_omi": "B1",
+     "fascia": "Centrale",
+     "descrizione": "CENTRALE",
+     "quotazioni_2025_2": [
+      {
+       "tipologia": "Abitazioni civili",
+       "stato": "NORMALE",
+       "eur_m2_min": 1650.0,
+       "eur_m2_max": 2400.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 5.5,
+       "affitto_eur_m2_mese_max": 8.1,
+       "variazione_centro_intervallo_vs_2024_2_pct": 3.8
+      },
+      {
+       "tipologia": "Abitazioni di tipo economico",
+       "stato": "NORMALE",
+       "eur_m2_min": 1100.0,
+       "eur_m2_max": 1650.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 4.7,
+       "affitto_eur_m2_mese_max": 6.6,
+       "variazione_centro_intervallo_vs_2024_2_pct": 0.0
+      },
+      {
+       "tipologia": "Ville e Villini",
+       "stato": "NORMALE",
+       "eur_m2_min": 1700.0,
+       "eur_m2_max": 2500.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 6.1,
+       "affitto_eur_m2_mese_max": 8.7,
+       "variazione_centro_intervallo_vs_2024_2_pct": 3.7
+      }
+     ],
+     "quotazioni_2024_2": [
+      {
+       "tipologia": "Abitazioni civili",
+       "stato": "NORMALE",
+       "eur_m2_min": 1600.0,
+       "eur_m2_max": 2300.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 5.6,
+       "affitto_eur_m2_mese_max": 8.2
+      },
+      {
+       "tipologia": "Abitazioni di tipo economico",
+       "stato": "NORMALE",
+       "eur_m2_min": 1100.0,
+       "eur_m2_max": 1650.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 4.5,
+       "affitto_eur_m2_mese_max": 6.6
+      },
+      {
+       "tipologia": "Ville e Villini",
+       "stato": "NORMALE",
+       "eur_m2_min": 1650.0,
+       "eur_m2_max": 2400.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 5.9,
+       "affitto_eur_m2_mese_max": 8.4
+      }
+     ]
+    },
+    {
+     "zona_omi": "B2",
+     "fascia": "Centrale",
+     "descrizione": "LUNGOLAGO, ISOLA S. GIULIO",
+     "quotazioni_2025_2": [
+      {
+       "tipologia": "Abitazioni civili",
+       "stato": "NORMALE",
+       "eur_m2_min": 2050.0,
+       "eur_m2_max": 2950.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 7.3,
+       "affitto_eur_m2_mese_max": 10.5,
+       "variazione_centro_intervallo_vs_2024_2_pct": 3.1
+      },
+      {
+       "tipologia": "Abitazioni di tipo economico",
+       "stato": "NORMALE",
+       "eur_m2_min": 1350.0,
+       "eur_m2_max": 2000.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 5.4,
+       "affitto_eur_m2_mese_max": 7.8,
+       "variazione_centro_intervallo_vs_2024_2_pct": 0.0
+      },
+      {
+       "tipologia": "Ville e Villini",
+       "stato": "NORMALE",
+       "eur_m2_min": 2100.0,
+       "eur_m2_max": 3000.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 7.6,
+       "affitto_eur_m2_mese_max": 10.9,
+       "variazione_centro_intervallo_vs_2024_2_pct": 8.5
+      }
+     ],
+     "quotazioni_2024_2": [
+      {
+       "tipologia": "Abitazioni civili",
+       "stato": "NORMALE",
+       "eur_m2_min": 1950.0,
+       "eur_m2_max": 2900.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 7.3,
+       "affitto_eur_m2_mese_max": 10.8
+      },
+      {
+       "tipologia": "Abitazioni di tipo economico",
+       "stato": "NORMALE",
+       "eur_m2_min": 1350.0,
+       "eur_m2_max": 2000.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 5.2,
+       "affitto_eur_m2_mese_max": 7.8
+      },
+      {
+       "tipologia": "Ville e Villini",
+       "stato": "NORMALE",
+       "eur_m2_min": 1900.0,
+       "eur_m2_max": 2800.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 7.2,
+       "affitto_eur_m2_mese_max": 10.5
+      }
+     ]
+    },
+    {
+     "zona_omi": "C1",
+     "fascia": "Semicentrale",
+     "descrizione": "SEMICENTRALE - FASCIA A LAGO COLLINARE E FRAZIONE LEGRO",
+     "quotazioni_2025_2": [
+      {
+       "tipologia": "Abitazioni civili",
+       "stato": "NORMALE",
+       "eur_m2_min": 1200.0,
+       "eur_m2_max": 1750.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 4.0,
+       "affitto_eur_m2_mese_max": 5.9,
+       "variazione_centro_intervallo_vs_2024_2_pct": 5.4
+      },
+      {
+       "tipologia": "Abitazioni di tipo economico",
+       "stato": "NORMALE",
+       "eur_m2_min": 670.0,
+       "eur_m2_max": 1000.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 2.6,
+       "affitto_eur_m2_mese_max": 3.7,
+       "variazione_centro_intervallo_vs_2024_2_pct": 0.0
+      },
+      {
+       "tipologia": "Ville e Villini",
+       "stato": "NORMALE",
+       "eur_m2_min": 1300.0,
+       "eur_m2_max": 1950.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 4.7,
+       "affitto_eur_m2_mese_max": 6.4,
+       "variazione_centro_intervallo_vs_2024_2_pct": 3.2
+      }
+     ],
+     "quotazioni_2024_2": [
+      {
+       "tipologia": "Abitazioni civili",
+       "stato": "NORMALE",
+       "eur_m2_min": 1150.0,
+       "eur_m2_max": 1650.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 3.9,
+       "affitto_eur_m2_mese_max": 5.6
+      },
+      {
+       "tipologia": "Abitazioni di tipo economico",
+       "stato": "NORMALE",
+       "eur_m2_min": 690.0,
+       "eur_m2_max": 980.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 2.5,
+       "affitto_eur_m2_mese_max": 3.6
+      },
+      {
+       "tipologia": "Ville e Villini",
+       "stato": "NORMALE",
+       "eur_m2_min": 1300.0,
+       "eur_m2_max": 1850.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 4.5,
+       "affitto_eur_m2_mese_max": 6.2
+      }
+     ]
+    },
+    {
+     "zona_omi": "D1",
+     "fascia": "Periferica",
+     "descrizione": "PERIFERICA E FRAZIONI IMOLO E CORCONIO",
+     "quotazioni_2025_2": [
+      {
+       "tipologia": "Abitazioni civili",
+       "stato": "NORMALE",
+       "eur_m2_min": 1000.0,
+       "eur_m2_max": 1500.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 3.2,
+       "affitto_eur_m2_mese_max": 4.3,
+       "variazione_centro_intervallo_vs_2024_2_pct": 6.8
+      },
+      {
+       "tipologia": "Abitazioni di tipo economico",
+       "stato": "NORMALE",
+       "eur_m2_min": 620.0,
+       "eur_m2_max": 920.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 2.2,
+       "affitto_eur_m2_mese_max": 3.2,
+       "variazione_centro_intervallo_vs_2024_2_pct": -0.6
+      },
+      {
+       "tipologia": "Ville e Villini",
+       "stato": "NORMALE",
+       "eur_m2_min": 1350.0,
+       "eur_m2_max": 1900.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 4.4,
+       "affitto_eur_m2_mese_max": 6.0,
+       "variazione_centro_intervallo_vs_2024_2_pct": 3.2
+      }
+     ],
+     "quotazioni_2024_2": [
+      {
+       "tipologia": "Abitazioni civili",
+       "stato": "NORMALE",
+       "eur_m2_min": 940.0,
+       "eur_m2_max": 1400.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 2.9,
+       "affitto_eur_m2_mese_max": 4.1
+      },
+      {
+       "tipologia": "Abitazioni di tipo economico",
+       "stato": "NORMALE",
+       "eur_m2_min": 620.0,
+       "eur_m2_max": 930.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 2.1,
+       "affitto_eur_m2_mese_max": 3.1
+      },
+      {
+       "tipologia": "Ville e Villini",
+       "stato": "NORMALE",
+       "eur_m2_min": 1300.0,
+       "eur_m2_max": 1850.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 4.2,
+       "affitto_eur_m2_mese_max": 5.8
+      }
+     ]
+    },
+    {
+     "zona_omi": "R",
+     "fascia": "Extraurbana",
+     "descrizione": "AGRICOLA",
+     "quotazioni_2025_2": [
+      {
+       "tipologia": "Abitazioni di tipo economico",
+       "stato": "NORMALE",
+       "eur_m2_min": 570.0,
+       "eur_m2_max": 840.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 1.8,
+       "affitto_eur_m2_mese_max": 2.6,
+       "variazione_centro_intervallo_vs_2024_2_pct": -0.7
+      },
+      {
+       "tipologia": "Ville e Villini",
+       "stato": "NORMALE",
+       "eur_m2_min": 900.0,
+       "eur_m2_max": 1350.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 2.8,
+       "affitto_eur_m2_mese_max": 3.9,
+       "variazione_centro_intervallo_vs_2024_2_pct": 3.7
+      }
+     ],
+     "quotazioni_2024_2": [
+      {
+       "tipologia": "Abitazioni di tipo economico",
+       "stato": "NORMALE",
+       "eur_m2_min": 570.0,
+       "eur_m2_max": 850.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 1.7,
+       "affitto_eur_m2_mese_max": 2.5
+      },
+      {
+       "tipologia": "Ville e Villini",
+       "stato": "NORMALE",
+       "eur_m2_min": 870.0,
+       "eur_m2_max": 1300.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 2.6,
+       "affitto_eur_m2_mese_max": 3.7
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id_comune": "pella",
+   "comune": "Pella",
+   "provincia": "NO",
+   "codice_catastale": "G421",
+   "sintesi_2025_2": {
+    "intervallo_residenziale_eur_m2": [
+     700.0,
+     2200.0
+    ],
+    "abitazioni_civili_zona_piu_cara": [
+     1350.0,
+     2000.0,
+     "E1",
+     "SUBURBANA TURISTICA - LOCALITA RONCO"
+    ],
+    "ville_villini_zona_piu_cara": [
+     1550.0,
+     2200.0,
+     "B2",
+     "LUNGOLAGO"
+    ],
+    "nota": "min del minimo e max del massimo fra tutte le zone e tipologie residenziali; stato conservativo NORMALE (il prevalente di zona)"
+   },
+   "zone": [
+    {
+     "zona_omi": "B1",
+     "fascia": "Centrale",
+     "descrizione": "VECCHIO NUCLEO",
+     "quotazioni_2025_2": [
+      {
+       "tipologia": "Abitazioni civili",
+       "stato": "NORMALE",
+       "eur_m2_min": 1200.0,
+       "eur_m2_max": 1750.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 3.8,
+       "affitto_eur_m2_mese_max": 5.3,
+       "variazione_centro_intervallo_vs_2024_2_pct": 5.4
+      },
+      {
+       "tipologia": "Ville e Villini",
+       "stato": "NORMALE",
+       "eur_m2_min": 1300.0,
+       "eur_m2_max": 1850.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 3.9,
+       "affitto_eur_m2_mese_max": 5.4,
+       "variazione_centro_intervallo_vs_2024_2_pct": 3.3
+      }
+     ],
+     "quotazioni_2024_2": [
+      {
+       "tipologia": "Abitazioni civili",
+       "stato": "NORMALE",
+       "eur_m2_min": 1150.0,
+       "eur_m2_max": 1650.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 3.6,
+       "affitto_eur_m2_mese_max": 5.0
+      },
+      {
+       "tipologia": "Ville e Villini",
+       "stato": "NORMALE",
+       "eur_m2_min": 1250.0,
+       "eur_m2_max": 1800.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 3.7,
+       "affitto_eur_m2_mese_max": 5.2
+      }
+     ]
+    },
+    {
+     "zona_omi": "B2",
+     "fascia": "Centrale",
+     "descrizione": "LUNGOLAGO",
+     "quotazioni_2025_2": [
+      {
+       "tipologia": "Abitazioni civili",
+       "stato": "NORMALE",
+       "eur_m2_min": 1350.0,
+       "eur_m2_max": 1950.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 4.5,
+       "affitto_eur_m2_mese_max": 6.1,
+       "variazione_centro_intervallo_vs_2024_2_pct": 4.8
+      },
+      {
+       "tipologia": "Ville e Villini",
+       "stato": "NORMALE",
+       "eur_m2_min": 1550.0,
+       "eur_m2_max": 2200.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 5.5,
+       "affitto_eur_m2_mese_max": 7.4,
+       "variazione_centro_intervallo_vs_2024_2_pct": 2.7
+      }
+     ],
+     "quotazioni_2024_2": [
+      {
+       "tipologia": "Abitazioni civili",
+       "stato": "NORMALE",
+       "eur_m2_min": 1300.0,
+       "eur_m2_max": 1850.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 4.4,
+       "affitto_eur_m2_mese_max": 5.8
+      },
+      {
+       "tipologia": "Ville e Villini",
+       "stato": "NORMALE",
+       "eur_m2_min": 1500.0,
+       "eur_m2_max": 2150.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 5.3,
+       "affitto_eur_m2_mese_max": 7.2
+      }
+     ]
+    },
+    {
+     "zona_omi": "D1",
+     "fascia": "Periferica",
+     "descrizione": "PERIFERICA RESIDENZIALE",
+     "quotazioni_2025_2": [
+      {
+       "tipologia": "Abitazioni civili",
+       "stato": "NORMALE",
+       "eur_m2_min": 1150.0,
+       "eur_m2_max": 1700.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 3.8,
+       "affitto_eur_m2_mese_max": 5.2,
+       "variazione_centro_intervallo_vs_2024_2_pct": 5.6
+      },
+      {
+       "tipologia": "Abitazioni di tipo economico",
+       "stato": "NORMALE",
+       "eur_m2_min": 700.0,
+       "eur_m2_max": 1050.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 2.6,
+       "affitto_eur_m2_mese_max": 3.6,
+       "variazione_centro_intervallo_vs_2024_2_pct": 0.0
+      },
+      {
+       "tipologia": "Ville e Villini",
+       "stato": "NORMALE",
+       "eur_m2_min": 1300.0,
+       "eur_m2_max": 1950.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 4.1,
+       "affitto_eur_m2_mese_max": 5.4,
+       "variazione_centro_intervallo_vs_2024_2_pct": 3.2
+      }
+     ],
+     "quotazioni_2024_2": [
+      {
+       "tipologia": "Abitazioni civili",
+       "stato": "NORMALE",
+       "eur_m2_min": 1100.0,
+       "eur_m2_max": 1600.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 3.6,
+       "affitto_eur_m2_mese_max": 4.8
+      },
+      {
+       "tipologia": "Abitazioni di tipo economico",
+       "stato": "NORMALE",
+       "eur_m2_min": 700.0,
+       "eur_m2_max": 1050.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 2.4,
+       "affitto_eur_m2_mese_max": 3.6
+      },
+      {
+       "tipologia": "Ville e Villini",
+       "stato": "NORMALE",
+       "eur_m2_min": 1300.0,
+       "eur_m2_max": 1850.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 3.9,
+       "affitto_eur_m2_mese_max": 5.2
+      }
+     ]
+    },
+    {
+     "zona_omi": "E1",
+     "fascia": "Suburbana",
+     "descrizione": "SUBURBANA TURISTICA - LOCALITA RONCO",
+     "quotazioni_2025_2": [
+      {
+       "tipologia": "Abitazioni civili",
+       "stato": "NORMALE",
+       "eur_m2_min": 1350.0,
+       "eur_m2_max": 2000.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 4.4,
+       "affitto_eur_m2_mese_max": 6.4,
+       "variazione_centro_intervallo_vs_2024_2_pct": 4.7
+      }
+     ],
+     "quotazioni_2024_2": [
+      {
+       "tipologia": "Abitazioni civili",
+       "stato": "NORMALE",
+       "eur_m2_min": 1300.0,
+       "eur_m2_max": 1900.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 4.2,
+       "affitto_eur_m2_mese_max": 6.0
+      }
+     ]
+    },
+    {
+     "zona_omi": "R1",
+     "fascia": "Extraurbana",
+     "descrizione": "AGRICOLA DI CONTORNO",
+     "quotazioni_2025_2": [],
+     "quotazioni_2024_2": []
+    }
+   ]
+  },
+  {
+   "id_comune": "pettenasco",
+   "comune": "Pettenasco",
+   "provincia": "NO",
+   "codice_catastale": "G520",
+   "sintesi_2025_2": {
+    "intervallo_residenziale_eur_m2": [
+     460.0,
+     2250.0
+    ],
+    "abitazioni_civili_zona_piu_cara": [
+     1250.0,
+     1800.0,
+     "B2",
+     "LUNGOLAGO"
+    ],
+    "ville_villini_zona_piu_cara": [
+     1500.0,
+     2250.0,
+     "B2",
+     "LUNGOLAGO"
+    ],
+    "nota": "min del minimo e max del massimo fra tutte le zone e tipologie residenziali; stato conservativo NORMALE (il prevalente di zona)"
+   },
+   "zone": [
+    {
+     "zona_omi": "B1",
+     "fascia": "Centrale",
+     "descrizione": "CENTRALE",
+     "quotazioni_2025_2": [
+      {
+       "tipologia": "Abitazioni civili",
+       "stato": "NORMALE",
+       "eur_m2_min": 1200.0,
+       "eur_m2_max": 1750.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 4.2,
+       "affitto_eur_m2_mese_max": 6.3,
+       "variazione_centro_intervallo_vs_2024_2_pct": 5.4
+      },
+      {
+       "tipologia": "Abitazioni di tipo economico",
+       "stato": "NORMALE",
+       "eur_m2_min": 900.0,
+       "eur_m2_max": 1350.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 3.8,
+       "affitto_eur_m2_mese_max": 5.4,
+       "variazione_centro_intervallo_vs_2024_2_pct": 0.0
+      },
+      {
+       "tipologia": "Ville e Villini",
+       "stato": "NORMALE",
+       "eur_m2_min": 1300.0,
+       "eur_m2_max": 1950.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 4.8,
+       "affitto_eur_m2_mese_max": 6.9,
+       "variazione_centro_intervallo_vs_2024_2_pct": 3.2
+      }
+     ],
+     "quotazioni_2024_2": [
+      {
+       "tipologia": "Abitazioni civili",
+       "stato": "NORMALE",
+       "eur_m2_min": 1150.0,
+       "eur_m2_max": 1650.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 4.3,
+       "affitto_eur_m2_mese_max": 6.3
+      },
+      {
+       "tipologia": "Abitazioni di tipo economico",
+       "stato": "NORMALE",
+       "eur_m2_min": 900.0,
+       "eur_m2_max": 1350.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 3.6,
+       "affitto_eur_m2_mese_max": 5.4
+      },
+      {
+       "tipologia": "Ville e Villini",
+       "stato": "NORMALE",
+       "eur_m2_min": 1300.0,
+       "eur_m2_max": 1850.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 4.8,
+       "affitto_eur_m2_mese_max": 6.7
+      }
+     ]
+    },
+    {
+     "zona_omi": "B2",
+     "fascia": "Centrale",
+     "descrizione": "LUNGOLAGO",
+     "quotazioni_2025_2": [
+      {
+       "tipologia": "Abitazioni civili",
+       "stato": "NORMALE",
+       "eur_m2_min": 1250.0,
+       "eur_m2_max": 1800.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 4.4,
+       "affitto_eur_m2_mese_max": 6.2,
+       "variazione_centro_intervallo_vs_2024_2_pct": 5.2
+      },
+      {
+       "tipologia": "Abitazioni di tipo economico",
+       "stato": "NORMALE",
+       "eur_m2_min": 940.0,
+       "eur_m2_max": 1400.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 4.0,
+       "affitto_eur_m2_mese_max": 5.6,
+       "variazione_centro_intervallo_vs_2024_2_pct": 0.0
+      },
+      {
+       "tipologia": "Ville e Villini",
+       "stato": "NORMALE",
+       "eur_m2_min": 1500.0,
+       "eur_m2_max": 2250.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 5.6,
+       "affitto_eur_m2_mese_max": 8.1,
+       "variazione_centro_intervallo_vs_2024_2_pct": 2.7
+      }
+     ],
+     "quotazioni_2024_2": [
+      {
+       "tipologia": "Abitazioni civili",
+       "stato": "NORMALE",
+       "eur_m2_min": 1200.0,
+       "eur_m2_max": 1700.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 4.4,
+       "affitto_eur_m2_mese_max": 6.4
+      },
+      {
+       "tipologia": "Abitazioni di tipo economico",
+       "stato": "NORMALE",
+       "eur_m2_min": 940.0,
+       "eur_m2_max": 1400.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 3.8,
+       "affitto_eur_m2_mese_max": 5.6
+      },
+      {
+       "tipologia": "Ville e Villini",
+       "stato": "NORMALE",
+       "eur_m2_min": 1500.0,
+       "eur_m2_max": 2150.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 5.4,
+       "affitto_eur_m2_mese_max": 7.9
+      }
+     ]
+    },
+    {
+     "zona_omi": "C1",
+     "fascia": "Semicentrale",
+     "descrizione": "SEMICENTRALE",
+     "quotazioni_2025_2": [
+      {
+       "tipologia": "Abitazioni civili",
+       "stato": "NORMALE",
+       "eur_m2_min": 1100.0,
+       "eur_m2_max": 1650.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 4.0,
+       "affitto_eur_m2_mese_max": 5.6,
+       "variazione_centro_intervallo_vs_2024_2_pct": 5.8
+      },
+      {
+       "tipologia": "Abitazioni di tipo economico",
+       "stato": "NORMALE",
+       "eur_m2_min": 670.0,
+       "eur_m2_max": 990.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 2.7,
+       "affitto_eur_m2_mese_max": 3.7,
+       "variazione_centro_intervallo_vs_2024_2_pct": -0.6
+      }
+     ],
+     "quotazioni_2024_2": [
+      {
+       "tipologia": "Abitazioni civili",
+       "stato": "NORMALE",
+       "eur_m2_min": 1050.0,
+       "eur_m2_max": 1550.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 3.9,
+       "affitto_eur_m2_mese_max": 5.4
+      },
+      {
+       "tipologia": "Abitazioni di tipo economico",
+       "stato": "NORMALE",
+       "eur_m2_min": 670.0,
+       "eur_m2_max": 1000.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 2.6,
+       "affitto_eur_m2_mese_max": 3.7
+      }
+     ]
+    },
+    {
+     "zona_omi": "D1",
+     "fascia": "Periferica",
+     "descrizione": "COLLINARE RESIDENZIALE",
+     "quotazioni_2025_2": [
+      {
+       "tipologia": "Abitazioni civili",
+       "stato": "NORMALE",
+       "eur_m2_min": 1100.0,
+       "eur_m2_max": 1600.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 3.8,
+       "affitto_eur_m2_mese_max": 5.4,
+       "variazione_centro_intervallo_vs_2024_2_pct": 5.9
+      },
+      {
+       "tipologia": "Abitazioni di tipo economico",
+       "stato": "NORMALE",
+       "eur_m2_min": 680.0,
+       "eur_m2_max": 1000.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 2.7,
+       "affitto_eur_m2_mese_max": 3.9,
+       "variazione_centro_intervallo_vs_2024_2_pct": 0.0
+      },
+      {
+       "tipologia": "Ville e Villini",
+       "stato": "NORMALE",
+       "eur_m2_min": 1300.0,
+       "eur_m2_max": 1850.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 4.6,
+       "affitto_eur_m2_mese_max": 5.9,
+       "variazione_centro_intervallo_vs_2024_2_pct": 3.3
+      }
+     ],
+     "quotazioni_2024_2": [
+      {
+       "tipologia": "Abitazioni civili",
+       "stato": "NORMALE",
+       "eur_m2_min": 1050.0,
+       "eur_m2_max": 1500.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 3.8,
+       "affitto_eur_m2_mese_max": 5.0
+      },
+      {
+       "tipologia": "Abitazioni di tipo economico",
+       "stato": "NORMALE",
+       "eur_m2_min": 680.0,
+       "eur_m2_max": 1000.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 2.6,
+       "affitto_eur_m2_mese_max": 3.8
+      },
+      {
+       "tipologia": "Ville e Villini",
+       "stato": "NORMALE",
+       "eur_m2_min": 1250.0,
+       "eur_m2_max": 1800.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 4.4,
+       "affitto_eur_m2_mese_max": 5.7
+      }
+     ]
+    },
+    {
+     "zona_omi": "E1",
+     "fascia": "Suburbana",
+     "descrizione": "SUBURBANA COLLINARE ISOLATA",
+     "quotazioni_2025_2": [
+      {
+       "tipologia": "Abitazioni civili",
+       "stato": "NORMALE",
+       "eur_m2_min": 800.0,
+       "eur_m2_max": 1150.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 2.4,
+       "affitto_eur_m2_mese_max": 3.1,
+       "variazione_centro_intervallo_vs_2024_2_pct": 6.0
+      },
+      {
+       "tipologia": "Abitazioni di tipo economico",
+       "stato": "NORMALE",
+       "eur_m2_min": 460.0,
+       "eur_m2_max": 680.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 1.4,
+       "affitto_eur_m2_mese_max": 2.0,
+       "variazione_centro_intervallo_vs_2024_2_pct": 0.0
+      }
+     ],
+     "quotazioni_2024_2": [
+      {
+       "tipologia": "Abitazioni civili",
+       "stato": "NORMALE",
+       "eur_m2_min": 740.0,
+       "eur_m2_max": 1100.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 2.1,
+       "affitto_eur_m2_mese_max": 2.9
+      },
+      {
+       "tipologia": "Abitazioni di tipo economico",
+       "stato": "NORMALE",
+       "eur_m2_min": 460.0,
+       "eur_m2_max": 680.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 1.2,
+       "affitto_eur_m2_mese_max": 1.8
+      }
+     ]
+    },
+    {
+     "zona_omi": "R3",
+     "fascia": "Extraurbana",
+     "descrizione": "AGRICOLA",
+     "quotazioni_2025_2": [],
+     "quotazioni_2024_2": []
+    }
+   ]
+  },
+  {
+   "id_comune": "san-maurizio-dopaglio",
+   "comune": "San Maurizio d'Opaglio",
+   "provincia": "NO",
+   "codice_catastale": "I025",
+   "sintesi_2025_2": {
+    "intervallo_residenziale_eur_m2": [
+     1100.0,
+     1950.0
+    ],
+    "abitazioni_civili_zona_piu_cara": [
+     1200.0,
+     1750.0,
+     "C1",
+     "SEMICENTRALE"
+    ],
+    "ville_villini_zona_piu_cara": [
+     1300.0,
+     1950.0,
+     "C1",
+     "SEMICENTRALE"
+    ],
+    "nota": "min del minimo e max del massimo fra tutte le zone e tipologie residenziali; stato conservativo NORMALE (il prevalente di zona)"
+   },
+   "zone": [
+    {
+     "zona_omi": "B1",
+     "fascia": "Centrale",
+     "descrizione": "CENTRALE",
+     "quotazioni_2025_2": [
+      {
+       "tipologia": "Abitazioni civili",
+       "stato": "NORMALE",
+       "eur_m2_min": 1100.0,
+       "eur_m2_max": 1550.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 3.5,
+       "affitto_eur_m2_mese_max": 4.6,
+       "variazione_centro_intervallo_vs_2024_2_pct": 6.0
+      },
+      {
+       "tipologia": "Ville e Villini",
+       "stato": "NORMALE",
+       "eur_m2_min": 1300.0,
+       "eur_m2_max": 1900.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 4.4,
+       "affitto_eur_m2_mese_max": 6.0,
+       "variazione_centro_intervallo_vs_2024_2_pct": 3.2
+      }
+     ],
+     "quotazioni_2024_2": [
+      {
+       "tipologia": "Abitazioni civili",
+       "stato": "NORMALE",
+       "eur_m2_min": 1000.0,
+       "eur_m2_max": 1500.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 3.2,
+       "affitto_eur_m2_mese_max": 4.4
+      },
+      {
+       "tipologia": "Ville e Villini",
+       "stato": "NORMALE",
+       "eur_m2_min": 1300.0,
+       "eur_m2_max": 1800.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 4.2,
+       "affitto_eur_m2_mese_max": 5.8
+      }
+     ]
+    },
+    {
+     "zona_omi": "C1",
+     "fascia": "Semicentrale",
+     "descrizione": "SEMICENTRALE",
+     "quotazioni_2025_2": [
+      {
+       "tipologia": "Abitazioni civili",
+       "stato": "NORMALE",
+       "eur_m2_min": 1200.0,
+       "eur_m2_max": 1750.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 3.9,
+       "affitto_eur_m2_mese_max": 4.6,
+       "variazione_centro_intervallo_vs_2024_2_pct": 5.4
+      },
+      {
+       "tipologia": "Ville e Villini",
+       "stato": "NORMALE",
+       "eur_m2_min": 1300.0,
+       "eur_m2_max": 1950.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 4.2,
+       "affitto_eur_m2_mese_max": 5.5,
+       "variazione_centro_intervallo_vs_2024_2_pct": 3.2
+      }
+     ],
+     "quotazioni_2024_2": [
+      {
+       "tipologia": "Abitazioni civili",
+       "stato": "NORMALE",
+       "eur_m2_min": 1150.0,
+       "eur_m2_max": 1650.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 3.7,
+       "affitto_eur_m2_mese_max": 4.2
+      },
+      {
+       "tipologia": "Ville e Villini",
+       "stato": "NORMALE",
+       "eur_m2_min": 1300.0,
+       "eur_m2_max": 1850.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 4.0,
+       "affitto_eur_m2_mese_max": 5.3
+      }
+     ]
+    },
+    {
+     "zona_omi": "D1",
+     "fascia": "Periferica",
+     "descrizione": "PERIFERICA RESIDENZIALE",
+     "quotazioni_2025_2": [
+      {
+       "tipologia": "Abitazioni civili",
+       "stato": "NORMALE",
+       "eur_m2_min": 1150.0,
+       "eur_m2_max": 1700.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 3.5,
+       "affitto_eur_m2_mese_max": 5.0,
+       "variazione_centro_intervallo_vs_2024_2_pct": 5.6
+      },
+      {
+       "tipologia": "Ville e Villini",
+       "stato": "NORMALE",
+       "eur_m2_min": 1350.0,
+       "eur_m2_max": 1950.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 4.2,
+       "affitto_eur_m2_mese_max": 5.4,
+       "variazione_centro_intervallo_vs_2024_2_pct": 3.1
+      }
+     ],
+     "quotazioni_2024_2": [
+      {
+       "tipologia": "Abitazioni civili",
+       "stato": "NORMALE",
+       "eur_m2_min": 1100.0,
+       "eur_m2_max": 1600.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 3.3,
+       "affitto_eur_m2_mese_max": 4.6
+      },
+      {
+       "tipologia": "Ville e Villini",
+       "stato": "NORMALE",
+       "eur_m2_min": 1350.0,
+       "eur_m2_max": 1850.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 4.0,
+       "affitto_eur_m2_mese_max": 5.2
+      }
+     ]
+    },
+    {
+     "zona_omi": "R",
+     "fascia": "Extraurbana",
+     "descrizione": "AGRICOLA",
+     "quotazioni_2025_2": [],
+     "quotazioni_2024_2": []
+    }
+   ]
+  },
+  {
+   "id_comune": "madonna-del-sasso",
+   "comune": "Madonna Del Sasso",
+   "provincia": "VB",
+   "codice_catastale": "E795",
+   "sintesi_2025_2": {
+    "intervallo_residenziale_eur_m2": [
+     450.0,
+     1400.0
+    ],
+    "abitazioni_civili_zona_piu_cara": [
+     900.0,
+     1350.0,
+     "B1",
+     "CENTRO ABITATO"
+    ],
+    "ville_villini_zona_piu_cara": [
+     950.0,
+     1400.0,
+     "B1",
+     "CENTRO ABITATO"
+    ],
+    "nota": "min del minimo e max del massimo fra tutte le zone e tipologie residenziali; stato conservativo NORMALE (il prevalente di zona)"
+   },
+   "zone": [
+    {
+     "zona_omi": "B1",
+     "fascia": "Centrale",
+     "descrizione": "CENTRO ABITATO",
+     "quotazioni_2025_2": [
+      {
+       "tipologia": "Abitazioni civili",
+       "stato": "NORMALE",
+       "eur_m2_min": 900.0,
+       "eur_m2_max": 1350.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 3.0,
+       "affitto_eur_m2_mese_max": 4.4,
+       "variazione_centro_intervallo_vs_2024_2_pct": 2.3
+      },
+      {
+       "tipologia": "Abitazioni di tipo economico",
+       "stato": "NORMALE",
+       "eur_m2_min": 600.0,
+       "eur_m2_max": 850.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 2.4,
+       "affitto_eur_m2_mese_max": 3.2,
+       "variazione_centro_intervallo_vs_2024_2_pct": 3.6
+      },
+      {
+       "tipologia": "Ville e Villini",
+       "stato": "NORMALE",
+       "eur_m2_min": 950.0,
+       "eur_m2_max": 1400.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 3.0,
+       "affitto_eur_m2_mese_max": 4.4,
+       "variazione_centro_intervallo_vs_2024_2_pct": 0.0
+      }
+     ],
+     "quotazioni_2024_2": [
+      {
+       "tipologia": "Abitazioni civili",
+       "stato": "NORMALE",
+       "eur_m2_min": 900.0,
+       "eur_m2_max": 1300.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 3.0,
+       "affitto_eur_m2_mese_max": 4.2
+      },
+      {
+       "tipologia": "Abitazioni di tipo economico",
+       "stato": "NORMALE",
+       "eur_m2_min": 600.0,
+       "eur_m2_max": 800.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 2.2,
+       "affitto_eur_m2_mese_max": 3.0
+      },
+      {
+       "tipologia": "Ville e Villini",
+       "stato": "NORMALE",
+       "eur_m2_min": 950.0,
+       "eur_m2_max": 1400.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 3.0,
+       "affitto_eur_m2_mese_max": 4.2
+      }
+     ]
+    },
+    {
+     "zona_omi": "R1",
+     "fascia": "Extraurbana",
+     "descrizione": "RURALE MONTANA",
+     "quotazioni_2025_2": [
+      {
+       "tipologia": "Abitazioni di tipo economico",
+       "stato": "NORMALE",
+       "eur_m2_min": 450.0,
+       "eur_m2_max": 600.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 1.6,
+       "affitto_eur_m2_mese_max": 2.4,
+       "variazione_centro_intervallo_vs_2024_2_pct": 5.0
+      }
+     ],
+     "quotazioni_2024_2": [
+      {
+       "tipologia": "Abitazioni di tipo economico",
+       "stato": "NORMALE",
+       "eur_m2_min": 400.0,
+       "eur_m2_max": 600.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 1.4,
+       "affitto_eur_m2_mese_max": 2.1
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id_comune": "nonio",
+   "comune": "Nonio",
+   "provincia": "VB",
+   "codice_catastale": "F932",
+   "sintesi_2025_2": {
+    "intervallo_residenziale_eur_m2": [
+     450.0,
+     1450.0
+    ],
+    "abitazioni_civili_zona_piu_cara": [
+     900.0,
+     1350.0,
+     "B1",
+     "CENTRO ABITATO"
+    ],
+    "ville_villini_zona_piu_cara": [
+     1000.0,
+     1450.0,
+     "B1",
+     "CENTRO ABITATO"
+    ],
+    "nota": "min del minimo e max del massimo fra tutte le zone e tipologie residenziali; stato conservativo NORMALE (il prevalente di zona)"
+   },
+   "zone": [
+    {
+     "zona_omi": "B1",
+     "fascia": "Centrale",
+     "descrizione": "CENTRO ABITATO",
+     "quotazioni_2025_2": [
+      {
+       "tipologia": "Abitazioni civili",
+       "stato": "NORMALE",
+       "eur_m2_min": 900.0,
+       "eur_m2_max": 1350.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 3.0,
+       "affitto_eur_m2_mese_max": 4.4,
+       "variazione_centro_intervallo_vs_2024_2_pct": 2.3
+      },
+      {
+       "tipologia": "Abitazioni di tipo economico",
+       "stato": "NORMALE",
+       "eur_m2_min": 600.0,
+       "eur_m2_max": 850.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 2.4,
+       "affitto_eur_m2_mese_max": 3.2,
+       "variazione_centro_intervallo_vs_2024_2_pct": 3.6
+      },
+      {
+       "tipologia": "Ville e Villini",
+       "stato": "NORMALE",
+       "eur_m2_min": 1000.0,
+       "eur_m2_max": 1450.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 3.2,
+       "affitto_eur_m2_mese_max": 4.6,
+       "variazione_centro_intervallo_vs_2024_2_pct": 0.0
+      }
+     ],
+     "quotazioni_2024_2": [
+      {
+       "tipologia": "Abitazioni civili",
+       "stato": "NORMALE",
+       "eur_m2_min": 900.0,
+       "eur_m2_max": 1300.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 3.0,
+       "affitto_eur_m2_mese_max": 4.2
+      },
+      {
+       "tipologia": "Abitazioni di tipo economico",
+       "stato": "NORMALE",
+       "eur_m2_min": 600.0,
+       "eur_m2_max": 800.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 2.2,
+       "affitto_eur_m2_mese_max": 3.0
+      },
+      {
+       "tipologia": "Ville e Villini",
+       "stato": "NORMALE",
+       "eur_m2_min": 1000.0,
+       "eur_m2_max": 1450.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 3.2,
+       "affitto_eur_m2_mese_max": 4.2
+      }
+     ]
+    },
+    {
+     "zona_omi": "R1",
+     "fascia": "Extraurbana",
+     "descrizione": "RURALE MONTANA",
+     "quotazioni_2025_2": [
+      {
+       "tipologia": "Abitazioni di tipo economico",
+       "stato": "NORMALE",
+       "eur_m2_min": 450.0,
+       "eur_m2_max": 600.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 1.6,
+       "affitto_eur_m2_mese_max": 2.4,
+       "variazione_centro_intervallo_vs_2024_2_pct": 5.0
+      }
+     ],
+     "quotazioni_2024_2": [
+      {
+       "tipologia": "Abitazioni di tipo economico",
+       "stato": "NORMALE",
+       "eur_m2_min": 400.0,
+       "eur_m2_max": 600.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 1.4,
+       "affitto_eur_m2_mese_max": 2.1
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id_comune": "omegna",
+   "comune": "Omegna",
+   "provincia": "VB",
+   "codice_catastale": "G062",
+   "sintesi_2025_2": {
+    "intervallo_residenziale_eur_m2": [
+     500.0,
+     2200.0
+    ],
+    "abitazioni_civili_zona_piu_cara": [
+     1150.0,
+     1650.0,
+     "B1",
+     "CENTRO"
+    ],
+    "ville_villini_zona_piu_cara": [
+     1500.0,
+     2200.0,
+     "C1",
+     "BAGNELLA"
+    ],
+    "nota": "min del minimo e max del massimo fra tutte le zone e tipologie residenziali; stato conservativo NORMALE (il prevalente di zona)"
+   },
+   "zone": [
+    {
+     "zona_omi": "B1",
+     "fascia": "Centrale",
+     "descrizione": "CENTRO",
+     "quotazioni_2025_2": [
+      {
+       "tipologia": "Abitazioni civili",
+       "stato": "NORMALE",
+       "eur_m2_min": 1150.0,
+       "eur_m2_max": 1650.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 4.4,
+       "affitto_eur_m2_mese_max": 6.2,
+       "variazione_centro_intervallo_vs_2024_2_pct": 1.8
+      },
+      {
+       "tipologia": "Abitazioni di tipo economico",
+       "stato": "NORMALE",
+       "eur_m2_min": 750.0,
+       "eur_m2_max": 1100.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 3.2,
+       "affitto_eur_m2_mese_max": 4.4,
+       "variazione_centro_intervallo_vs_2024_2_pct": 5.7
+      },
+      {
+       "tipologia": "Ville e Villini",
+       "stato": "NORMALE",
+       "eur_m2_min": 1450.0,
+       "eur_m2_max": 2150.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 4.4,
+       "affitto_eur_m2_mese_max": 6.4,
+       "variazione_centro_intervallo_vs_2024_2_pct": 0.0
+      }
+     ],
+     "quotazioni_2024_2": [
+      {
+       "tipologia": "Abitazioni civili",
+       "stato": "NORMALE",
+       "eur_m2_min": 1100.0,
+       "eur_m2_max": 1650.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 4.0,
+       "affitto_eur_m2_mese_max": 5.6
+      },
+      {
+       "tipologia": "Abitazioni di tipo economico",
+       "stato": "NORMALE",
+       "eur_m2_min": 700.0,
+       "eur_m2_max": 1050.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 2.8,
+       "affitto_eur_m2_mese_max": 4.0
+      },
+      {
+       "tipologia": "Ville e Villini",
+       "stato": "NORMALE",
+       "eur_m2_min": 1450.0,
+       "eur_m2_max": 2150.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 4.4,
+       "affitto_eur_m2_mese_max": 6.2
+      }
+     ]
+    },
+    {
+     "zona_omi": "C1",
+     "fascia": "Semicentrale",
+     "descrizione": "BAGNELLA",
+     "quotazioni_2025_2": [
+      {
+       "tipologia": "Abitazioni civili",
+       "stato": "NORMALE",
+       "eur_m2_min": 1100.0,
+       "eur_m2_max": 1550.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 4.0,
+       "affitto_eur_m2_mese_max": 5.4,
+       "variazione_centro_intervallo_vs_2024_2_pct": 1.9
+      },
+      {
+       "tipologia": "Abitazioni di tipo economico",
+       "stato": "NORMALE",
+       "eur_m2_min": 700.0,
+       "eur_m2_max": 1050.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 3.0,
+       "affitto_eur_m2_mese_max": 4.0,
+       "variazione_centro_intervallo_vs_2024_2_pct": 6.1
+      },
+      {
+       "tipologia": "Ville e Villini",
+       "stato": "NORMALE",
+       "eur_m2_min": 1500.0,
+       "eur_m2_max": 2200.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 4.4,
+       "affitto_eur_m2_mese_max": 6.2,
+       "variazione_centro_intervallo_vs_2024_2_pct": 0.0
+      }
+     ],
+     "quotazioni_2024_2": [
+      {
+       "tipologia": "Abitazioni civili",
+       "stato": "NORMALE",
+       "eur_m2_min": 1050.0,
+       "eur_m2_max": 1550.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 3.8,
+       "affitto_eur_m2_mese_max": 5.4
+      },
+      {
+       "tipologia": "Abitazioni di tipo economico",
+       "stato": "NORMALE",
+       "eur_m2_min": 700.0,
+       "eur_m2_max": 950.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 2.6,
+       "affitto_eur_m2_mese_max": 3.6
+      },
+      {
+       "tipologia": "Ville e Villini",
+       "stato": "NORMALE",
+       "eur_m2_min": 1500.0,
+       "eur_m2_max": 2200.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 4.4,
+       "affitto_eur_m2_mese_max": 6.2
+      }
+     ]
+    },
+    {
+     "zona_omi": "C3",
+     "fascia": "Semicentrale",
+     "descrizione": "FASCIA LAGO EST",
+     "quotazioni_2025_2": [
+      {
+       "tipologia": "Abitazioni civili",
+       "stato": "NORMALE",
+       "eur_m2_min": 1050.0,
+       "eur_m2_max": 1500.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 3.6,
+       "affitto_eur_m2_mese_max": 5.0,
+       "variazione_centro_intervallo_vs_2024_2_pct": 2.0
+      },
+      {
+       "tipologia": "Abitazioni di tipo economico",
+       "stato": "NORMALE",
+       "eur_m2_min": 650.0,
+       "eur_m2_max": 950.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 2.8,
+       "affitto_eur_m2_mese_max": 3.6,
+       "variazione_centro_intervallo_vs_2024_2_pct": 0.0
+      },
+      {
+       "tipologia": "Ville e Villini",
+       "stato": "NORMALE",
+       "eur_m2_min": 1350.0,
+       "eur_m2_max": 1950.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 4.0,
+       "affitto_eur_m2_mese_max": 5.4,
+       "variazione_centro_intervallo_vs_2024_2_pct": 0.0
+      }
+     ],
+     "quotazioni_2024_2": [
+      {
+       "tipologia": "Abitazioni civili",
+       "stato": "NORMALE",
+       "eur_m2_min": 1050.0,
+       "eur_m2_max": 1450.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 3.6,
+       "affitto_eur_m2_mese_max": 4.8
+      },
+      {
+       "tipologia": "Abitazioni di tipo economico",
+       "stato": "NORMALE",
+       "eur_m2_min": 700.0,
+       "eur_m2_max": 900.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 2.6,
+       "affitto_eur_m2_mese_max": 3.4
+      },
+      {
+       "tipologia": "Ville e Villini",
+       "stato": "NORMALE",
+       "eur_m2_min": 1350.0,
+       "eur_m2_max": 1950.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 4.0,
+       "affitto_eur_m2_mese_max": 5.4
+      }
+     ]
+    },
+    {
+     "zona_omi": "D1",
+     "fascia": "Periferica",
+     "descrizione": "CRUSINALLO.",
+     "quotazioni_2025_2": [
+      {
+       "tipologia": "Abitazioni civili",
+       "stato": "NORMALE",
+       "eur_m2_min": 950.0,
+       "eur_m2_max": 1400.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 3.2,
+       "affitto_eur_m2_mese_max": 4.6,
+       "variazione_centro_intervallo_vs_2024_2_pct": 2.2
+      },
+      {
+       "tipologia": "Abitazioni di tipo economico",
+       "stato": "NORMALE",
+       "eur_m2_min": 650.0,
+       "eur_m2_max": 950.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 2.6,
+       "affitto_eur_m2_mese_max": 3.6,
+       "variazione_centro_intervallo_vs_2024_2_pct": 6.7
+      },
+      {
+       "tipologia": "Ville e Villini",
+       "stato": "NORMALE",
+       "eur_m2_min": 1150.0,
+       "eur_m2_max": 1700.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 3.4,
+       "affitto_eur_m2_mese_max": 4.8,
+       "variazione_centro_intervallo_vs_2024_2_pct": 0.0
+      }
+     ],
+     "quotazioni_2024_2": [
+      {
+       "tipologia": "Abitazioni civili",
+       "stato": "NORMALE",
+       "eur_m2_min": 950.0,
+       "eur_m2_max": 1350.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 3.2,
+       "affitto_eur_m2_mese_max": 4.4
+      },
+      {
+       "tipologia": "Abitazioni di tipo economico",
+       "stato": "NORMALE",
+       "eur_m2_min": 600.0,
+       "eur_m2_max": 900.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 2.4,
+       "affitto_eur_m2_mese_max": 3.3
+      },
+      {
+       "tipologia": "Ville e Villini",
+       "stato": "NORMALE",
+       "eur_m2_min": 1150.0,
+       "eur_m2_max": 1700.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 3.4,
+       "affitto_eur_m2_mese_max": 4.6
+      }
+     ]
+    },
+    {
+     "zona_omi": "D2",
+     "fascia": "Periferica",
+     "descrizione": "CIREGGIO",
+     "quotazioni_2025_2": [
+      {
+       "tipologia": "Abitazioni civili",
+       "stato": "NORMALE",
+       "eur_m2_min": 950.0,
+       "eur_m2_max": 1400.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 3.2,
+       "affitto_eur_m2_mese_max": 4.6,
+       "variazione_centro_intervallo_vs_2024_2_pct": 2.2
+      },
+      {
+       "tipologia": "Abitazioni di tipo economico",
+       "stato": "NORMALE",
+       "eur_m2_min": 600.0,
+       "eur_m2_max": 900.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 2.6,
+       "affitto_eur_m2_mese_max": 3.4,
+       "variazione_centro_intervallo_vs_2024_2_pct": 0.0
+      },
+      {
+       "tipologia": "Ville e Villini",
+       "stato": "NORMALE",
+       "eur_m2_min": 1150.0,
+       "eur_m2_max": 1700.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 3.4,
+       "affitto_eur_m2_mese_max": 4.8,
+       "variazione_centro_intervallo_vs_2024_2_pct": 0.0
+      }
+     ],
+     "quotazioni_2024_2": [
+      {
+       "tipologia": "Abitazioni civili",
+       "stato": "NORMALE",
+       "eur_m2_min": 950.0,
+       "eur_m2_max": 1350.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 3.2,
+       "affitto_eur_m2_mese_max": 4.4
+      },
+      {
+       "tipologia": "Abitazioni di tipo economico",
+       "stato": "NORMALE",
+       "eur_m2_min": 650.0,
+       "eur_m2_max": 850.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 2.4,
+       "affitto_eur_m2_mese_max": 3.2
+      },
+      {
+       "tipologia": "Ville e Villini",
+       "stato": "NORMALE",
+       "eur_m2_min": 1150.0,
+       "eur_m2_max": 1700.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 3.4,
+       "affitto_eur_m2_mese_max": 4.6
+      }
+     ]
+    },
+    {
+     "zona_omi": "D3",
+     "fascia": "Periferica",
+     "descrizione": "AGRANO",
+     "quotazioni_2025_2": [
+      {
+       "tipologia": "Abitazioni civili",
+       "stato": "NORMALE",
+       "eur_m2_min": 850.0,
+       "eur_m2_max": 1250.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 2.8,
+       "affitto_eur_m2_mese_max": 4.0,
+       "variazione_centro_intervallo_vs_2024_2_pct": 2.4
+      },
+      {
+       "tipologia": "Abitazioni di tipo economico",
+       "stato": "NORMALE",
+       "eur_m2_min": 600.0,
+       "eur_m2_max": 850.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 2.4,
+       "affitto_eur_m2_mese_max": 3.2,
+       "variazione_centro_intervallo_vs_2024_2_pct": 3.6
+      },
+      {
+       "tipologia": "Ville e Villini",
+       "stato": "NORMALE",
+       "eur_m2_min": 1050.0,
+       "eur_m2_max": 1500.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 3.0,
+       "affitto_eur_m2_mese_max": 4.2,
+       "variazione_centro_intervallo_vs_2024_2_pct": 0.0
+      }
+     ],
+     "quotazioni_2024_2": [
+      {
+       "tipologia": "Abitazioni civili",
+       "stato": "NORMALE",
+       "eur_m2_min": 850.0,
+       "eur_m2_max": 1200.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 2.8,
+       "affitto_eur_m2_mese_max": 3.8
+      },
+      {
+       "tipologia": "Abitazioni di tipo economico",
+       "stato": "NORMALE",
+       "eur_m2_min": 600.0,
+       "eur_m2_max": 800.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 2.2,
+       "affitto_eur_m2_mese_max": 3.1
+      },
+      {
+       "tipologia": "Ville e Villini",
+       "stato": "NORMALE",
+       "eur_m2_min": 1050.0,
+       "eur_m2_max": 1500.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 3.0,
+       "affitto_eur_m2_mese_max": 4.2
+      }
+     ]
+    },
+    {
+     "zona_omi": "R1",
+     "fascia": "Extraurbana",
+     "descrizione": "RURALE MONTANA",
+     "quotazioni_2025_2": [
+      {
+       "tipologia": "Abitazioni di tipo economico",
+       "stato": "NORMALE",
+       "eur_m2_min": 500.0,
+       "eur_m2_max": 750.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 2.0,
+       "affitto_eur_m2_mese_max": 2.8,
+       "variazione_centro_intervallo_vs_2024_2_pct": 4.2
+      }
+     ],
+     "quotazioni_2024_2": [
+      {
+       "tipologia": "Abitazioni di tipo economico",
+       "stato": "NORMALE",
+       "eur_m2_min": 500.0,
+       "eur_m2_max": 700.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 1.8,
+       "affitto_eur_m2_mese_max": 2.6
+      }
+     ]
+    },
+    {
+     "zona_omi": "R2",
+     "fascia": "Extraurbana",
+     "descrizione": "RURALE MONTANA",
+     "quotazioni_2025_2": [
+      {
+       "tipologia": "Abitazioni di tipo economico",
+       "stato": "NORMALE",
+       "eur_m2_min": 500.0,
+       "eur_m2_max": 650.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 1.8,
+       "affitto_eur_m2_mese_max": 2.6,
+       "variazione_centro_intervallo_vs_2024_2_pct": 4.5
+      }
+     ],
+     "quotazioni_2024_2": [
+      {
+       "tipologia": "Abitazioni di tipo economico",
+       "stato": "NORMALE",
+       "eur_m2_min": 450.0,
+       "eur_m2_max": 650.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 1.6,
+       "affitto_eur_m2_mese_max": 2.4
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id_comune": "quarna-sopra",
+   "comune": "Quarna Sopra",
+   "provincia": "VB",
+   "codice_catastale": "H106",
+   "sintesi_2025_2": {
+    "intervallo_residenziale_eur_m2": [
+     500.0,
+     1150.0
+    ],
+    "abitazioni_civili_zona_piu_cara": [
+     800.0,
+     1100.0,
+     "B1",
+     "CENTRO ABITATO"
+    ],
+    "ville_villini_zona_piu_cara": [
+     900.0,
+     1150.0,
+     "B1",
+     "CENTRO ABITATO"
+    ],
+    "nota": "min del minimo e max del massimo fra tutte le zone e tipologie residenziali; stato conservativo NORMALE (il prevalente di zona)"
+   },
+   "zone": [
+    {
+     "zona_omi": "B1",
+     "fascia": "Centrale",
+     "descrizione": "CENTRO ABITATO",
+     "quotazioni_2025_2": [
+      {
+       "tipologia": "Abitazioni civili",
+       "stato": "NORMALE",
+       "eur_m2_min": 800.0,
+       "eur_m2_max": 1100.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 2.8,
+       "affitto_eur_m2_mese_max": 3.6,
+       "variazione_centro_intervallo_vs_2024_2_pct": 2.7
+      },
+      {
+       "tipologia": "Abitazioni di tipo economico",
+       "stato": "NORMALE",
+       "eur_m2_min": 500.0,
+       "eur_m2_max": 750.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 2.0,
+       "affitto_eur_m2_mese_max": 2.8,
+       "variazione_centro_intervallo_vs_2024_2_pct": 4.2
+      },
+      {
+       "tipologia": "Ville e Villini",
+       "stato": "NORMALE",
+       "eur_m2_min": 900.0,
+       "eur_m2_max": 1150.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 2.8,
+       "affitto_eur_m2_mese_max": 3.8,
+       "variazione_centro_intervallo_vs_2024_2_pct": 0.0
+      }
+     ],
+     "quotazioni_2024_2": [
+      {
+       "tipologia": "Abitazioni civili",
+       "stato": "NORMALE",
+       "eur_m2_min": 750.0,
+       "eur_m2_max": 1100.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 2.6,
+       "affitto_eur_m2_mese_max": 3.4
+      },
+      {
+       "tipologia": "Abitazioni di tipo economico",
+       "stato": "NORMALE",
+       "eur_m2_min": 500.0,
+       "eur_m2_max": 700.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 1.8,
+       "affitto_eur_m2_mese_max": 2.6
+      },
+      {
+       "tipologia": "Ville e Villini",
+       "stato": "NORMALE",
+       "eur_m2_min": 900.0,
+       "eur_m2_max": 1150.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 2.8,
+       "affitto_eur_m2_mese_max": 3.4
+      }
+     ]
+    },
+    {
+     "zona_omi": "R1",
+     "fascia": "Extraurbana",
+     "descrizione": "RURALE MONTANA",
+     "quotazioni_2025_2": [
+      {
+       "tipologia": "Abitazioni civili",
+       "stato": "NORMALE",
+       "eur_m2_min": 700.0,
+       "eur_m2_max": 1000.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 2.2,
+       "affitto_eur_m2_mese_max": 3.2,
+       "variazione_centro_intervallo_vs_2024_2_pct": 3.0
+      },
+      {
+       "tipologia": "Abitazioni di tipo economico",
+       "stato": "NORMALE",
+       "eur_m2_min": 500.0,
+       "eur_m2_max": 650.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 1.8,
+       "affitto_eur_m2_mese_max": 2.6,
+       "variazione_centro_intervallo_vs_2024_2_pct": 4.5
+      }
+     ],
+     "quotazioni_2024_2": [
+      {
+       "tipologia": "Abitazioni civili",
+       "stato": "NORMALE",
+       "eur_m2_min": 700.0,
+       "eur_m2_max": 950.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 2.2,
+       "affitto_eur_m2_mese_max": 3.0
+      },
+      {
+       "tipologia": "Abitazioni di tipo economico",
+       "stato": "NORMALE",
+       "eur_m2_min": 450.0,
+       "eur_m2_max": 650.0,
+       "superficie": "L",
+       "affitto_eur_m2_mese_min": 1.6,
+       "affitto_eur_m2_mese_max": 2.4
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "compravendite_provinciali": {
+  "fonte": "Agenzia delle Entrate – OMI, «Volumi di compravendita», file RESIDENZIALE_DEFINITIVO_2011_2024.zip e RESIDENZIALE_2025_2026_PROVV.zip (RES.csv), https://www.agenziaentrate.gov.it/portale/web/guest/schede/fabbricatiterreni/omi/banche-dati/volumi-di-compravendita",
+  "estratto_il": "2026-10-06",
+  "unita": "NTN = numero di transazioni normalizzate di abitazioni (quote di proprietà sommate); somma dei 4 trimestri",
+  "attenzione": "aggregato di TUTTI i comuni non capoluogo della provincia (Novara o VCO), non il solo lago; 2025 e 2026 provvisori",
+  "righe": [
+   {
+    "provincia": "NO",
+    "ambito": "comune capoluogo",
+    "ntn_2023": 1590.0,
+    "ntn_2024": 1500.0,
+    "ntn_2025_provvisorio": 1709.0,
+    "ntn_2026_s1_provvisorio": 872,
+    "variazione_2025_vs_2024_pct": 13.9
+   },
+   {
+    "provincia": "NO",
+    "ambito": "tutti i comuni non capoluogo della provincia",
+    "ntn_2023": 3656.0,
+    "ntn_2024": 3633.0,
+    "ntn_2025_provvisorio": 4142.0,
+    "ntn_2026_s1_provvisorio": 2054,
+    "variazione_2025_vs_2024_pct": 14.0
+   },
+   {
+    "provincia": "VB",
+    "ambito": "comune capoluogo",
+    "ntn_2023": 464.0,
+    "ntn_2024": 466.0,
+    "ntn_2025_provvisorio": 449.0,
+    "ntn_2026_s1_provvisorio": 238,
+    "variazione_2025_vs_2024_pct": -3.6
+   },
+   {
+    "provincia": "VB",
+    "ambito": "tutti i comuni non capoluogo della provincia",
+    "ntn_2023": 2115.0,
+    "ntn_2024": 2044.0,
+    "ntn_2025_provvisorio": 2251.0,
+    "ntn_2026_s1_provvisorio": 1060,
+    "variazione_2025_vs_2024_pct": 10.1
+   }
+  ]
+ }
+}

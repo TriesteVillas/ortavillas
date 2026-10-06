@@ -1,0 +1,17 @@
+place_id,place,lat,lon,ele_copernicus_glo90_m,ele_min_400m,ele_median_400m,ele_max_400m,shore_distance_m,winter_solstice_sun_min,source,measured_on
+orta-san-giulio,"Orta San Giulio (borgo, Piazza Motta)",45.7980134,8.4058762,299.0,284,290,390,18,399,Open-Meteo/Copernicus GLO-90; AWS Terrain Tiles; OSM,2026-10-06
+legro,Legro (Orta San Giulio),45.7955642,8.4216604,360.0,307,358,450,448,406,Open-Meteo/Copernicus GLO-90; AWS Terrain Tiles; OSM,2026-10-06
+pettenasco,Pettenasco,45.8171622,8.4087011,307.0,287,305,382,380,379,Open-Meteo/Copernicus GLO-90; AWS Terrain Tiles; OSM,2026-10-06
+pella,Pella,45.8016249,8.3847792,314.0,284,305,431,212,404,Open-Meteo/Copernicus GLO-90; AWS Terrain Tiles; OSM,2026-10-06
+ronco,Ronco (Pella),45.8271148,8.3818783,300.0,281,287,494,45,339,Open-Meteo/Copernicus GLO-90; AWS Terrain Tiles; OSM,2026-10-06
+san-maurizio-dopaglio,San Maurizio d'Opaglio,45.7734531,8.3903949,372.0,355,372,410,1270,437,Open-Meteo/Copernicus GLO-90; AWS Terrain Tiles; OSM,2026-10-06
+madonna-del-sasso,"Madonna del Sasso (Boleto, municipio)",45.7924094,8.3683708,689.0,578,676,713,1169,414,Open-Meteo/Copernicus GLO-90; AWS Terrain Tiles; OSM,2026-10-06
+ameno,Ameno,45.7886563,8.4413106,531.0,471,525,573,1419,484,Open-Meteo/Copernicus GLO-90; AWS Terrain Tiles; OSM,2026-10-06
+vacciago,Vacciago (Ameno),45.7864497,8.429395,484.0,347,472,510,495,480,Open-Meteo/Copernicus GLO-90; AWS Terrain Tiles; OSM,2026-10-06
+miasino,Miasino,45.801972,8.429724,478.0,375,476,502,743,467,Open-Meteo/Copernicus GLO-90; AWS Terrain Tiles; OSM,2026-10-06
+armeno,Armeno,45.8224566,8.4391986,543.0,499,539,693,2495,458,Open-Meteo/Copernicus GLO-90; AWS Terrain Tiles; OSM,2026-10-06
+omegna,Omegna,45.879774,8.408022,307.0,287,302,356,495,337,Open-Meteo/Copernicus GLO-90; AWS Terrain Tiles; OSM,2026-10-06
+nonio,Nonio,45.845773,8.377522,465.0,376,476,641,656,417,Open-Meteo/Copernicus GLO-90; AWS Terrain Tiles; OSM,2026-10-06
+quarna-sopra,Quarna Sopra,45.8721773,8.3736717,844.0,687,833,895,1773,466,Open-Meteo/Copernicus GLO-90; AWS Terrain Tiles; OSM,2026-10-06
+gozzano,Gozzano,45.7464568,8.4360668,360.0,346,353,365,2095,468,Open-Meteo/Copernicus GLO-90; AWS Terrain Tiles; OSM,2026-10-06
+bolzano-novarese,Bolzano Novarese,45.7627855,8.4451747,409.0,371,409,452,1325,465,Open-Meteo/Copernicus GLO-90; AWS Terrain Tiles; OSM,2026-10-06
