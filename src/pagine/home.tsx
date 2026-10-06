@@ -201,6 +201,24 @@ export const home: VocePagina = {
           </div>
         </section>
 
+        {l === "sl" && (
+          // Solo in sloveno: il rimando a SloveniaVillas voluto da Martino il 06/10 (commit 09e072b
+          // sul sito statico), riportato qui con lo stesso testo e lo stesso limite detto.
+          <section className="sezione" id="sloveniavillas">
+            <div className="contenitore" style={{ maxWidth: 860 }}>
+              <p className="occhiello">Iz iste skupine · SloveniaVillas</p>
+              <h2 className="t-display-l">Slovenska obala in Kras, izmerjena iz Trsta</h2>
+              <p className="t-lead">SloveniaVillas je atlas slovenske obale in Krasa: enajst krajev v štirih svetovih, vodniki za kupce in za lastnike ter sedem orodij, zgrajenih na javnih slovenskih podatkih.</p>
+              <p style={{ color: "var(--fg-2)" }}>Kupci, ki iščejo dom v Trstu, predvsem avstrijski in nemški, gledajo tudi čez mejo. SloveniaVillas jim predstavlja obalo in Kras. Če imate hišo na obali ali na Krasu, si oglejte stran za lastnike.</p>
+              <p className="aiuto">V Sloveniji danes ne opravljamo posredovanja; dejavnost bomo začeli v letu 2027.</p>
+              <div className="bottoni" style={{ marginTop: 20 }}>
+                <a className="bottone bottone-primario" href="https://sloveniavillas.com/sl" rel="noopener">Odprite SloveniaVillas ↗</a>
+                <a className="bottone bottone-secondario" href="https://sloveniavillas.com/sl/za-lastnike" rel="noopener">Za lastnike ↗</a>
+              </div>
+            </div>
+          </section>
+        )}
+
         <section className="epilogo" id="epilogo">
           <video className="epilogo-video" src="/assets/video/hero.mp4" poster="/assets/images/hero-poster.jpg" autoPlay muted loop playsInline aria-hidden="true" />
           <div className="epilogo-velo" />
