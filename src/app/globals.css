@@ -643,3 +643,26 @@ html[data-motion="off"] .epilogo-video { display: none; }
   .pannello { background: #04090df2; box-shadow: 0 0 32px 20px #04090df2; }
   .testata-sfondo .etichetta-rilievo:not([data-visibile="no"]) { opacity: 0.3; }
 }
+
+/* ── foto rielaborate con AI ────────────────────────────────── */
+.credito-ai { position: relative; display: inline-block; font-size: 12.5px; }
+.credito-ai summary { list-style: none; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; color: var(--fg-2); text-transform: uppercase; }
+.credito-ai summary::-webkit-details-marker { display: none; }
+.badge-ai { display: inline-flex; align-items: center; justify-content: center; min-width: 26px; height: 20px; padding: 0 6px; border-radius: 4px; background: #04090dcc; border: 1px solid var(--sand); color: var(--sand-300); font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.08em; }
+.credito-ai-pannello { position: absolute; z-index: 20; bottom: calc(100% + 8px); left: 0; width: min(420px, 86vw); background: var(--ink-2); border: 1px solid var(--ink-3); border-radius: 10px; padding: 12px 14px; box-shadow: var(--sh-float); color: var(--fg-2); text-transform: none; letter-spacing: 0; font-family: var(--font-sans); font-size: 13px; line-height: 1.5; }
+.credito-ai-pannello p { margin: 0 0 6px; } .credito-ai-pannello p:last-child { margin: 0; }
+.credito-ai-pannello a { color: var(--sand-300); overflow-wrap: anywhere; }
+.testata-foto { position: absolute; inset: 0; }
+.testata-foto img { width: 100%; height: 100%; object-fit: cover; }
+.testata-foto::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, #04090df0 0%, #04090db0 35%, #04090d30 70%, transparent), linear-gradient(0deg, var(--ink-1) 0%, transparent 45%); }
+.testata-credito { position: absolute; right: var(--margine); bottom: 18px; z-index: 3; }
+.scheda-con-foto { padding: 0 !important; overflow: hidden; }
+.scheda-con-foto img { width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; display: block; }
+.scheda-con-foto .testo { padding: 16px 20px 20px; display: flex; flex-direction: column; gap: 6px; }
+.lente-ai { position: relative; }
+.lente-ai .credito-ai { position: absolute; left: 8px; bottom: 8px; }
+@media (max-width: 767px) { .testata-foto::after { background: linear-gradient(0deg, var(--ink-1) 0%, #04090dd0 50%, #04090d50 100%); } }
+.testo-scheda { display: flex; flex-direction: column; gap: 8px; }
+.scheda-con-foto .testo-scheda { padding: 16px 20px 20px; }
+.lente-ai .credito-ai { position: relative; left: 0; bottom: 0; }
+.lente-ai .credito-ai-pannello { bottom: auto; top: calc(100% + 8px); }

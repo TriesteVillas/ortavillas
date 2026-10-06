@@ -1,7 +1,7 @@
 import type { Lingua } from "@/lib/rotte";
 
-// AI · titoli di coda. Il registro dichiara 0 media generati o rielaborati con l'AI: le sole
-// immagini del sito sono quattro foto Unsplash (autori non registrati al download) e un video
+// AI · titoli di coda. Il registro elenca le 19 immagini rielaborate con l'AI (content/media.ts);
+// le riprese vere sono quattro foto Unsplash (autori non registrati al download) e il video
 // girato da una proprietà sul lago (non attribuito). Lo si dice, invece di inventare un credito.
 export type Ripresa = { file: string; alt: string; titolo: string };
 export type TestiAi = {
@@ -19,27 +19,27 @@ const foto = (alt: [string, string, string, string], tit: [string, string, strin
 
 const it: TestiAi = {
   titolo: "Titoli di coda: le immagini del sito e l'AI",
-  descrizione: "Il registro delle immagini e dei video rielaborati con l'intelligenza artificiale su ortavillas.com: oggi sono 0. Le regole, e l'elenco delle riprese vere con fonte e licenza.",
+  descrizione: "Le 19 immagini di ortavillas.com rielaborate con l'intelligenza artificiale, una per una: foto di partenza, autore, licenza, modello, che cosa è cambiato. E le riprese vere.",
   briciola: "Titoli di coda",
   occhiello: "Immagini e AI",
   h1: "Titoli di coda",
-  lead: "Ogni immagine o video di questo sito rielaborato o generato con l'intelligenza artificiale avrebbe qui la sua riga: foto di partenza, autore, licenza, modello, che cosa è cambiato. Oggi il registro è vuoto, e qui sotto c'è l'elenco delle riprese vere.",
+  lead: "Ogni immagine o video di questo sito rielaborato o generato con l'intelligenza artificiale ha qui la sua riga: foto di partenza, autore, licenza, modello, che cosa è cambiato e che cosa no. Oggi sono 19, tutte partite da foto libere di Wikimedia Commons; più sotto, le riprese vere.",
   indice: { regole: "Le regole", registro: "Il registro", reale: "Ripresa reale", caso: "Il caso di Trieste" },
   regole: [
-    ["Solo a scala di paesaggio.", "Mai una casa, un giardino o una via riconoscibile: lì un'immagine rielaborata direbbe il falso."],
-    ["Foto di partenza libere.", "Pubblico dominio, CC0, CC BY o licenza Unsplash, con fonte e, quando c'è, autore; oppure immagini generate da un testo, dichiarate come tali."],
+    ["Paesaggi, paesi e monumenti pubblici.", "Mai una casa privata, un giardino o un immobile riconoscibile: lì un'immagine rielaborata direbbe il falso."],
+    ["Foto di partenza libere.", "Pubblico dominio, CC0, CC BY o CC BY-SA (con la stessa licenza per l'immagine rielaborata), oppure licenza Unsplash, con fonte e, quando c'è, autore; oppure immagini generate da un testo, dichiarate come tali."],
     ["La geometria non si tocca.", "Si possono cambiare luce, cielo e stagione, togliere auto, cartelli e cavi; non si aggiungono né si tolgono edifici, moli, isole o campanili."],
     ["Il segno sull'immagine.", "Ogni media generato o rielaborato porta il segno «AI» e la sua riga in questa pagina."],
     ["Il materiale vero resta vero.", "Le foto e il video del lago, i film, i tour 3D e le schede di TriesteVillas non sono ritoccati su questo sito."],
   ],
   registro: {
     caption: "Media generati o rielaborati con AI",
-    testo: "Su ortavillas.com, edizione 01, nessuna immagine e nessun video è stato generato o rielaborato con l'intelligenza artificiale. Quando succederà, ogni media avrà qui una riga con queste colonne:",
+    testo: "Su ortavillas.com, edizione 01, sono 19 le immagini rielaborate con l'intelligenza artificiale, tutte il 6 ottobre 2026 con Nano Banana 2 su Higgsfield, partendo da foto con licenza libera. Le immagini rielaborate da foto CC BY-SA sono distribuite con la stessa licenza. Ogni riga:",
     colonneTitolo: "Le colonne del registro",
     colonne: ["Media", "Luogo", "Foto di partenza, autore e licenza", "Modello e job", "Che cosa è cambiato, e che cosa no", "Data e verifica"],
   },
   reale: {
-    testo: "Le immagini di questo sito sono riprese vere, non generate. Ecco tutte, con la loro fonte.",
+    testo: "Le altre immagini di questo sito sono riprese vere, non rielaborate. Eccole, con la loro fonte.",
     foto: foto(
       ["L'isola di San Giulio vista dalla riva, con la basilica, il campanile e le case sull'acqua, le montagne alle spalle.", "L'isola di San Giulio vista dall'alto, con la basilica e il campanile sull'acqua verde del lago.", "Un pontile di legno sul lago d'Orta al tramonto, con l'acqua ferma e i monti in controluce.", "Prati del Mottarone con il lago d'Orta in basso e le colline in lontananza."],
       ["L'isola di San Giulio dalla riva", "L'isola di San Giulio dall'alto", "Un pontile al tramonto", "Il lago dal Mottarone"],
@@ -59,27 +59,27 @@ const it: TestiAi = {
 
 const en: TestiAi = {
   titolo: "Closing credits: the site's images and AI",
-  descrizione: "The register of images and videos reworked with artificial intelligence on ortavillas.com: today there are 0. The rules, and the list of real footage with source and licence.",
+  descrizione: "The 19 images on ortavillas.com reworked with artificial intelligence, one by one: source photo, author, licence, model, what changed. And the real footage.",
   briciola: "Closing credits",
   occhiello: "Images and AI",
   h1: "Closing credits",
-  lead: "Every image or video on this site reworked or generated with artificial intelligence would have its line here: source photo, author, licence, model, what changed. Today the register is empty, and below is the list of real footage.",
+  lead: "Every image or video on this site reworked or generated with artificial intelligence has its line here: source photo, author, licence, model, what changed and what did not. Today there are 19, all starting from free photos on Wikimedia Commons; further down, the real footage.",
   indice: { regole: "The rules", registro: "The register", reale: "Real footage", caso: "The Trieste case" },
   regole: [
-    ["Landscape scale only.", "Never a recognisable house, garden or street: there a reworked image would tell a lie."],
-    ["Free source photos.", "Public domain, CC0, CC BY or the Unsplash licence, with the source and, where known, the author; or images generated from text, declared as such."],
+    ["Landscapes, villages and public monuments.", "Never a private house, a garden or a recognisable property: there a reworked image would tell a lie."],
+    ["Free source photos.", "Public domain, CC0, CC BY or CC BY-SA (with the same licence for the reworked image), or the Unsplash licence, with the source and, where known, the author; or images generated from text, declared as such."],
     ["Geometry is not touched.", "Light, sky and season may change, cars, signs and cables may be removed; buildings, piers, islands or bell towers are never added or removed."],
     ["The mark on the image.", "Every generated or reworked medium carries the “AI” mark and its line on this page."],
     ["Real material stays real.", "The photos and video of the lake, the films, 3D tours and TriesteVillas listings are not retouched on this site."],
   ],
   registro: {
     caption: "Media generated or reworked with AI",
-    testo: "On ortavillas.com, edition 01, no image and no video has been generated or reworked with artificial intelligence. When that happens, each medium will have a line here with these columns:",
+    testo: "On ortavillas.com, edition 01, 19 images have been reworked with artificial intelligence, all on 6 October 2026 with Nano Banana 2 on Higgsfield, starting from freely licensed photos. Images reworked from CC BY-SA photos are distributed under the same licence. Each line:",
     colonneTitolo: "The register's columns",
     colonne: ["Medium", "Place", "Source photo, author and licence", "Model and job", "What changed, and what did not", "Date and check"],
   },
   reale: {
-    testo: "The images on this site are real footage, not generated. Here they all are, with their source.",
+    testo: "The other images on this site are real footage, not reworked. Here they are, with their source.",
     foto: foto(
       ["The island of San Giulio seen from the shore, with the basilica, the bell tower and houses on the water, mountains behind.", "The island of San Giulio seen from above, with the basilica and bell tower on the green water of the lake.", "A wooden jetty on Lake Orta at sunset, with still water and mountains against the light.", "Meadows of the Mottarone with Lake Orta below and hills in the distance."],
       ["San Giulio island from the shore", "San Giulio island from above", "A jetty at sunset", "The lake from the Mottarone"],
@@ -99,27 +99,27 @@ const en: TestiAi = {
 
 const de: TestiAi = {
   titolo: "Abspann: die Bilder der Website und die KI",
-  descrizione: "Das Register der mit künstlicher Intelligenz bearbeiteten Bilder und Videos auf ortavillas.com: heute 0. Die Regeln und die Liste der echten Aufnahmen mit Quelle und Lizenz.",
+  descrizione: "Die 19 mit künstlicher Intelligenz bearbeiteten Bilder auf ortavillas.com, eines nach dem anderen: Ausgangsfoto, Urheber, Lizenz, Modell, was sich geändert hat. Und die echten Aufnahmen.",
   briciola: "Abspann",
   occhiello: "Bilder und KI",
   h1: "Abspann",
-  lead: "Jedes Bild oder Video dieser Website, das mit künstlicher Intelligenz bearbeitet oder erzeugt wurde, hätte hier seine Zeile: Ausgangsfoto, Urheber, Lizenz, Modell, was sich geändert hat. Heute ist das Register leer, und unten steht die Liste der echten Aufnahmen.",
+  lead: "Jedes Bild oder Video dieser Website, das mit künstlicher Intelligenz bearbeitet oder erzeugt wurde, hat hier seine Zeile: Ausgangsfoto, Urheber, Lizenz, Modell, was sich geändert hat und was nicht. Heute sind es 19, alle ausgehend von freien Fotos auf Wikimedia Commons; weiter unten die echten Aufnahmen.",
   indice: { regole: "Die Regeln", registro: "Das Register", reale: "Echte Aufnahmen", caso: "Das Beispiel Triest" },
   regole: [
-    ["Nur im Maßstab der Landschaft.", "Nie ein erkennbares Haus, ein Garten oder eine Straße: Dort würde ein bearbeitetes Bild die Unwahrheit sagen."],
-    ["Freie Ausgangsfotos.", "Gemeinfrei, CC0, CC BY oder Unsplash-Lizenz, mit Quelle und, wo bekannt, Urheber; oder aus Text erzeugte Bilder, als solche gekennzeichnet."],
+    ["Landschaften, Orte und öffentliche Bauwerke.", "Nie ein Privathaus, ein Garten oder eine erkennbare Immobilie: Dort würde ein bearbeitetes Bild die Unwahrheit sagen."],
+    ["Freie Ausgangsfotos.", "Gemeinfrei, CC0, CC BY oder CC BY-SA (mit derselben Lizenz für das bearbeitete Bild) oder Unsplash-Lizenz, mit Quelle und, wo bekannt, Urheber; oder aus Text erzeugte Bilder, als solche gekennzeichnet."],
     ["Die Geometrie bleibt unberührt.", "Licht, Himmel und Jahreszeit dürfen sich ändern, Autos, Schilder und Kabel verschwinden; Gebäude, Stege, Inseln oder Glockentürme werden nie hinzugefügt oder entfernt."],
     ["Das Zeichen auf dem Bild.", "Jedes erzeugte oder bearbeitete Medium trägt das Zeichen „KI“ und seine Zeile auf dieser Seite."],
     ["Echtes bleibt echt.", "Die Fotos und das Video vom See, die Filme, 3D-Rundgänge und Exposés von TriesteVillas sind auf dieser Website nicht retuschiert."],
   ],
   registro: {
     caption: "Mit KI erzeugte oder bearbeitete Medien",
-    testo: "Auf ortavillas.com, Ausgabe 01, wurde kein Bild und kein Video mit künstlicher Intelligenz erzeugt oder bearbeitet. Wenn es so weit ist, bekommt jedes Medium hier eine Zeile mit diesen Spalten:",
+    testo: "Auf ortavillas.com, Ausgabe 01, wurden 19 Bilder mit künstlicher Intelligenz bearbeitet, alle am 6. Oktober 2026 mit Nano Banana 2 auf Higgsfield, ausgehend von frei lizenzierten Fotos. Aus CC-BY-SA-Fotos bearbeitete Bilder stehen unter derselben Lizenz. Jede Zeile:",
     colonneTitolo: "Die Spalten des Registers",
     colonne: ["Medium", "Ort", "Ausgangsfoto, Urheber und Lizenz", "Modell und Job", "Was sich geändert hat, und was nicht", "Datum und Prüfung"],
   },
   reale: {
-    testo: "Die Bilder dieser Website sind echte Aufnahmen, nicht erzeugt. Hier sind alle, mit ihrer Quelle.",
+    testo: "Die übrigen Bilder dieser Website sind echte Aufnahmen, nicht bearbeitet. Hier sind sie, mit ihrer Quelle.",
     foto: foto(
       ["Die Insel San Giulio vom Ufer aus, mit Basilika, Glockenturm und Häusern am Wasser, dahinter die Berge.", "Die Insel San Giulio von oben, mit Basilika und Glockenturm auf dem grünen Wasser des Sees.", "Ein Holzsteg am Ortasee bei Sonnenuntergang, mit stillem Wasser und Bergen im Gegenlicht.", "Wiesen des Mottarone mit dem Ortasee unten und Hügeln in der Ferne."],
       ["Die Insel San Giulio vom Ufer", "Die Insel San Giulio von oben", "Ein Steg bei Sonnenuntergang", "Der See vom Mottarone"],
@@ -139,27 +139,27 @@ const de: TestiAi = {
 
 const sl: TestiAi = {
   titolo: "Odjavna špica: slike spletnega mesta in UI",
-  descrizione: "Evidenca slik in videoposnetkov, obdelanih z umetno inteligenco na ortavillas.com: danes jih je 0. Pravila in seznam resničnih posnetkov z virom in licenco.",
+  descrizione: "19 slik na ortavillas.com, predelanih z umetno inteligenco, eno za drugo: izvirna fotografija, avtor, licenca, model, kaj se je spremenilo. In resnični posnetki.",
   briciola: "Odjavna špica",
   occhiello: "Slike in UI",
   h1: "Odjavna špica",
-  lead: "Vsaka slika ali videoposnetek tega spletnega mesta, obdelan ali ustvarjen z umetno inteligenco, bi imel tu svojo vrstico: izhodiščno fotografijo, avtorja, licenco, model in kaj se je spremenilo. Danes je evidenca prazna, spodaj pa je seznam resničnih posnetkov.",
+  lead: "Vsaka slika ali videoposnetek tega spletnega mesta, obdelan ali ustvarjen z umetno inteligenco, ima tu svojo vrstico: izhodiščno fotografijo, avtorja, licenco, model ter kaj se je spremenilo in kaj ne. Danes jih je 19, vse iz prostih fotografij z Wikimedia Commons; niže so resnični posnetki.",
   indice: { regole: "Pravila", registro: "Evidenca", reale: "Resnični posnetki", caso: "Primer iz Trsta" },
   regole: [
-    ["Samo v merilu pokrajine.", "Nikoli prepoznavna hiša, vrt ali ulica: tam bi obdelana slika govorila neresnico."],
-    ["Proste izhodiščne fotografije.", "Javna last, CC0, CC BY ali licenca Unsplash, z virom in, kadar je znan, avtorjem; ali slike, ustvarjene iz besedila, označene kot take."],
+    ["Pokrajine, kraji in javni spomeniki.", "Nikoli zasebna hiša, vrt ali prepoznavna nepremičnina: tam bi obdelana slika govorila neresnico."],
+    ["Proste izhodiščne fotografije.", "Javna last, CC0, CC BY ali CC BY-SA (z isto licenco za predelano sliko) ali licenca Unsplash, z virom in, kadar je znan, avtorjem; ali slike, ustvarjene iz besedila, označene kot take."],
     ["Geometrija ostane nedotaknjena.", "Lahko se spremenijo svetloba, nebo in letni čas ter odstranijo avtomobili, znaki in kabli; stavb, pomolov, otokov ali zvonikov ne dodajamo in ne odstranjujemo."],
     ["Oznaka na sliki.", "Vsak ustvarjen ali obdelan medij nosi oznako »UI« in svojo vrstico na tej strani."],
     ["Resnično ostane resnično.", "Fotografije in video jezera, filmi, 3D-ogledi in predstavitve TriesteVillas na tem spletnem mestu niso retuširani."],
   ],
   registro: {
     caption: "Mediji, ustvarjeni ali obdelani z UI",
-    testo: "Na ortavillas.com, izdaja 01, nobena slika in noben videoposnetek ni bil ustvarjen ali obdelan z umetno inteligenco. Ko se bo to zgodilo, bo imel vsak medij tu vrstico s temi stolpci:",
+    testo: "Na ortavillas.com, izdaja 01, je z umetno inteligenco predelanih 19 slik, vse 6. oktobra 2026 z Nano Banana 2 na Higgsfieldu, iz fotografij s prosto licenco. Slike, predelane iz fotografij CC BY-SA, so objavljene pod isto licenco. Vsaka vrstica:",
     colonneTitolo: "Stolpci evidence",
     colonne: ["Medij", "Kraj", "Izhodiščna fotografija, avtor in licenca", "Model in opravilo", "Kaj se je spremenilo in kaj ne", "Datum in preverjanje"],
   },
   reale: {
-    testo: "Slike tega spletnega mesta so resnični posnetki, ne ustvarjeni. Tu so vse, z virom.",
+    testo: "Druge slike tega spletnega mesta so resnični posnetki, ne predelani. Tu so, z virom.",
     foto: foto(
       ["Otok San Giulio z obale, z baziliko, zvonikom in hišami ob vodi, zadaj gore.", "Otok San Giulio od zgoraj, z baziliko in zvonikom na zeleni vodi jezera.", "Lesen pomol na jezeru Orta ob sončnem zahodu, z mirno vodo in gorami v protisvetlobi.", "Travniki na Mottaroneju z jezerom Orta spodaj in griči v daljavi."],
       ["Otok San Giulio z obale", "Otok San Giulio od zgoraj", "Pomol ob sončnem zahodu", "Jezero z Mottaroneja"],

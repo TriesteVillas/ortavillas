@@ -15,6 +15,10 @@ import { tempo, numero } from "@/lib/fmt";
 import viciniJson from "@/data/vicini.json";
 import { Rilievo, type Etichetta } from "@/components/Rilievo";
 import { JsonLd, briciole, organizzazione } from "@/components/JsonLd";
+import { FotoAI, CreditoAI } from "@/components/FotoAI";
+import { mediaDelLuogo, mediaDi, type Media } from "@/content/media";
+
+const FOTO_MONDO: Record<MondoId, string> = { est: "orta-san-giulio", ovest: "pella", colline: "vacciago", capi: "omegna" };
 
 const V = viciniJson as { ids: string[]; minuti: number[][]; km: number[][] };
 const ore = (min: number, l: Lingua) => { const h = Math.floor(min / 60); const m = min % 60; return l === "de" ? `${h} Std. ${String(m).padStart(2, "0")} Min.` : `${h} h ${String(m).padStart(2, "0")} min`; };
@@ -51,11 +55,14 @@ function Schede({ l, lista }: { l: Lingua; lista: Luogo[] }) {
     <ul className="schede" style={{ listStyle: "none", padding: 0, margin: 0 }}>
       {lista.map((x) => (
         <li key={x.id}>
-          <Link className="scheda" href={percorso(l, "luoghi", LUOGHI_SLUG[x.id][l])} style={{ ["--c" as string]: COLORE_MONDO[x.mondo].notte, borderTop: "3px solid var(--c)" }}>
+          <Link className={`scheda${mediaDelLuogo(x.id) ? " scheda-con-foto" : ""}`} href={percorso(l, "luoghi", LUOGHI_SLUG[x.id][l])} style={{ ["--c" as string]: COLORE_MONDO[x.mondo].notte, borderTop: "3px solid var(--c)" }}>
+            {mediaDelLuogo(x.id) && <FotoAI m={mediaDelLuogo(x.id)!} l={l} taglio="4x3" />}
+            <span className="testo-scheda">
             <span className="t-h3">{x.nome}</span>
             {x.frazioneDi && <span className="t-data-label" style={{ color: "var(--fg-3)" }}>{u.frazione(x.frazioneDi)}</span>}
             <p><b style={{ color: "var(--gold)", fontWeight: 500 }}>{tempo(x.daMilano, l)}</b> {u.daMilano}</p>
             <p className="t-data">{u.quota} {numero(x.quota, l)} m · {u.sopraLago(x.sopraLago)}{x.abitanti ? ` · ${numero(x.abitanti, l)} ${u.abitanti}` : ""}</p>
+            </span>
           </Link>
         </li>
       ))}
@@ -129,10 +136,15 @@ function Cta({ l, dove, zona }: { l: Lingua; dove: string; zona: MondoId }) {
   );
 }
 
-function Testata({ l, crumbs, occhiello, h1, lead, children, sfondo }: { l: Lingua; crumbs: { nome: string; href?: string }[]; occhiello: React.ReactNode; h1: string; lead?: string; children?: React.ReactNode; sfondo?: React.ReactNode }) {
+function Testata({ l, crumbs, occhiello, h1, lead, children, sfondo, foto }: { l: Lingua; crumbs: { nome: string; href?: string }[]; occhiello: React.ReactNode; h1: string; lead?: string; children?: React.ReactNode; sfondo?: React.ReactNode; foto?: Media }) {
   return (
     <section className="testata-notte testata-luogo">
-      {sfondo && <div className="testata-sfondo" aria-hidden="true">{sfondo}</div>}
+      {foto ? (
+        <>
+          <div className="testata-foto"><FotoAI m={foto} l={l} taglio="16x9" priorita /></div>
+          <div className="testata-credito"><CreditoAI m={foto} l={l} /></div>
+        </>
+      ) : sfondo && <div className="testata-sfondo" aria-hidden="true">{sfondo}</div>}
       <div className="contenitore">
         <nav className="briciole" aria-label="breadcrumb">
           {crumbs.map((c, i) => <span key={i}>{c.href ? <Link href={c.href}>{c.nome}</Link> : c.nome}{i < crumbs.length - 1 && " /"}</span>)}
@@ -154,7 +166,7 @@ function Indice({ l }: { l: Lingua }) {
     <>
       <JsonLd dati={briciole([{ nome: "OrtaVillas", url: assoluto(home) }, { nome: u.briciole }])} />
       <JsonLd dati={{ "@context": "https://schema.org", "@type": "CollectionPage", name: u.indice.h1, inLanguage: l, mainEntity: { "@type": "ItemList", numberOfItems: LUOGHI.length, itemListElement: LUOGHI.map((x, i) => ({ "@type": "ListItem", position: i + 1, name: x.nome, url: assoluto(percorso(l, "luoghi", LUOGHI_SLUG[x.id][l])) })) } }} />
-      <Testata l={l} crumbs={[{ nome: "OrtaVillas", href: home }, { nome: u.briciole }]} occhiello={u.indice.occhiello(LUOGHI.length, MONDI_ID.length)} h1={u.indice.h1} lead={u.indice.lead} />
+      <Testata l={l} crumbs={[{ nome: "OrtaVillas", href: home }, { nome: u.briciole }]} occhiello={u.indice.occhiello(LUOGHI.length, MONDI_ID.length)} h1={u.indice.h1} lead={u.indice.lead} foto={mediaDi("vacciago")} />
       <section className="sezione">
         <div className="contenitore">
           <div className="intestazione">
@@ -272,7 +284,7 @@ function Mondo({ l, m }: { l: Lingua; m: MondoId }) {
       <JsonLd dati={{ "@context": "https://schema.org", "@type": "CollectionPage", name: t.h1, inLanguage: l, mainEntity: { "@type": "ItemList", numberOfItems: lista.length, itemListElement: lista.map((x, i) => ({ "@type": "ListItem", position: i + 1, name: x.nome, url: assoluto(percorso(l, "luoghi", LUOGHI_SLUG[x.id][l])) })) } }} />
       <Testata l={l} crumbs={[{ nome: "OrtaVillas", href: home }, { nome: u.briciole, href: percorso(l, "luoghi") }, { nome: MONDI[m][l].nome }]}
         occhiello={<span style={{ ["--c" as string]: COLORE_MONDO[m].notte }}>{u.mondoChip(lista.length, tempo(lista[0].daMilano, l), tempo(lista[lista.length - 1].daMilano, l))}</span>}
-        h1={t.h1}
+        h1={t.h1} foto={mediaDi(FOTO_MONDO[m])}
         sfondo={<Rilievo posa={{ ...centro, zoom: 3 }} etichette={etichetteTutte(l, m)} strati={["tutti"]} alt="" />}>
         <dl className="striscia">
           {(["milano", "malpensa", "lugano", "zurigo"] as const).map((o) => {
@@ -351,7 +363,7 @@ function Luogo({ l, id }: { l: Lingua; id: LuogoId }) {
         containedInPlace: { "@type": "AdministrativeArea", name: `Comune di ${x.frazioneDi ?? x.nome}`, containedInPlace: { "@type": "Country", name: "Italia", identifier: "IT" } } }} />
       <Testata l={l} crumbs={[{ nome: "OrtaVillas", href: home }, { nome: u.briciole, href: percorso(l, "luoghi") }, { nome: MONDI[x.mondo][l].nome, href: percorso(l, "luoghi", MONDI_SLUG[x.mondo][l]) }, { nome: x.nome }]}
         occhiello={<>{tempo(x.daMilano, l)} · {numero(tempoDa("milano", id)?.km ?? 0, l)} km · {u.daMilano}</>}
-        h1={x.nome}
+        h1={x.nome} foto={mediaDelLuogo(id)}
         sfondo={<Rilievo posa={{ lat: x.lat, lon: x.lon, zoom: 4.2 }} etichette={etichetteTutte(l, undefined, id)} strati={["tutti"]} alt="" />}>
         <p style={{ marginTop: 18 }}>
           <Link className="chip" href={percorso(l, "luoghi", MONDI_SLUG[x.mondo][l])} style={{ ["--c" as string]: COLORE_MONDO[x.mondo].notte }}><span style={{ borderColor: "var(--c)" }}>{MONDI[x.mondo][l].nome} · {MONDI[x.mondo][l].sotto}</span></Link>

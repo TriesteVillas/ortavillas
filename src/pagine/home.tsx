@@ -19,8 +19,12 @@ import { ModuloPC } from "@/components/Moduli";
 import { Metodo } from "@/components/Metodo";
 import { Rullo } from "@/components/Rullo";
 import { JsonLd, organizzazione } from "@/components/JsonLd";
+import { FotoAI, CreditoAI } from "@/components/FotoAI";
+import { mediaDi } from "@/content/media";
 
 const ORTA = { lat: 45.81, lon: 8.405 };
+// Le lenti del volo: foto rielaborate con l'AI (registro in content/media.ts).
+const LENTI: (string | null)[] = [null, "lente-isola", "lente-battelli", "lente-sacro-monte", null];
 
 export const home: VocePagina = {
   meta: (p) => ({ titolo: HOME[p.lingua].titolo, descrizione: HOME[p.lingua].descrizione, og: "home" }),
@@ -57,10 +61,10 @@ export const home: VocePagina = {
               {c.scheda.map(([dt, dd]) => <div key={dt}><dt>{dt}</dt><dd>{dd}</dd></div>)}
             </dl>
           )}
-          {c.lente && (
-            <figure style={{ margin: 0 }}>
-              <div className="lente"><img src={c.lente.src} alt={c.lente.alt} loading="lazy" /></div>
-              <figcaption className="credito">{c.lente.credito} · <Link href={percorso(l, "ai")}>{s.colophon.edizioneLink.ai}</Link></figcaption>
+          {LENTI[i] && mediaDi(LENTI[i]!) && (
+            <figure style={{ margin: 0 }} className="lente-ai">
+              <div className="lente"><FotoAI m={mediaDi(LENTI[i]!)!} l={l} taglio="1x1" /></div>
+              <figcaption style={{ marginTop: 10 }}><CreditoAI m={mediaDi(LENTI[i]!)!} l={l} /></figcaption>
             </figure>
           )}
           {i === t.cap.length - 1 && (
