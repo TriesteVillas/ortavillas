@@ -743,6 +743,64 @@ a { color: inherit; }
   }
 }
 
+/* ============================================================ SloveniaVillas (solo /sl/) */
+
+.sister {
+  color: var(--paper);
+  background: var(--ink-2);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.sister .eyebrow { color: var(--sand-hi); }
+
+.sister__inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  padding-block: clamp(56px, 7vw, 92px);
+}
+
+.sister h2 {
+  max-width: 30rem;
+  margin: 0;
+  color: #fff;
+  font-size: clamp(1.6rem, 1.2rem + 1.6vw, 2.6rem);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+}
+
+.sister__body {
+  max-width: 40rem;
+  color: rgba(244, 241, 234, 0.76);
+  line-height: 1.72;
+}
+
+.sister__body p { margin: 0 0 14px; }
+
+.sister__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.sister__actions .btn span { margin-left: 6px; }
+
+.sister__body .sister__limit {
+  margin: 18px 0 0;
+  color: rgba(244, 241, 234, 0.56);
+  font-size: 13px;
+}
+
+@media (min-width: 860px) {
+  .sister__inner {
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: clamp(48px, 7vw, 96px);
+  }
+}
+
 /* ============================================================ footer */
 
 .footer {
@@ -827,6 +885,25 @@ a { color: inherit; }
 }
 
 #contatti { scroll-margin-top: 88px; }
+
+.footer__group {
+  padding-block: 0 36px;
+  font-size: 14px;
+}
+
+.footer ul.footer__group-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+}
+
+.footer__group-list a {
+  color: rgba(255, 255, 255, 0.76);
+  text-decoration: none;
+  transition: color 250ms var(--ease-lux);
+}
+
+.footer__group-list a:hover { color: #fff; }
 
 .footer__bar {
   border-top: 1px solid rgba(255, 255, 255, 0.1);

@@ -43,6 +43,61 @@ GROUP_SITE = {
     "sl": "https://triestevillas.com/sl",
 }
 
+# I siti del gruppo nel piede (dal 2026-10-06, quando e' andato online
+# sloveniavillas.com). Ogni sito nella lingua della pagina: la radice di
+# triestevillas.com, triesteimmobiliare.com, triesteaffitti.com e friulivillas.com
+# e' italiana; lignanovillas.com e sloveniavillas.com hanno l'inglese sulla
+# radice e l'italiano su /it. Ogni indirizzo verificato 200, senza rimandi, il
+# 06/10/2026: un 3xx qui e' un indirizzo da correggere, non un dettaglio.
+GROUP_SITES = [
+    ("TriesteVillas", {
+        "it": "https://triestevillas.com", "en": "https://triestevillas.com/en",
+        "de": "https://triestevillas.com/de", "sl": "https://triestevillas.com/sl"}),
+    ("TriesteImmobiliare", {
+        "it": "https://www.triesteimmobiliare.com/", "en": "https://www.triesteimmobiliare.com/en",
+        "de": "https://www.triesteimmobiliare.com/de", "sl": "https://www.triesteimmobiliare.com/sl"}),
+    ("TriesteAffitti", {
+        "it": "https://www.triesteaffitti.com/", "en": "https://www.triesteaffitti.com/en",
+        "de": "https://www.triesteaffitti.com/de", "sl": "https://www.triesteaffitti.com/sl"}),
+    ("FriuliVillas", {
+        "it": "https://friulivillas.com/", "en": "https://friulivillas.com/en",
+        "de": "https://friulivillas.com/de", "sl": "https://friulivillas.com/sl"}),
+    ("LignanoVillas", {
+        "it": "https://www.lignanovillas.com/it", "en": "https://www.lignanovillas.com/",
+        "de": "https://www.lignanovillas.com/de", "sl": "https://www.lignanovillas.com/sl"}),
+    ("SloveniaVillas", {
+        "it": "https://sloveniavillas.com/it", "en": "https://sloveniavillas.com/",
+        "de": "https://sloveniavillas.com/de", "sl": "https://sloveniavillas.com/sl"}),
+]
+
+# Solo nella versione slovena: una sezione vera verso sloveniavillas.com, che
+# parla ai proprietari della costa e del Carso. Fuori da STRINGS perche' le
+# altre lingue non la hanno (il cancello vuole STRINGS con la stessa forma).
+# Regole del gruppo: oggi in Slovenia NON mediamo, l'attivita' parte nel corso
+# del 2027, e la sezione lo dice; vikanje; nessuna promessa di assistenza in
+# sloveno; niente superlativi.
+SLOVENIA_CARD = {
+    "sl": {
+        "eyebrow": "Iz iste skupine · SloveniaVillas",
+        "title": "Slovenska obala in Kras, izmerjena iz Trsta",
+        "text": (
+            "SloveniaVillas je atlas slovenske obale in Krasa: enajst krajev v štirih svetovih, "
+            "vodniki za kupce in za lastnike ter sedem orodij, zgrajenih na javnih slovenskih "
+            "podatkih."
+        ),
+        "owners": (
+            "Kupci, ki iščejo dom v Trstu, predvsem avstrijski in nemški, gledajo tudi čez mejo. "
+            "SloveniaVillas jim predstavlja obalo in Kras. Če imate hišo na obali ali na Krasu, "
+            "si oglejte stran za lastnike."
+        ),
+        "limit": "V Sloveniji danes ne opravljamo posredovanja; dejavnost bomo začeli v letu 2027.",
+        "cta": "Odprite SloveniaVillas",
+        "href": "https://sloveniavillas.com/sl",
+        "ctaOwners": "Za lastnike",
+        "hrefOwners": "https://sloveniavillas.com/sl/za-lastnike",
+    },
+}
+
 STRINGS = {
     "it": {
         "title": "OrtaVillas — Case e ville sul Lago d'Orta",
@@ -146,6 +201,7 @@ STRINGS = {
         ),
         "tagline": "Case e ville sul Lago d'Orta.",
         "method": "Metodo, strumenti e regia del gruppo TriesteVillas. ↗",
+        "groupTitle": "Gruppo TriesteVillas",
         "sitemapTitle": "Mappa del sito",
         "home": "Home",
         "contactTitle": "Contatti",
@@ -288,6 +344,7 @@ STRINGS = {
         ),
         "tagline": "Homes and villas on Lake Orta.",
         "method": "Method, tools and direction by the TriesteVillas group. ↗",
+        "groupTitle": "TriesteVillas Group",
         "sitemapTitle": "Site map",
         "home": "Home",
         "contactTitle": "Contact",
@@ -434,6 +491,7 @@ STRINGS = {
         ),
         "tagline": "Häuser und Villen am Ortasee.",
         "method": "Methode, Werkzeuge und Regie der TriesteVillas-Gruppe. ↗",
+        "groupTitle": "TriesteVillas-Gruppe",
         "sitemapTitle": "Sitemap",
         "home": "Home",
         "contactTitle": "Kontakt",
@@ -589,6 +647,7 @@ STRINGS = {
         ),
         "tagline": "Hiše in vile ob jezeru Orta.",
         "method": "Metoda, orodja in vodstvo skupine TriesteVillas. ↗",
+        "groupTitle": "Skupina TriesteVillas",
         "sitemapTitle": "Zemljevid strani",
         "home": "Domov",
         "contactTitle": "Kontakt",
@@ -757,6 +816,23 @@ def check_locales():
         if bad_urls:
             errors.append(f"{locale}: letture con indirizzo non https {bad_urls}")
 
+    for label, urls in GROUP_SITES:
+        if sorted(urls) != sorted(LOCALES):
+            errors.append(f"GROUP_SITES {label}: lingue {sorted(urls)}, attese {sorted(LOCALES)}")
+        bad = [url for url in urls.values() if not url.startswith("https://")]
+        if bad:
+            errors.append(f"GROUP_SITES {label}: indirizzi non https {bad}")
+    if "SloveniaVillas" not in [label for label, _ in GROUP_SITES]:
+        errors.append("GROUP_SITES: manca SloveniaVillas")
+    for locale, card in SLOVENIA_CARD.items():
+        if locale not in LOCALES:
+            errors.append(f"SLOVENIA_CARD ha una lingua fuori da LOCALES: {locale}")
+        blanks = _blank_paths(card)
+        if blanks:
+            errors.append(f"SLOVENIA_CARD {locale}: stringhe vuote {blanks}")
+        for key in ("href", "hrefOwners"):
+            if not card.get(key, "").startswith(f"https://sloveniavillas.com/{locale}"):
+                errors.append(f"SLOVENIA_CARD {locale}: {key} non porta a sloveniavillas.com/{locale}")
     for name, table in (("PATHS", PATHS), ("OG_LOCALE", OG_LOCALE), ("GROUP_SITE", GROUP_SITE)):
         values = [table[locale] for locale in LOCALES if locale in table]
         repeated = sorted({value for value in values if values.count(value) > 1})
@@ -892,6 +968,39 @@ def reading_items(s):
         for post in s["readingPosts"]
     ]
     return "\n".join(items)
+
+
+def group_items(locale):
+    return "".join(
+        f'<li><a href="{urls[locale]}" target="_blank" rel="noopener">{label} '
+        f'<span aria-hidden="true">↗</span></a></li>'
+        for label, urls in GROUP_SITES
+    )
+
+
+def slovenia_card(locale):
+    card = SLOVENIA_CARD.get(locale)
+    if not card:
+        return ""
+    return f"""
+  <section class="sister" id="sloveniavillas" aria-labelledby="sloveniavillas-title">
+    <div class="wrap sister__inner">
+      <div>
+        <p class="eyebrow">{card['eyebrow']}</p>
+        <h2 id="sloveniavillas-title">{card['title']}</h2>
+      </div>
+      <div class="sister__body">
+        <p>{card['text']}</p>
+        <p>{card['owners']}</p>
+        <div class="sister__actions">
+          <a class="btn btn--solid" href="{card['href']}" target="_blank" rel="noopener">{card['cta']} <span aria-hidden="true">↗</span></a>
+          <a class="btn btn--ghost" href="{card['hrefOwners']}" target="_blank" rel="noopener">{card['ctaOwners']} <span aria-hidden="true">↗</span></a>
+        </div>
+        <p class="sister__limit">{card['limit']}</p>
+      </div>
+    </div>
+  </section>
+"""
 
 
 def page(locale):
@@ -1062,6 +1171,7 @@ def page(locale):
     </div>
   </section>
 
+{slovenia_card(locale)}
   <section class="cta-band">
     <div class="wrap cta-band__inner">
       <div>
@@ -1099,6 +1209,13 @@ def page(locale):
         <span>{s['location']}</span>
       </div>
     </div>
+  </div>
+
+  <div class="wrap footer__group">
+    <nav aria-label="{s['groupTitle']}">
+      <h2 class="col-title">{s['groupTitle']}</h2>
+      <ul class="footer__group-list">{group_items(locale)}</ul>
+    </nav>
   </div>
 
   <div class="footer__bar">
