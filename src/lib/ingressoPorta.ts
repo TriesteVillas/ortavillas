@@ -17,7 +17,9 @@ import { createHmac, randomUUID } from "node:crypto";
 // triesteimmobiliare, triesteaffitti): cambiano solo PORTA e SITO. Qui però la porta
 // è l'UNICA strada del modulo — su GitHub Pages non c'era niente — quindi la funzione
 // dice se ha consegnato (bussaIngresso → boolean) e il modulo, se no, chiede di scriverci.
-// La porta `sito-orta` va creata in tsv-pg: riga `segreto` ingresso_hmac_sito-orta.
+// La porta `sito-orta` esiste nel CRM dal 09/10/2026: segreto `ingresso_hmac_sito-orta` in tsv-pg,
+// la stessa stringa in INGRESSO_HMAC sul progetto Vercel `ortavillas` (Sensitive, solo Production:
+// le anteprime non bussano). Ruotarlo = cambiare tutti e due e ridistribuire.
 // ─────────────────────────────────────────────────────────────────────────────
 
 const URL_PORTA = process.env.INGRESSO_URL ?? "https://tsv-pg.vercel.app/api/ingresso";
@@ -34,7 +36,12 @@ export async function bussaIngresso(
   contatto: { nome?: unknown; cognome?: unknown; email?: unknown; telefono?: unknown },
   dati: Record<string, unknown>,
 ): Promise<boolean> {
-  if (!SEGRETO) return false;
+  if (!SEGRETO) {
+    // Come nelle altre copie: senza questa riga un modulo che non consegna non lascia traccia
+    // nei log di Vercel, e il «non siamo riusciti» del cliente resta l'unico segnale.
+    console.error(`[ingresso] porta ${PORTA}: INGRESSO_HMAC assente, la richiesta non va al CRM`);
+    return false;
+  }
   try {
     const slug = modulo.toLowerCase().replace(/[^a-z0-9-]/g, "").slice(0, 24) || "info";
     const corpo = JSON.stringify({

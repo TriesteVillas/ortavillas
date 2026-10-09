@@ -4,6 +4,8 @@
 // prompt di sistema con la cache. Dalla quarta domanda chiede nome e un recapito: la conversazione
 // arriva nel CRM dalla porta firmata (modulo «chat»). Senza ANTHROPIC_API_KEY risponde «spento»
 // con le pagine pertinenti: l'assistente nasce acceso solo quando lo si configura.
+// ⚠️ Lo «spento» viene PRIMA del cancello: fino al 09/10/2026 un assistente spento chiedeva
+// nome e recapito alla quarta domanda e poi non rispondeva lo stesso — un dato chiesto per niente.
 import Anthropic from "@anthropic-ai/sdk";
 import { NextResponse, type NextRequest } from "next/server";
 import { LINGUE, percorso, type Lingua } from "@/lib/rotte";
@@ -55,11 +57,11 @@ export async function POST(req: NextRequest) {
   const domande = messaggi.filter((m) => m.role === "user").length;
   if (domande > MAX_DOMANDE) return NextResponse.json({ blocked: true });
 
+  if (!process.env.ANTHROPIC_API_KEY) return NextResponse.json({ spento: true, pagine: pagineUtili(l, ultima.content) });
+
   const id = b.identita;
   const identificato = !!(id?.consenso && (id.nome ?? "").trim().length >= 2 && ((id.email ?? "").includes("@") || (id.telefono ?? "").replace(/\D/g, "").length >= 6));
   if (domande > DOMANDE_LIBERE && !identificato) return NextResponse.json({ gate: true });
-
-  if (!process.env.ANTHROPIC_API_KEY) return NextResponse.json({ spento: true, pagine: pagineUtili(l, ultima.content) });
 
   const client = new Anthropic();
   try {
@@ -80,8 +82,20 @@ export async function POST(req: NextRequest) {
     if (!testo) throw new Error("risposta vuota");
     if (identificato) {
       // Nel CRM una riga per scambio, firmata: il motore la lega al lead per identità.
+      // Il `messaggio` porta solo le PAROLE DEL VISITATORE (la conversazione intera resta in
+      // `conversazione`): sul ricontatto il CRM rilegge la scheda su quel testo, e le risposte
+      // dell'assistente non sono parole del cliente. Alla prima riga dopo il cancello il CRM non
+      // ha ancora visto niente, quindi viaggiano anche le domande di prima; poi solo l'ultima.
+      const pagina = String(b.pagina ?? "").slice(0, 200);
+      const sue = messaggi.filter((m) => m.role === "user").map((m) => m.content.trim()).filter(Boolean);
+      const nuove = domande <= DOMANDE_LIBERE + 1 ? sue : sue.slice(-1);
+      const messaggio = [
+        `${nuove.length > 1 ? "Domande" : "Domanda"} all'assistente di ortavillas.com${pagina ? ` (pagina ${pagina})` : ""}:`,
+        ...nuove.map((d, i) => (nuove.length > 1 ? `${i + 1}. ${d}` : d)),
+        `Pagina in: ${l}`,
+      ].join("\n").slice(0, 3500);
       await bussaIngresso("chat", { nome: id!.nome, email: id!.email, telefono: id!.telefono }, {
-        sid: String(b.sid ?? "").slice(0, 40), pagina: String(b.pagina ?? "").slice(0, 200), locale: l, privacy: true,
+        messaggio, lingua: l, sid: String(b.sid ?? "").slice(0, 40), pagina, locale: l, privacy: true,
         conversazione: [...messaggi, { role: "assistant", content: testo }].slice(-12),
       });
     }

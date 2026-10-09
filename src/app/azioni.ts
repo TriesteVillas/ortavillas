@@ -3,9 +3,18 @@
 // sloveniavillas: honeypot `sito_web`, tempo minimo 3 s (`t0`), validazione server,
 // consegna firmata alla porta del CRM, poi redirect alla pagina «grazie».
 // Se la porta non risponde l'esito è `porta`: il modulo chiede di scriverci, mai un finto grazie.
+//
+// Al CRM ogni richiesta arriva con un `messaggio` composto qui, come fa sappadavillas: una riga
+// per risposta data, in italiano, coi valori per esteso («Sponda est», non «est»), le parole
+// del cliente in fondo. È il testo che legge chi lavora il lead (scheda, storia, avviso via
+// mail): senza, il CRM metteva nel messaggio la sola descrizione della casa, o niente.
+// I campi strutturati vanno coi nomi che il CRM legge già (lib/ingresso/moduli-siti.ts e
+// dettaglio-modulo.ts di tsv-pg): `zone`, `budgetMin`/`budgetMax`, `scopo`, `comune`,
+// `tipologia`, `quando`, `lingua`. I codici del modulo (f2, o1, est…) restano sul sito.
 import { redirect } from "next/navigation";
 import { bussaIngresso } from "@/lib/ingressoPorta";
 import { GRAZIE, LINGUE, percorso, type Lingua } from "@/lib/rotte";
+import { TESTI_MODULI } from "@/testi/moduli";
 
 export type Esito = { esito: "iniziale" | "errori" | "veloce" | "porta" | "ok"; errori?: Record<string, string>; valori?: Record<string, string | string[]> };
 
@@ -19,6 +28,17 @@ const valori = (f: FormData) => {
   return v;
 };
 
+// ── Il messaggio per il CRM: sempre in italiano, lo legge chi lavora il lead ─────────────
+const IT = TESTI_MODULI.it;
+const NOMI_LINGUA: Record<string, string> = { it: "italiano", en: "inglese", de: "tedesco", sl: "sloveno" };
+/** Le fasce del modulo in euro, per le colonne di budget del CRM. */
+const FASCE_EUR: Record<string, [number | null, number | null]> = {
+  f1: [null, 500_000], f2: [500_000, 1_000_000], f3: [1_000_000, 2_000_000], f4: [2_000_000, null],
+};
+const voce = (m: Record<string, string>, k: string) => (k && Object.hasOwn(m, k) ? m[k] : "");
+const riga = (etichetta: string, valore: string) => (valore ? `${etichetta}: ${valore}` : "");
+const piede = (l: Lingua, fonte: string) => `Pagina in: ${l}${fonte ? ` · invito: ${fonte}` : ""}`;
+
 export async function inviaPC(_prev: Esito, f: FormData): Promise<Esito> {
   if (s(f, "sito_web")) return { esito: "ok" }; // honeypot: si finge il successo, non si consegna
   const l = lingua(f);
@@ -30,10 +50,37 @@ export async function inviaPC(_prev: Esito, f: FormData): Promise<Esito> {
   if (f.get("privacy") !== "on") errori.privacy = "privacy";
   if (Object.keys(errori).length) return { esito: "errori", errori, valori: valori(f) };
   if (troppoVeloce(f)) return { esito: "veloce", valori: valori(f) };
+
+  const zone = [...new Set(f.getAll("zone").map(String))].filter((z) => Object.hasOwn(IT.zoneVoci, z)).slice(0, 8);
+  const fascia = s(f, "fascia", 4);
+  const [budgetMin, budgetMax] = FASCE_EUR[fascia] ?? [null, null];
+  const orizzonte = voce(IT.orizzonti, s(f, "orizzonte", 4));
+  const scopo = voce(IT.usi, s(f, "uso", 20));
+  const paese = voce(IT.paesi, s(f, "paese", 10));
+  const citta = s(f, "citta", 80);
+  const linguaCom = s(f, "lingua", 5) || l;
+  const variante = s(f, "variante", 10) === "completo" ? "completo" : "breve";
+  const pcTrieste = f.get("pcTrieste") === "on";
+  const fonteCta = s(f, "fonteCta", 80);
+  const messaggio = [
+    `Iscrizione alla Private Collection del Lago d'Orta (ortavillas.com, modulo ${variante}): vuole sapere delle case prima che escano.`,
+    riga("Zone", zone.map((z) => IT.zoneVoci[z]).join("; ")),
+    riga("Budget", voce(IT.fasce, fascia)),
+    riga("Quando compra", orizzonte),
+    riga("Uso", scopo),
+    riga("Paese di partenza", paese),
+    riga("Città di partenza", citta),
+    riga("Lingua delle comunicazioni", NOMI_LINGUA[linguaCom] ?? linguaCom),
+    pcTrieste ? "CHIEDE ANCHE LA PRIVATE COLLECTION DI TRIESTE (consenso a parte, spuntato): la richiesta d'accesso va inoltrata a mano, da questo modulo non parte." : "",
+    piede(l, fonteCta),
+  ].filter(Boolean).join("\n");
+
   const ok = await bussaIngresso("pc-orta", { nome, email, telefono: s(f, "telefono", 40) }, {
-    lingua: s(f, "lingua", 5) || l, paese: s(f, "paese", 10), citta: s(f, "citta", 80),
-    zone: f.getAll("zone").map(String).slice(0, 8), fascia: s(f, "fascia", 4), orizzonte: s(f, "orizzonte", 4), uso: s(f, "uso", 20),
-    pcTrieste: f.get("pcTrieste") === "on", privacy: true, variante: s(f, "variante", 10), fonteCta: s(f, "fonteCta", 80), locale: l,
+    messaggio, lingua: linguaCom, paese, citta,
+    // Al CRM le zone come nomi corti («Sponda est»); «non so ancora» resta una riga del messaggio.
+    zone: zone.filter((z) => z !== "nonso").map((z) => IT.zoneVoci[z].split(" · ")[0]),
+    budgetMin, budgetMax, orizzonte, scopo,
+    pcTrieste, privacy: true, variante, fonteCta, locale: l,
   });
   if (!ok) return { esito: "porta", valori: valori(f) };
   redirect(percorso(l, "pc", GRAZIE[l]));
@@ -60,11 +107,41 @@ export async function inviaProprietario(_prev: Esito, f: FormData): Promise<Esit
   if (f.get("privacy") !== "on") errori.privacy = "privacy";
   if (Object.keys(errori).length) return { esito: "errori", errori, valori: valori(f) };
   if (troppoVeloce(f)) return { esito: "veloce", valori: valori(f) };
+
   const modulo = s(f, "modulo", 20) === "valutazione" ? "valutazione" : "proprietario";
+  const comuneId = s(f, "comune", 40);
+  const fuoriElenco = comuneId === "altro";
+  const comune = fuoriElenco ? s(f, "comuneAltro", 80) : voce(IT.comuni, comuneId) || comuneId;
+  const tipologia = voce(IT.tipi, s(f, "tipo", 20));
+  const quando = voce(IT.quandi, s(f, "quando", 10));
+  const canale = voce(IT.canali, s(f, "canale", 10));
+  const linguaRisposta = s(f, "linguaRisposta", 5);
+  // La lingua in cui il CRM ci farà rispondere: quella chiesta (it · en · de), altrimenti quella
+  // della pagina; dallo sloveno l'inglese, come propone il modulo.
+  const linguaLead = Object.hasOwn(IT.lingueRisposta, linguaRisposta) ? linguaRisposta : l === "sl" ? "en" : l;
+  // La stima dello strumento «quanto vale» supera i 200 caratteri: tagliata lì, perdeva la forchetta.
+  const stima = s(f, "stima", 500);
+  const descrizione = s(f, "descrizione", 800);
+  const fonteCta = s(f, "fonteCta", 80);
+  const messaggio = [
+    modulo === "valutazione"
+      ? "Richiesta di valutazione dallo strumento «Quanto vale» di ortavillas.com: il proprietario chiede di essere ricontattato."
+      : "Un proprietario presenta la sua casa sul Lago d'Orta (ortavillas.com): chiede di essere ricontattato.",
+    riga("Comune", comune + (fuoriElenco ? " (fuori dall'elenco del sito)" : "")),
+    riga("Tipo di immobile", tipologia),
+    riga("Superficie indicativa", mq ? `${mq} m²` : ""),
+    riga("Quando vende", quando),
+    riga("Annuncio esistente", link),
+    riga("Stima dello strumento", stima),
+    riga("Preferisce essere contattato via", canale),
+    riga("Lingua della risposta", NOMI_LINGUA[linguaLead] ?? linguaLead),
+    piede(l, fonteCta),
+    descrizione ? `\nLa casa, nelle sue parole:\n${descrizione}` : "",
+  ].filter(Boolean).join("\n");
+
   const ok = await bussaIngresso(modulo, { nome, email, telefono: tel }, {
-    comune: s(f, "comune", 40), comuneAltro: s(f, "comuneAltro", 80), tipo: s(f, "tipo", 20), mq: mq ? Number(mq) : null,
-    descrizione: s(f, "descrizione", 800), link, quando: s(f, "quando", 10), canale: s(f, "canale", 10),
-    linguaRisposta: s(f, "linguaRisposta", 5), stima: s(f, "stima", 200), privacy: true, fonteCta: s(f, "fonteCta", 80), locale: l,
+    messaggio, lingua: linguaLead, comune, tipologia, mq: mq ? Number(mq) : null,
+    descrizione, link, quando, canale, linguaRisposta, stima, privacy: true, fonteCta, locale: l,
   });
   if (!ok) return { esito: "porta", valori: valori(f) };
   redirect(percorso(l, "proprietari", GRAZIE[l]));
