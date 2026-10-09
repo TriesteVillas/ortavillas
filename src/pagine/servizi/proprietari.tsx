@@ -6,6 +6,7 @@ import { RECAPITI } from "@/content/shell";
 import { PROPRIETARI } from "@/testi/servizi/proprietari";
 import { COMUNE, GRUPPO_NUMERI as G, n } from "@/testi/servizi/comune";
 import { ModuloProprietario } from "@/components/Moduli";
+import { LeadArrivato } from "@/components/LeadArrivato";
 import { Metodo } from "@/components/Metodo";
 import { Rullo } from "@/components/Rullo";
 import { BottoneWa, Collega, Contatori, DomandeTesti, Intestazione, LdPagina, SiNo, Stato, Tappe, TestataNotte } from "@/components/servizi/Parti";
@@ -57,6 +58,7 @@ function Grazie({ l }: { l: Lingua }) {
   const g = t.grazie;
   return (
     <>
+      <LeadArrivato />
       <TestataNotte l={l} occhiello={t.occhiello} h1={g.h1} lead={g.testo} briciola={t.briciola}>
         <div className="bottoni">
           <Link className="bottone bottone-primario" href={percorso(l, "home")}>{COMUNE[l].home} <span className="freccia">→</span></Link>

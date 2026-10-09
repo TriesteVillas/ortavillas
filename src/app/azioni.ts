@@ -12,6 +12,7 @@
 // dettaglio-modulo.ts di tsv-pg): `zone`, `budgetMin`/`budgetMax`, `scopo`, `comune`,
 // `tipologia`, `quando`, `lingua`. I codici del modulo (f2, o1, est…) restano sul sito.
 import { redirect } from "next/navigation";
+import { cookies } from "next/headers";
 import { bussaIngresso } from "@/lib/ingressoPorta";
 import { GRAZIE, LINGUE, percorso, type Lingua } from "@/lib/rotte";
 import { TESTI_MODULI } from "@/testi/moduli";
@@ -83,7 +84,20 @@ export async function inviaPC(_prev: Esito, f: FormData): Promise<Esito> {
     pcTrieste, privacy: true, variante, fonteCta, locale: l,
   });
   if (!ok) return { esito: "porta", valori: valori(f) };
+  await segnaLeadArrivato("pc-orta");
   redirect(percorso(l, "pc", GRAZIE[l]));
+}
+
+/** Il segno per la pagina «grazie»: SOLO dopo l'ok della porta, un minuto, il
+ *  nome del modulo e nient'altro. Lo consuma components/LeadArrivato.tsx, che
+ *  manda `generate_lead` una volta (09/10/2026). La trappola `sito_web` finge il
+ *  successo senza redirect, quindi senza segno: un robot non diventa un lead. */
+async function segnaLeadArrivato(modulo: string): Promise<void> {
+  try {
+    (await cookies()).set("ov_lead", modulo, { maxAge: 60, path: "/", sameSite: "lax", secure: true, httpOnly: false });
+  } catch {
+    /* senza il segno si perde un evento di misura, non la richiesta */
+  }
 }
 
 export async function inviaProprietario(_prev: Esito, f: FormData): Promise<Esito> {
@@ -144,5 +158,6 @@ export async function inviaProprietario(_prev: Esito, f: FormData): Promise<Esit
     descrizione, link, quando, canale, linguaRisposta, stima, privacy: true, fonteCta, locale: l,
   });
   if (!ok) return { esito: "porta", valori: valori(f) };
+  await segnaLeadArrivato(modulo);
   redirect(percorso(l, "proprietari", GRAZIE[l]));
 }

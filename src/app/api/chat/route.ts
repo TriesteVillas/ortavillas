@@ -64,6 +64,7 @@ export async function POST(req: NextRequest) {
   if (domande > DOMANDE_LIBERE && !identificato) return NextResponse.json({ gate: true });
 
   const client = new Anthropic();
+  let consegnata = false;
   try {
     const risposta = await client.beta.messages.create({
       model: MODELLO,
@@ -94,12 +95,14 @@ export async function POST(req: NextRequest) {
         ...nuove.map((d, i) => (nuove.length > 1 ? `${i + 1}. ${d}` : d)),
         `Pagina in: ${l}`,
       ].join("\n").slice(0, 3500);
-      await bussaIngresso("chat", { nome: id!.nome, email: id!.email, telefono: id!.telefono }, {
+      consegnata = await bussaIngresso("chat", { nome: id!.nome, email: id!.email, telefono: id!.telefono }, {
         messaggio, lingua: l, sid: String(b.sid ?? "").slice(0, 40), pagina, locale: l, privacy: true,
         conversazione: [...messaggi, { role: "assistant", content: testo }].slice(-12),
       });
     }
-    return NextResponse.json({ text: testo, identificato });
+    // `consegnata`: la porta del CRM ha preso la persona (09/10/2026). Serve al
+    // browser per contare `generate_lead` una volta sola, e solo se è vero.
+    return NextResponse.json({ text: testo, identificato, ...(consegnata ? { consegnata: true } : {}) });
   } catch (e) {
     if (e instanceof Anthropic.RateLimitError) return NextResponse.json({ error: "rate" }, { status: 429 });
     console.error("[chat]", e instanceof Anthropic.APIError ? `${e.status} ${e.message}` : e);

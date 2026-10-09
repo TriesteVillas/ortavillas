@@ -86,6 +86,15 @@ export function Assistente({ l, privacy }: { l: Lingua; privacy: string }) {
       if (j.spento) { setSt({ ...nuovo, msgs: [...msgs, { role: "assistant", content: s.spento, pagine: j.pagine }] }); return; }
       if (!j.text) throw new Error("vuoto");
       setSt({ ...nuovo, msgs: [...msgs, { role: "assistant", content: j.text }] });
+      // generate_lead quando la porta del CRM ha preso la persona (`consegnata`
+      // dalla rotta, 09/10/2026) — una volta per conversazione: ogni domanda
+      // successiva viaggia di nuovo verso il CRM, ma la richiesta è una.
+      if (j.consegnata) {
+        const k = `ov_lead_chat_${stato.sid}`;
+        let gia = false;
+        try { gia = sessionStorage.getItem(k) === "1"; sessionStorage.setItem(k, "1"); } catch { /* */ }
+        if (!gia) window.gtag?.("event", "generate_lead", { modulo: "assistente" });
+      }
     } catch {
       setErrore(s.errore);
     } finally { setAttesa(false); }

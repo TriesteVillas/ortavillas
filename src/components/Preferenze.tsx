@@ -23,7 +23,10 @@ export function Consenso(p: { testo: string; link: string; href: string; rifiuto
     window.addEventListener("ov:cookie", riapri);
     return () => window.removeEventListener("ov:cookie", riapri);
   }, []);
-  // eventi di contatto: telefono, WhatsApp, email, moduli
+  // eventi di contatto: telefono, WhatsApp, email. `generate_lead` NON più da
+  // qui (09/10/2026): contava ogni submit, anche rifiutato o fermato dalla
+  // validazione. Ora parte solo a richiesta arrivata: LeadArrivato.tsx sulle
+  // pagine «grazie», e l'assistente quando la porta ha preso la persona.
   useEffect(() => {
     if (!GA) return;
     const clic = (e: MouseEvent) => {
@@ -33,13 +36,8 @@ export function Consenso(p: { testo: string; link: string; href: string; rifiuto
       const canale = h.startsWith("tel:") ? "telefono" : /wa\.me|whatsapp/.test(h) ? "whatsapp" : h.startsWith("mailto:") ? "email" : null;
       if (canale) window.gtag("event", "contatto", { canale });
     };
-    const invio = (e: SubmitEvent) => {
-      const f = e.target as HTMLFormElement;
-      window.gtag?.("event", "generate_lead", { modulo: f.id || f.getAttribute("aria-label") || "form" });
-    };
     document.addEventListener("click", clic, true);
-    document.addEventListener("submit", invio, true);
-    return () => { document.removeEventListener("click", clic, true); document.removeEventListener("submit", invio, true); };
+    return () => { document.removeEventListener("click", clic, true); };
   }, []);
   if (!GA) return null;
   const scegli = (si: boolean) => {

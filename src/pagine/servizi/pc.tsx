@@ -6,6 +6,7 @@ import { TITOLI_GUIDE } from "@/content/titoli";
 import { PC } from "@/testi/servizi/pc";
 import { COMUNE } from "@/testi/servizi/comune";
 import { ModuloPC } from "@/components/Moduli";
+import { LeadArrivato } from "@/components/LeadArrivato";
 import { DomandeTesti, Intestazione, LdPagina, Stato, Tappe, TestataNotte } from "@/components/servizi/Parti";
 
 const PC_TRIESTE = "https://triestevillas.com/private";
@@ -15,6 +16,7 @@ function Grazie({ l }: { l: Lingua }) {
   const g = PC[l].grazie;
   return (
     <>
+      <LeadArrivato />
       <TestataNotte l={l} occhiello={g.occhiello} h1={g.h1} lead={g.testo} briciola={PC[l].briciola}>
         <div className="bottoni">
           <Link className="bottone bottone-primario" href={percorso(l, "home")}>{COMUNE[l].home} <span className="freccia">→</span></Link>
