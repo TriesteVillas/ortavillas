@@ -4,6 +4,7 @@
 // non c'è niente da consentire, e un banner inutile è un banner che mente.
 import { useEffect, useState } from "react";
 import Script from "next/script";
+import { useProvenienzaModuli } from "@/lib/provenienza-moduli";
 
 const GA = process.env.NEXT_PUBLIC_GA_ID || "";
 const CHIAVE = "ov_consenso_v1";
@@ -14,6 +15,15 @@ function leggi(k: string): string | null { try { return localStorage.getItem(k);
 function scrivi(k: string, v: string) { try { localStorage.setItem(k, v); } catch { /* privato */ } }
 
 export function Consenso(p: { testo: string; link: string; href: string; rifiuto: string; accetto: string; aria: string }) {
+  // Ogni invio verso il sito porta la provenienza della visita al CRM
+  // (lib/provenienza-moduli.ts, 10/10/2026, come su triestevillas.com): le server
+  // action dei moduli (app/azioni.ts) e la fetch dell'assistente (/api/chat)
+  // escono con l'intestazione `x-provenienza`, e bussaIngresso la mette in
+  // dati.provenienza. Sta qui perché Consenso è l'equivalente dell'Analytics
+  // degli altri siti ed è montato da Cornice in ogni pagina; e sta PRIMA di ogni
+  // ritorno, così gira anche senza NEXT_PUBLIC_GA_ID e senza consenso. Non tocca
+  // né il banner né il Consent Mode.
+  useProvenienzaModuli();
   const [mostra, setMostra] = useState(false);
   useEffect(() => {
     if (!GA) return;

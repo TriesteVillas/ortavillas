@@ -1,4 +1,6 @@
 import { createHmac, randomUUID } from "node:crypto";
+import { headers } from "next/headers";
+import { INTESTAZIONE_PROVENIENZA, provenienzaDaIntestazione } from "@/lib/provenienza";
 
 // ─────────────────────────────────────────────────────────────────────────────
 // LA BUSSATA ALLA PORTA DEL CRM v4.
@@ -27,6 +29,29 @@ const SEGRETO = process.env.INGRESSO_HMAC ?? "";
 const PORTA = "sito-orta";
 const SITO = "orta";
 
+/** DA DOVE È ARRIVATA LA VISITA (10/10/2026, lib/provenienza.ts, come su
+ *  triestevillas.com 28e6fe9): il browser la manda come intestazione su ogni
+ *  invio verso il sito (lib/provenienza-moduli.ts, montato in Consenso). Qui si
+ *  bussa da due posti, ed entrambi stanno DENTRO una richiesta, dove `headers()`
+ *  risponde: le server action di app/azioni.ts (che il browser chiama con una
+ *  fetch POST, quindi l'intestazione c'è) e la rotta /api/chat. Fuori da una
+ *  richiesta (un lavoro dopo la risposta, un cron) `headers()` lancia: la
+ *  provenienza manca, e basta.
+ *  Il POST HTML classico (le form di components/Moduli.tsx usano `action={azione}`
+ *  di useActionState, che senza JavaScript ripiega su un invio nativo) non
+ *  porterebbe l'intestazione — ma oggi non arriva mai qui: il campo `t0` lo
+ *  scrive solo un effetto nel browser, e senza `t0` azioni.ts risponde «veloce»
+ *  prima di bussare. Se un giorno il controllo del tempo cambia, quel caso
+ *  arriverà al CRM senza provenienza (la richiesta arriva lo stesso). */
+async function provenienzaDellaRichiesta(): Promise<Record<string, unknown> | null> {
+  try {
+    const h = await headers();
+    return provenienzaDaIntestazione(h.get(INTESTAZIONE_PROVENIENZA)) as Record<string, unknown> | null;
+  } catch {
+    return null;
+  }
+}
+
 const s = (v: unknown, max = 200): string =>
   typeof v === "string" ? v.trim().slice(0, max) : "";
 
@@ -44,6 +69,13 @@ export async function bussaIngresso(
   }
   try {
     const slug = modulo.toLowerCase().replace(/[^a-z0-9-]/g, "").slice(0, 24) || "info";
+    // La provenienza: quella che il chiamante ha già messo vince, se no
+    // l'intestazione della richiesta. Il CRM la ripulisce di nuovo
+    // (tsv-pg web/lib/ingresso/provenienza.ts, da payload.dati.provenienza).
+    if (dati.provenienza == null) {
+      const p = await provenienzaDellaRichiesta();
+      if (p) dati = { ...dati, provenienza: p };
+    }
     const corpo = JSON.stringify({
       canale: "modulo",
       origine: `sito:${SITO}/${slug}`,
